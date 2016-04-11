@@ -1,0 +1,2 @@
+# Magankorhaz
+SZT2
