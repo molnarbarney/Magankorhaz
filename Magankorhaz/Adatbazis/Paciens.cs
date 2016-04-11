@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Magankorhaz.Adatbazis
+{
+    class Paciens
+    {
+        public int Id { get; set; }
+        public string Nev { get; set; }
+        public string Email { get; set; }
+        public string Felhasznalonev { get; set; }
+        public string Jelszo { get; set; }
+        public DateTime LegutolsoBejelentkezes { get; set; }
+        public string SzemelyiSzam { get; set; }
+        public int TAJ { get; set; }
+        public string Cim { get; set; }
+        public string Telefon { get; set; }
+        public DateTime SzuletesiDatum { get; set; }
+        public bool Neme { get; set; }
+        public Orvos OrvosID { get; set; }
+        public Osztaly OsztalyID { get; set; }
+        public Ugyvezeto UgyvezetoID { get; set; }
+        public DateTime FelvetelDatuma { get; set; }
+        public DateTime TavozasDatuma { get; set; }
+    }
+}
