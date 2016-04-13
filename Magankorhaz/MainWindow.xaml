@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Magankorhaz"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Magánkórház v0.1" Height="350" Width="525">
     <Grid>
-        
+        <ListBox x:Name="db_teszt" HorizontalAlignment="Left" Height="52" Margin="35,33,0,0" VerticalAlignment="Top" Width="188"/>
+        <Label x:Name="db_test_label" Content="Label" HorizontalAlignment="Left" Margin="228,33,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

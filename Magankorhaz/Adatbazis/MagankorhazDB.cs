@@ -22,17 +22,15 @@ namespace Magankorhaz.Adatbazis
         public DbSet<VezetosegiTag> VezetosegiTagok { get; set; }
 
         // for VS 2015
-        public MagankorhazDB()
+        /*public MagankorhazDB()
             : base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=magankorhazDB;Integrated Security=true")
         {
-        }
+        }*/
 
         // for VS 2013
-        /*
         public MagankorhazDB()
             : base(@"Data Source=(localdb)\v11.0;Initial Catalog=magankorhazDB;Integrated Security=true")
         {
         }
-        */
     }
 }

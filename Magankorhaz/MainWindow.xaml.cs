@@ -26,17 +26,25 @@ namespace Magankorhaz
         {
             InitializeComponent();
 
-            var q0 = from akt in MagankorhazDB.Adminok
+            var q0 = from akt in MagankorhazDB.Receptek
                      select akt;
 
-            MagankorhazDB.Receptek.Add(new Adatbazis.Recept
+            if (q0.Count() > 0)
             {
-                Id = 0,
-                Reszletek = "blablablablalb"
+                foreach (var akt in q0)
+                {
+                    db_teszt.Items.Add("ID: " + akt.Id + " Részletek: " + akt.Reszletek);
+                }
+                db_test_label.Content = "Sikeres csatlakozás!";
+            }
+
+            // Létrehozáshoz
+            /*MagankorhazDB.Receptek.Add(new Adatbazis.Recept
+            {
+                Reszletek = "teszt"
             });
 
-            MagankorhazDB.SaveChanges();
-
+            MagankorhazDB.SaveChanges();*/
         }
     }
 }
