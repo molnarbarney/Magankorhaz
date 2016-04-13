@@ -11,7 +11,8 @@ SZT2
 1. Az "AdatbazisMentes" mappából másold be a két fájlt ide: C:\Users\<felhasználóneved> Innen fogja beolvasni a localdb az adatokat.
 2. Indítsd el az project-et és próbáld ki. Elvileg egy "Sikeres csatlakozás" üzenetnek kell megjelennie és egy ListBox-nak egy adatsorral.
 
-Ha valami gond lenne vele, akkor valszeg csatlakozási gondja lesz:
+# Esetleges problémaelhárítás
+
 1. View -> Server Explorer
 2. Data Connections jobb klikk -> Add connection -> Microsoft SQL Server (SqlClient)
 3. Server Name: (localdb)\v11.0
