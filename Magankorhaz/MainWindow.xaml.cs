@@ -31,11 +31,7 @@ namespace Magankorhaz
 
             if (q0.Count() > 0)
             {
-                foreach (var akt in q0)
-                {
-                    db_teszt.Items.Add("ID: " + akt.Id + " Részletek: " + akt.Reszletek);
-                }
-                db_test_label.Content = "Sikeres csatlakozás!";
+                db_connection_status.Content="Sikeres adatbázis csatlakozás!";
             }
 
             // Létrehozáshoz
@@ -45,6 +41,16 @@ namespace Magankorhaz
             });
 
             MagankorhazDB.SaveChanges();*/
+        }
+
+        private void login_button_Click(object sender, RoutedEventArgs e)
+        {
+            if (username.Text == "admin" && password.Password == "admin")
+            {
+                MessageBox.Show("Sikeres login!");
+            }
+            else
+                MessageBox.Show("Sikertelen login!");
         }
     }
 }
