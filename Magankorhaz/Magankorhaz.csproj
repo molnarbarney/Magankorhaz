@@ -71,6 +71,9 @@
     <Compile Include="PaciensWindow.xaml.cs">
       <DependentUpon>PaciensWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SzamlahozTetelHozzaadWindow.xaml.cs">
+      <DependentUpon>SzamlahozTetelHozzaadWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UgyintezoWindow.xaml.cs">
       <DependentUpon>UgyintezoWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PaciensWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SzamlahozTetelHozzaadWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

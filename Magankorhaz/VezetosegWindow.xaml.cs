@@ -33,5 +33,26 @@ namespace Magankorhaz
         {
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
+
+        private void attekintesbutton_click(object sender, RoutedEventArgs e)
+        {
+            koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Hidden;
+            osztalyokkihasznaltsagamenu.Visibility = System.Windows.Visibility.Hidden;
+            attekintesmenu.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void ktskimutatasokbutton_click(object sender, RoutedEventArgs e)
+        {
+            koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Visible;
+            osztalyokkihasznaltsagamenu.Visibility = System.Windows.Visibility.Hidden;
+            attekintesmenu.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void osztalyokkihasznbutton_click(object sender, RoutedEventArgs e)
+        {
+            koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Hidden;
+            osztalyokkihasznaltsagamenu.Visibility = System.Windows.Visibility.Visible;
+            attekintesmenu.Visibility = System.Windows.Visibility.Hidden;
+        }
     }
 }
