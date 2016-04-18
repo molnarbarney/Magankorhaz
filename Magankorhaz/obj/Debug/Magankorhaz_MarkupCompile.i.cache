@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\hallgato\Downloads\Magankorhaz-master\Magankorhaz-master\Magankorhaz\obj\Debug\
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-C:\Users\hallgato\Downloads\Magankorhaz-master\Magankorhaz-master\Magankorhaz\App.xaml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\App.xaml
 61446670064
 
-29-824614308
-16338809144
+29-1310280469
+16993362600
 AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;UgyintezoWindow.xaml;VezetosegWindow.xaml;
 
-False
+True
 

@@ -45,35 +45,45 @@ namespace Magankorhaz
 
         private void login_button_Click(object sender, RoutedEventArgs e)
         {
-            if (username.Text == "admin" && password.Password == "admin")
+            if (felhasznalonev.Text == "admin" && jelszo.Password == "admin")
             {
                 mainWindow.Hide();
+                felhasznalonev.Clear();
+                jelszo.Clear();
                 AdminWindow adminWindow = new AdminWindow();
-                adminWindow.ShowDialog();
+                adminWindow.Show();
             }
-            else if (username.Text == "orvos" && password.Password == "orvos")
+            else if (felhasznalonev.Text == "orvos" && jelszo.Password == "orvos")
             {
                 mainWindow.Hide();
+                felhasznalonev.Clear();
+                jelszo.Clear();
                 OrvosWindow orvosWindow = new OrvosWindow();
-                orvosWindow.ShowDialog();
+                orvosWindow.Show();
             }
-            else if (username.Text == "paciens" && password.Password == "paciens")
+            else if (felhasznalonev.Text == "paciens" && jelszo.Password == "paciens")
             {
                 mainWindow.Hide();
+                felhasznalonev.Clear();
+                jelszo.Clear();
                 PaciensWindow paciensWindow = new PaciensWindow();
-                paciensWindow.ShowDialog();
+                paciensWindow.Show();
             }
-            else if (username.Text == "ugyintezo" && password.Password == "ugyintezo")
+            else if (felhasznalonev.Text == "ugyintezo" && jelszo.Password == "ugyintezo")
             {
                 mainWindow.Hide();
+                felhasznalonev.Clear();
+                jelszo.Clear();
                 UgyintezoWindow ugyintezoWindow = new UgyintezoWindow();
-                ugyintezoWindow.ShowDialog();
+                ugyintezoWindow.Show();
             }
-            else if (username.Text == "vezetoseg" && password.Password == "vezetoseg")
+            else if (felhasznalonev.Text == "vezetoseg" && jelszo.Password == "vezetoseg")
             {
                 mainWindow.Hide();
+                felhasznalonev.Clear();
+                jelszo.Clear();
                 VezetosegWindow vezetosegWindow = new VezetosegWindow();
-                vezetosegWindow.ShowDialog();
+                vezetosegWindow.Show();
             }
             else MessageBox.Show("Sikertelen login!");
         }
