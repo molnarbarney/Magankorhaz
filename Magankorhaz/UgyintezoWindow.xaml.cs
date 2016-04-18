@@ -54,5 +54,21 @@ namespace Magankorhaz
             ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
             szamlakezelesGrid.Visibility = Visibility.Visible;
         }
+        
+        private void HozzaadButton_Click(object sender, RoutedEventArgs e)
+        {
+            SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow();
+            szth.ShowDialog();
+        }
+        
+        private void TorlesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

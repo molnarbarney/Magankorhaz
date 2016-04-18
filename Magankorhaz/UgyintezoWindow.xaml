@@ -119,7 +119,35 @@
 
         <!-- TODO -->
         <!-- Kitti -->
-        <Grid x:Name="szamlakezelesGrid" HorizontalAlignment="Left" Height="519" Margin="239,124,0,0" VerticalAlignment="Top" Width="1076" Visibility="Hidden">
+        <Grid x:Name="szamlakezelesGrid" HorizontalAlignment="Left" Height="650" Margin="10,10,0,0" VerticalAlignment="Top" Width="1200" Visibility="Hidden">
+            <GroupBox Header="Ügyfél adatai:" HorizontalAlignment="Left" Margin="302,103,0,0" VerticalAlignment="Top" Height="126" Width="439"/>
+            <GroupBox Header="Kiállító szerv:" HorizontalAlignment="Left" Margin="751,103,0,0" VerticalAlignment="Top" Height="126" Width="439"/>
+            <ListBox Name="SzamlaTartalom" HorizontalAlignment="Left" Height="122" Margin="302,277,0,0" VerticalAlignment="Top" Width="888">
+                <Grid Height="112" Width="878">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="181*"/>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="91*"/>
+                        <ColumnDefinition Width="111*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="28*"/>
+                    </Grid.RowDefinitions>
+                    <Label Name="szolgneve" Content="Szolgáltatás megnevezése" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="161" Height="27" Grid.RowSpan="2"/>
+                    <Label Name="kezeloorvos" Content="Kezelő orvos" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.RowSpan="2" Width="84"/>
+                    <Label Name="kezelesara" Content="Kezelés ára" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Grid.Column="2" Width="71"/>
+                </Grid>
+            </ListBox>
+            <Label Content="Igénybevett szolgáltatások:" HorizontalAlignment="Left" Margin="302,247,0,0" VerticalAlignment="Top" Height="30" Width="285"/>
+            <Button Content="Hozzáadás" Click="HozzaadButton_Click" HorizontalAlignment="Left" Margin="338,406,0,0" VerticalAlignment="Top" Width="134" Height="23"/>
+            <Button Content="Törlés" Click="TorlesButton_Click" HorizontalAlignment="Left" Margin="1016,411,0,0" VerticalAlignment="Top" Width="135" Height="24"/>
+            <Button Content="Számla kiállítása" Click="SzamlaKiallitasaButton_Click" HorizontalAlignment="Left" Margin="662,606,0,0" VerticalAlignment="Top" Width="177" Height="24"/>
+            <Label Content="Összesen" HorizontalAlignment="Left" Margin="302,510,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="43" Width="94"/>
+            <TextBox HorizontalAlignment="Left" Height="43" Margin="401,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94"/>
+            <Label Content="Ft" HorizontalAlignment="Left" Margin="495,510,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="43" Width="48"/>
         </Grid>
     </Grid>
 </Window>
