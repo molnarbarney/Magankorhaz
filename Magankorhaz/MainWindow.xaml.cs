@@ -47,10 +47,35 @@ namespace Magankorhaz
         {
             if (username.Text == "admin" && password.Password == "admin")
             {
-                MessageBox.Show("Sikeres login!");
+                mainWindow.Hide();
+                AdminWindow adminWindow = new AdminWindow();
+                adminWindow.ShowDialog();
             }
-            else
-                MessageBox.Show("Sikertelen login!");
+            else if (username.Text == "orvos" && password.Password == "orvos")
+            {
+                mainWindow.Hide();
+                OrvosWindow orvosWindow = new OrvosWindow();
+                orvosWindow.ShowDialog();
+            }
+            else if (username.Text == "paciens" && password.Password == "paciens")
+            {
+                mainWindow.Hide();
+                PaciensWindow paciensWindow = new PaciensWindow();
+                paciensWindow.ShowDialog();
+            }
+            else if (username.Text == "ugyintezo" && password.Password == "ugyintezo")
+            {
+                mainWindow.Hide();
+                UgyintezoWindow ugyintezoWindow = new UgyintezoWindow();
+                ugyintezoWindow.ShowDialog();
+            }
+            else if (username.Text == "vezetoseg" && password.Password == "vezetoseg")
+            {
+                mainWindow.Hide();
+                VezetosegWindow vezetosegWindow = new VezetosegWindow();
+                vezetosegWindow.ShowDialog();
+            }
+            else MessageBox.Show("Sikertelen login!");
         }
     }
 }
