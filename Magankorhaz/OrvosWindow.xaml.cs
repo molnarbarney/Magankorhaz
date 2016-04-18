@@ -23,5 +23,16 @@ namespace Magankorhaz
         {
             InitializeComponent();
         }
+
+        private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
+        {
+            orvosWindow.Close();
+            Application.Current.MainWindow.Visibility = Visibility.Visible;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.MainWindow.Visibility = Visibility.Visible;
+        }
     }
 }
