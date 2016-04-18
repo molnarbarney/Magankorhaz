@@ -34,5 +34,25 @@ namespace Magankorhaz
         {
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
+
+        private void attekintesMenuGomb_Click(object sender, RoutedEventArgs e)
+        {
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Visible;
+        }
+
+        private void ujPaciensMenuGomb_Click(object sender, RoutedEventArgs e)
+        {
+            szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            ujPaciensFelveteleGrid.Visibility = Visibility.Visible;
+        }
+        private void szamlakMenuGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            szamlakezelesGrid.Visibility = Visibility.Visible;
+        }
     }
 }
