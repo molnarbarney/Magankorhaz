@@ -18,7 +18,7 @@ namespace Magankorhaz.Adatbazis
         public DbSet<Paciens> Paciensek { get; set; }
         public DbSet<Recept> Receptek { get; set; }
         public DbSet<Szamla> Szamlak { get; set; }
-        public DbSet<Ugyvezeto> Ugyvezetok { get; set; }
+        public DbSet<Ugyvezeto> Ugyintezok { get; set; }
         public DbSet<VezetosegiTag> VezetosegiTagok { get; set; }
 
         // for VS 2015

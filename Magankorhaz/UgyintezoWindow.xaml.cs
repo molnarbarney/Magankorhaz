@@ -19,6 +19,8 @@ namespace Magankorhaz
     /// </summary>
     public partial class UgyintezoWindow : Window
     {
+        Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB = new Adatbazis.MagankorhazDB();
+
         public UgyintezoWindow()
         {
             InitializeComponent();
@@ -47,6 +49,30 @@ namespace Magankorhaz
             szamlakezelesGrid.Visibility = Visibility.Hidden;
             paciensekAttekintesGrid.Visibility = Visibility.Hidden;
             ujPaciensFelveteleGrid.Visibility = Visibility.Visible;
+
+            // Adatok betöltése
+            FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo ujPaciensFeldolgozo = new FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo();
+
+            // Orvosok betöltése
+            List<string> orvosok = ujPaciensFeldolgozo.orvosokBetoltese(MagankorhazDB);
+            foreach (var orvos in orvosok)
+            {
+                paciensKezeloorvos.Items.Add(orvos);
+            }
+
+            // Osztályok betöltése
+            List<string> osztalyok = ujPaciensFeldolgozo.osztalyokBetoltese(MagankorhazDB);
+            foreach (var osztaly in osztalyok)
+            {
+                paciensOsztaly.Items.Add(osztaly);
+            }
+
+            // Ügyintézők betöltése
+            List<string> ugyintezok = ujPaciensFeldolgozo.ugyintezokBetoltese(MagankorhazDB);
+            foreach (var ugyintezo in ugyintezok)
+            {
+                paciensUgyintezo.Items.Add(ugyintezo);
+            }
         }
         private void szamlakMenuGomb_Click(object sender, RoutedEventArgs e)
         {
@@ -69,6 +95,28 @@ namespace Magankorhaz
         private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void paciensFelveteleGomb_Click(object sender, RoutedEventArgs e)
+        {
+            FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo ujPaciensFeldolgozo = new FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo();
+            ujPaciensFeldolgozo.ujPaciensFelvetele(
+                paciensNev.Text, 
+                paciensEmail.Text, 
+                paciensFelhasznalonev.Text, 
+                paciensSzemelyiszam.Text, 
+                paciensJelszo.Password, 
+                paciensJelszoUjra.Password, 
+                paciensTAJ.Text, 
+                paciensCim.Text, 
+                paciensTelefon.Text, 
+                paciensSzuletesiDatum, 
+                paciensNeme.Text,
+                paciensFelvetelDatum,
+                paciensTavozasDatum, 
+                paciensKezeloorvos.Text, 
+                paciensOsztaly.Text, 
+                paciensUgyintezo.Text);
         }
     }
 }

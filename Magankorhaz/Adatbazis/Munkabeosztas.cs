@@ -9,6 +9,12 @@ namespace Magankorhaz.Adatbazis
     class Munkabeosztas
     {
         public int Id { get; set; }
-        public List<string> Napok { get; set; }
+        public bool Hetfo { get; set; }
+        public bool Kedd { get; set; }
+        public bool Szerda { get; set; }
+        public bool Csutortok { get; set; }
+        public bool Pentek { get; set; }
+        public bool Szombat { get; set; }
+        public bool Vasarnap { get; set; }
     }
 }

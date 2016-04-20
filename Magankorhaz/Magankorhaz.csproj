@@ -65,6 +65,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adatbazis\Ugyvezeto.cs" />
+    <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
+    <Compile Include="Migrations\201604200931476_init.cs" />
+    <Compile Include="Migrations\201604200931476_init.Designer.cs">
+      <DependentUpon>201604200931476_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrvosWindow.xaml.cs">
       <DependentUpon>OrvosWindow.xaml</DependentUpon>
     </Compile>
@@ -98,7 +104,6 @@
     <Compile Include="Adatbazis\Paciens.cs" />
     <Compile Include="Adatbazis\Recept.cs" />
     <Compile Include="Adatbazis\Szamla.cs" />
-    <Compile Include="Adatbazis\Ugyvezeto.cs" />
     <Compile Include="Adatbazis\VezetosegiTag.cs" />
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -154,6 +159,9 @@
     <EmbeddedResource Include="Migrations\201604111903080_InitialCreate.resx">
       <DependentUpon>201604111903080_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604200931476_init.resx">
+      <DependentUpon>201604200931476_init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,6 +181,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

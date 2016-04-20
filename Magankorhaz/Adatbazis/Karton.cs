@@ -11,7 +11,7 @@ namespace Magankorhaz.Adatbazis
         public int Id { get; set; }
         public Paciens PaciensID { get; set; }
         public Orvos OrvosID { get; set; }
-        public List<Recept> Receptek { get; set; }
+        public string Receptek { get; set; } // stringként összefűzve a repect ID-k
         public DateTime KezelesDatuma { get; set; }
         public string KezelesReszletei { get; set; }
         public bool KezelesSikeressege { get; set; }

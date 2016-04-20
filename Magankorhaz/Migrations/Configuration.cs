@@ -10,7 +10,6 @@ namespace Magankorhaz.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Magankorhaz.Adatbazis.MagankorhazDB";
         }
 
         protected override void Seed(Magankorhaz.Adatbazis.MagankorhazDB context)
