@@ -43,8 +43,7 @@
             <Label x:Name="legujabbPaciensDatum" Content="2016.03.19." Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="661,95,0,0" VerticalAlignment="Top" Height="25" Width="101" FontFamily="Helvetica" FontSize="16" Foreground="White"/>
             <Label Content="Legújabb páciens" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="661,117,0,0" VerticalAlignment="Top" Height="30" Width="176" FontFamily="Calibri" FontSize="16" Foreground="White"/>
 
-            <Label x:Name="maiDatum" Content="2016.03.21." HorizontalAlignment="Left" Margin="875,67,0,0" VerticalAlignment="Top" Height="40" Width="171" FontFamily="Helvetica" FontSize="18" Foreground="White"/>
-            <Label x:Name="maiÓraNap" Content="09:30:22 Hétfő" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="875,117,0,0" VerticalAlignment="Top" Height="30" Width="171" FontFamily="Calibri" FontSize="16" Foreground="White"/>
+            <Label x:Name="maiDatum" Content="" HorizontalAlignment="Left" Margin="875,67,0,0" VerticalAlignment="Top" Height="40" Width="171" FontFamily="Helvetica" FontSize="18" Foreground="White"/>
 
             <Label Content="Név" HorizontalAlignment="Left" Margin="12,160,0,0" VerticalAlignment="Top" Width="54"/>
             <Label Content="Osztály" HorizontalAlignment="Left" Margin="256,160,0,0" VerticalAlignment="Top" Width="54"/>
@@ -58,14 +57,13 @@
             <DatePicker x:Name="paciensKeresesFelvetelDatum" HorizontalAlignment="Left" Margin="594,186,0,0" VerticalAlignment="Top" Width="140" Height="33"/>
 
             <Rectangle Fill="#FFEBEBEB" HorizontalAlignment="Left" Height="37" Margin="15,236,0,0" StrokeThickness="0" VerticalAlignment="Top" Width="1039" Stroke="Black"/>
-            <Label Content="#" HorizontalAlignment="Left" Margin="27,239,0,0" VerticalAlignment="Top" Width="20"/>
-            <Label Content="Név" HorizontalAlignment="Left" Margin="64,239,0,0" VerticalAlignment="Top" Width="35"/>
+            <Label Content="Név" HorizontalAlignment="Left" Margin="21,239,0,0" VerticalAlignment="Top" Width="35"/>
             <Label Content="Osztály" HorizontalAlignment="Left" Margin="258,239,0,0" VerticalAlignment="Top" Width="55"/>
             <Label Content="Születési dátum" HorizontalAlignment="Left" Margin="440,239,0,0" VerticalAlignment="Top" Width="105"/>
             <Label Content="Felvétel napja" HorizontalAlignment="Left" Margin="553,239,0,0" VerticalAlignment="Top" Width="94"/>
             <Label Content="Opciók" HorizontalAlignment="Left" Margin="668,239,0,0" VerticalAlignment="Top" Width="54"/>
 
-            <DataGrid x:Name="paciensekAttekintesListView" Margin="15,273,41,10" BorderThickness="0"/>
+            <DataGrid x:Name="paciensekAttekintesDataGrid" Margin="15,273,41,10" BorderThickness="0"/>
         </Grid>
 
         <!-- Új páciens felvétele-->

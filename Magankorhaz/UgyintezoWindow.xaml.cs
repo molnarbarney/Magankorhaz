@@ -24,6 +24,9 @@ namespace Magankorhaz
         public UgyintezoWindow()
         {
             InitializeComponent();
+
+            // Attekintés frissítés
+            AttekintesFrissites();        
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
@@ -42,6 +45,48 @@ namespace Magankorhaz
             ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
             szamlakezelesGrid.Visibility = Visibility.Hidden;
             paciensekAttekintesGrid.Visibility = Visibility.Visible;
+
+            AttekintesFrissites();
+        }
+
+        private void AttekintesFrissites()
+        {
+            // Adatok betöltése
+            FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo ugyintezoAttekintesFeldolgozo = new FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo();
+
+            // Szabad helyek
+            szabadFerohelyekSzam.Content = ugyintezoAttekintesFeldolgozo.szabadFerohelyek(MagankorhazDB);
+
+            // Férfiak - nők aránya
+            paciensAranyokSzam.Content = ugyintezoAttekintesFeldolgozo.ferfiakNokAranya(MagankorhazDB);
+
+            // Legrégebbi páciens
+            List<Adatbazis.Paciens> paciensek = new List<Adatbazis.Paciens>();
+            paciensek = ugyintezoAttekintesFeldolgozo.legregebbiLegujabbPaciens(MagankorhazDB);
+
+            legregebbiPaciensNeve.Content = paciensek.First().Nev;
+            legregebbiPaciensDatum.Content = paciensek.First().FelvetelDatuma.ToString("yyyy. MM. dd.");
+            legujabbPaciensNeve.Content = paciensek.Last().Nev;
+            legujabbPaciensDatum.Content = paciensek.Last().FelvetelDatuma.ToString("yyyy. MM. dd.");
+
+            // Dátum
+            maiDatum.Content = DateTime.Now.Year + ". " + DateTime.Now.Month + ". " + DateTime.Now.Day + ".";
+
+            // DataGrid feltöltése
+            DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
+        }
+
+        void DataGridFrissítése(List<Adatbazis.Paciens> paciensek)
+        {
+            // Szálbiztos
+            Dispatcher.Invoke(() =>
+            {
+                paciensekAttekintesDataGrid.ItemsSource = null;
+                paciensekAttekintesDataGrid.ItemsSource = paciensek.ToList();
+                //paciensekAttekintesDataGrid.Columns[0].Visibility = Visibility.Hidden;
+
+                //rates = doc.Descendants("Rate").Select(x => new Rate(date, x.Attribute("curr").Value, x.Attribute("unit").Value, x.Value)).ToList();
+            });
         }
 
         private void ujPaciensMenuGomb_Click(object sender, RoutedEventArgs e)

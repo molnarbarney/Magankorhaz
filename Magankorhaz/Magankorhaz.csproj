@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Adatbazis\Ugyvezeto.cs" />
+    <Compile Include="FeldolgozoOsztalyok\UgyintezoAttekintesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
     <Compile Include="OrvosWindow.xaml.cs">
       <DependentUpon>OrvosWindow.xaml</DependentUpon>
