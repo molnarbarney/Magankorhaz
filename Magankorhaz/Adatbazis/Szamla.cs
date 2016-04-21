@@ -9,8 +9,8 @@ namespace Magankorhaz.Adatbazis
     class Szamla
     {
         public int Id { get; set; }
-        public Paciens PaciensID { get; set; }
-        public Karton KartonID { get; set; }
+        public int PaciensID { get; set; }
+        public int KartonID { get; set; }
         public int Fizetendo { get; set; }
         public bool Befizetve { get; set; }
         public DateTime BefizetesDatuma { get; set; }

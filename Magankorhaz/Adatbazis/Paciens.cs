@@ -19,10 +19,10 @@ namespace Magankorhaz.Adatbazis
         public string Cim { get; set; }
         public string Telefon { get; set; }
         public DateTime SzuletesiDatum { get; set; }
-        public bool Neme { get; set; }
-        public Orvos OrvosID { get; set; }
-        public Osztaly OsztalyID { get; set; }
-        public Ugyvezeto UgyvezetoID { get; set; }
+        public string Neme { get; set; }
+        public int OrvosID { get; set; }
+        public int OsztalyID { get; set; }
+        public int UgyvezetoID { get; set; }
         public DateTime FelvetelDatuma { get; set; }
         public DateTime TavozasDatuma { get; set; }
     }

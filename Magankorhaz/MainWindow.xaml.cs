@@ -26,14 +26,14 @@ namespace Magankorhaz
         {
             InitializeComponent();
 
-            /*var q0 = from akt in MagankorhazDB.Osztalyok
+            var q0 = from akt in MagankorhazDB.Osztalyok
                      select akt;
 
             if (q0.Count() > 0)
             {
                 db_connection_status.Content="Sikeres adatbázis csatlakozás!";
             }
-            else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";*/
+            else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";
         }
 
         private void login_button_Click(object sender, RoutedEventArgs e)

@@ -88,25 +88,25 @@
             <Label Content="Kezelőorvos:" HorizontalAlignment="Left" Margin="559,131,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <Label Content="Osztály:" HorizontalAlignment="Left" Margin="559,165,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <Label Content="Ügyintéző:" HorizontalAlignment="Left" Margin="559,199,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <TextBox x:Name="paciensNev" HorizontalAlignment="Left" Height="23" Margin="140,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="Teszt Páciens"/>
-            <TextBox x:Name="paciensEmail" HorizontalAlignment="Left" Height="23" Margin="140,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="teszt.paciens@gmail.com"/>
-            <TextBox x:Name="paciensFelhasznalonev" HorizontalAlignment="Left" Height="23" Margin="140,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="test.paciens"/>
-            <TextBox x:Name="paciensSzemelyiszam" HorizontalAlignment="Left" Height="23" Margin="140,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="123456745"/>
+            <TextBox x:Name="paciensNev" HorizontalAlignment="Left" Height="23" Margin="140,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="Kiss Árpád"/>
+            <TextBox x:Name="paciensEmail" HorizontalAlignment="Left" Height="23" Margin="140,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="kiss.arpad@gmail.com"/>
+            <TextBox x:Name="paciensFelhasznalonev" HorizontalAlignment="Left" Height="23" Margin="140,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="kiss.arpad"/>
+            <TextBox x:Name="paciensSzemelyiszam" HorizontalAlignment="Left" Height="23" Margin="140,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="123456789123"/>
             <PasswordBox x:Name="paciensJelszo" HorizontalAlignment="Left" Margin="140,170,0,0" VerticalAlignment="Top" Width="371" Height="23" Password="12345"/>
             <PasswordBox x:Name="paciensJelszoUjra" HorizontalAlignment="Left" Margin="140,202,0,0" VerticalAlignment="Top" Width="371" Height="23" Password="12345"/>
-            <TextBox x:Name="paciensTAJ" HorizontalAlignment="Left" Height="23" Margin="140,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="1234567"/>
-            <TextBox x:Name="paciensCim" HorizontalAlignment="Left" Height="23" Margin="140,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="1111, Budapest, Utca, 123"/>
-            <TextBox x:Name="paciensTelefon" HorizontalAlignment="Left" Height="23" Margin="140,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="+0123453456"/>
+            <TextBox x:Name="paciensTAJ" HorizontalAlignment="Left" Height="23" Margin="140,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="12345678"/>
+            <TextBox x:Name="paciensCim" HorizontalAlignment="Left" Height="23" Margin="140,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="1113, Budapest, Őz utca 8."/>
+            <TextBox x:Name="paciensTelefon" HorizontalAlignment="Left" Height="23" Margin="140,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="+362035621845"/>
             <DatePicker x:Name="paciensSzuletesiDatum" HorizontalAlignment="Left" Margin="141,372,0,0" VerticalAlignment="Top" Width="370" FirstDayOfWeek="Monday"/>
-            <ComboBox x:Name="paciensNeme" HorizontalAlignment="Left" Margin="140,407,0,0" VerticalAlignment="Top" Width="371">
+            <ComboBox x:Name="paciensNeme" HorizontalAlignment="Left" Margin="140,407,0,0" VerticalAlignment="Top" Width="371" SelectedIndex="0">
                 <ComboBoxItem x:Name="ferfi" Content="Férfi"/>
                 <ComboBoxItem x:Name="no" Content="Nő"/>
             </ComboBox>
             <DatePicker x:Name="paciensFelvetelDatum" HorizontalAlignment="Left" Margin="687,66,0,0" VerticalAlignment="Top" Width="370" FirstDayOfWeek="Monday"/>
             <DatePicker x:Name="paciensTavozasDatum" HorizontalAlignment="Left" Margin="687,102,0,0" VerticalAlignment="Top" Width="370" FirstDayOfWeek="Monday"/>
-            <ComboBox x:Name="paciensKezeloorvos" HorizontalAlignment="Left" Margin="687,136,0,0" VerticalAlignment="Top" Width="370"/>
-            <ComboBox x:Name="paciensOsztaly" HorizontalAlignment="Left" Margin="687,170,0,0" VerticalAlignment="Top" Width="370"/>
-            <ComboBox x:Name="paciensUgyintezo" HorizontalAlignment="Left" Margin="687,199,0,0" VerticalAlignment="Top" Width="370"/>
+            <ComboBox x:Name="paciensKezeloorvos" HorizontalAlignment="Left" Margin="687,136,0,0" VerticalAlignment="Top" Width="370" SelectedIndex="0"/>
+            <ComboBox x:Name="paciensOsztaly" HorizontalAlignment="Left" Margin="687,170,0,0" VerticalAlignment="Top" Width="370" SelectedIndex="0"/>
+            <ComboBox x:Name="paciensUgyintezo" HorizontalAlignment="Left" Margin="687,199,0,0" VerticalAlignment="Top" Width="370" SelectedIndex="0"/>
             <Button x:Name="paciensFelveteleGomb" Content="Páciens felvétele" HorizontalAlignment="Left" Margin="865,376,0,0" VerticalAlignment="Top" Width="192" Height="52" Click="paciensFelveteleGomb_Click"/>
         </Grid>
 

@@ -34,7 +34,7 @@ namespace Magankorhaz.FeldolgozoOsztalyok
 
             foreach (var orvos in orvosok)
             {
-                orvosokLista.Add(orvos.Nev + " (" + orvos.Kepesites + ")");
+                orvosokLista.Add(orvos.Nev);
             }
 
             return orvosokLista;
@@ -45,7 +45,7 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             List<string> ugyintezokLista = new List<string>();
 
             var ugyintezok = from akt in adatbazis.Ugyintezok
-                          select akt;
+                             select akt;
 
             foreach (var ugyintezo in ugyintezok)
             {
@@ -56,42 +56,94 @@ namespace Magankorhaz.FeldolgozoOsztalyok
         }
 
         // Adatfeldolgozás
-
-        public void ujPaciensFelvetele(
+        public bool ujPaciensFelvetele(
                 string paciensNev, 
                 string paciensEmail, 
                 string paciensFelhasznalonev, 
                 string paciensSzemelyiszam, 
-                string paciensJelszo, 
-                string paciensJelszoUjra, 
+                string paciensJelszo,
                 string paciensTAJ, 
                 string paciensCim, 
                 string paciensTelefon,
-                System.Windows.Controls.DatePicker paciensSzuletesiDatum, 
+                DateTime paciensSzuletesiDatum, 
                 string paciensNeme,
-                System.Windows.Controls.DatePicker paciensFelvetelDatum,
-                System.Windows.Controls.DatePicker paciensTavozasDatum, 
+                DateTime paciensFelvetelDatum,
                 string paciensKezeloorvos, 
                 string paciensOsztaly, 
-                string paciensUgyintezo)
+                string paciensUgyintezo,
+                Adatbazis.MagankorhazDB adatbazis)
         {
-            System.Windows.MessageBox.Show(
-                paciensNev + " " +
-                paciensEmail + " " +
-                paciensFelhasznalonev + " " +
-                paciensSzemelyiszam + " " +
-                paciensJelszo + " " +
-                paciensJelszoUjra + " " +
-                paciensTAJ + " " +
-                paciensCim + " " +
-                paciensTelefon + " " +
-                paciensSzuletesiDatum + " " +
-                paciensNeme + " " +
-                paciensFelvetelDatum + " " +
-                paciensTavozasDatum + " " +
-                paciensKezeloorvos + " " +
-                paciensOsztaly + " " + 
-                paciensUgyintezo);
+            int errors = 0;
+
+            // Van-e már hasonló személyi számmal bent páciens
+            var szemelyiSzamok = from akt in adatbazis.Paciensek
+                     where akt.SzemelyiSzam == paciensSzemelyiszam
+                     select akt;
+
+            if (szemelyiSzamok.Count() > 0)
+            {
+                System.Windows.MessageBox.Show("Ezt a pácienst már felvettük (személyi szám egyezés)!");
+                errors++;
+            }
+
+            // Orvos ID keresése
+            var orvosok = from akt in adatbazis.Orvosok
+                        where akt.Nev == paciensKezeloorvos
+                        select akt;
+
+            int orvosID = 0;
+            foreach (var orvos_akt in orvosok)
+            {
+                orvosID = orvos_akt.Id;
+            }
+
+            // Osztály ID keresése
+            var osztalyok = from akt in adatbazis.Osztalyok
+                            where akt.Megnevezes == paciensOsztaly
+                            select akt;
+
+            int osztalyID = 0;
+            foreach (var osztaly_akt in osztalyok)
+            {
+                osztalyID = osztaly_akt.Id;
+            }
+
+            // Ügyintéző ID keresése
+            var ugyintezok = from akt in adatbazis.Ugyintezok
+                             where akt.Nev == paciensUgyintezo
+                             select akt;
+
+            int ugyintezoID = 0;
+            foreach (var ugyintezok_akt in ugyintezok)
+            {
+                ugyintezoID = ugyintezok_akt.Id;
+            }
+
+            if (errors == 0)
+            {
+                adatbazis.Paciensek.Add(new Adatbazis.Paciens
+                {
+                    Nev = paciensNev,
+                    Email = paciensEmail,
+                    Felhasznalonev = paciensFelhasznalonev,
+                    Jelszo = paciensJelszo,
+                    SzemelyiSzam = paciensSzemelyiszam,
+                    TAJ = Convert.ToInt32(paciensTAJ),
+                    Cim = paciensCim,
+                    Telefon = paciensTelefon,
+                    SzuletesiDatum = paciensSzuletesiDatum,
+                    Neme = paciensNeme,
+                    FelvetelDatuma = paciensFelvetelDatum,
+                    OrvosID = orvosID,
+                    OsztalyID = osztalyID,
+                    UgyvezetoID = ugyintezoID
+                });
+
+                adatbazis.SaveChanges();
+                System.Windows.MessageBox.Show("Sikeres felvétel!");
+                return true;
+            }
+            return false;
         }
     }
 }
