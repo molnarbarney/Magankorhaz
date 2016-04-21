@@ -75,37 +75,6 @@ C:\Users\Jaszy\Desktop\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.g.resources
 C:\Users\Jaszy\Desktop\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Migrations.InitialCreate.resources
 C:\Users\Jaszy\Desktop\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
 C:\Users\Jaszy\Desktop\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe.config
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.pdb
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.dll
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.SqlServer.dll
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.xml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.SqlServer.xml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\OrvosWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\PaciensWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UgyintezoWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\VezetosegWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\AdminWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\MainWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\OrvosWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\PaciensWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UgyintezoWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\VezetosegWindow.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\App.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.cache
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.lref
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\AdminWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\MainWindow.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.g.resources
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Migrations.InitialCreate.resources
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.exe
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.pdb
 D:\Suli\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe.config
 D:\Suli\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe
 D:\Suli\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.pdb
@@ -138,3 +107,93 @@ D:\Suli\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Ca
 D:\Suli\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.exe
 D:\Suli\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.pdb
 D:\Suli\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe.config
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.pdb
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.dll
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.SqlServer.dll
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.xml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.SqlServer.xml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\OrvosWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\PaciensWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UgyintezoWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\VezetosegWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\AdminWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\MainWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\OrvosWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\PaciensWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UgyintezoWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\VezetosegWindow.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\App.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.cache
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.lref
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\AdminWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\MainWindow.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.g.resources
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.exe
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.pdb
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe.config
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.exe
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.pdb
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.exe
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\Magankorhaz.pdb
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.dll
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.xml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\OrvosWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\PaciensWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\UgyintezoWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\VezetosegWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\AdminWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\MainWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\OrvosWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\PaciensWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\UgyintezoWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\VezetosegWindow.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\App.g.cs
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.cache
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.lref
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\AdminWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\MainWindow.baml
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.g.resources
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
+C:\Users\user\Downloads\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
+D:\Suli\Magankorhaz\bin\Debug\Magankorhaz.exe.config
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz.exe
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz.pdb
+D:\Suli\Magankorhaz\bin\Debug\Magankorhaz.exe
+D:\Suli\Magankorhaz\bin\Debug\Magankorhaz.pdb
+D:\Suli\Magankorhaz\bin\Debug\EntityFramework.dll
+D:\Suli\Magankorhaz\bin\Debug\EntityFramework.SqlServer.dll
+D:\Suli\Magankorhaz\bin\Debug\EntityFramework.xml
+D:\Suli\Magankorhaz\bin\Debug\EntityFramework.SqlServer.xml
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
+D:\Suli\Magankorhaz\obj\Debug\OrvosWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\PaciensWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\UgyintezoWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\VezetosegWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\AdminWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\MainWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\OrvosWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\PaciensWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\SzamlahozTetelHozzaadWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\UgyintezoWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\VezetosegWindow.g.cs
+D:\Suli\Magankorhaz\obj\Debug\App.g.cs
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.cache
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz_MarkupCompile.lref
+D:\Suli\Magankorhaz\obj\Debug\AdminWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\MainWindow.baml
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz.g.resources
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
+D:\Suli\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache

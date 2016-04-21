@@ -20,14 +20,6 @@ namespace Magankorhaz.Adatbazis
         public DbSet<Szamla> Szamlak { get; set; }
         public DbSet<Ugyvezeto> Ugyintezok { get; set; }
         public DbSet<VezetosegiTag> VezetosegiTagok { get; set; }
-
-        // for VS 2015
-        /*public MagankorhazDB()
-            : base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=magankorhazDB;Integrated Security=true")
-        {
-        }*/
-
-        // for VS 2013
         public MagankorhazDB()
             : base(@"Data Source=(localdb)\v11.0;Initial Catalog=magankorhazDB;Integrated Security=true")
         {

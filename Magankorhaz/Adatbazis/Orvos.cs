@@ -16,8 +16,8 @@ namespace Magankorhaz.Adatbazis
         public DateTime LegutolsoBejelentkezes { get; set; }
         public bool Inaktiv { get; set; }
         public string Kepesites { get; set; }
-        public Osztaly OsztalyID { get; set; }
-        public Munkabeosztas MunkabeosztasID { get; set; }
+        public int OsztalyID { get; set; }
+        public int MunkabeosztasID { get; set; }
         public string SzemelyiSzam { get; set; }
         public int TAJ { get; set; }
         public int Adoazonosito { get; set; }

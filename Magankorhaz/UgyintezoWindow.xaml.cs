@@ -99,24 +99,99 @@ namespace Magankorhaz
 
         private void paciensFelveteleGomb_Click(object sender, RoutedEventArgs e)
         {
-            FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo ujPaciensFeldolgozo = new FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo();
-            ujPaciensFeldolgozo.ujPaciensFelvetele(
-                paciensNev.Text, 
-                paciensEmail.Text, 
-                paciensFelhasznalonev.Text, 
-                paciensSzemelyiszam.Text, 
-                paciensJelszo.Password, 
-                paciensJelszoUjra.Password, 
-                paciensTAJ.Text, 
-                paciensCim.Text, 
-                paciensTelefon.Text, 
-                paciensSzuletesiDatum, 
-                paciensNeme.Text,
-                paciensFelvetelDatum,
-                paciensTavozasDatum, 
-                paciensKezeloorvos.Text, 
-                paciensOsztaly.Text, 
-                paciensUgyintezo.Text);
+            int errors = 0;
+
+            if (paciensNev.Text.Length < 5)
+            {
+                System.Windows.MessageBox.Show("A páciens neve nem lehet üres és rövidebb mint 5 karakter!");
+                errors++;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(paciensNev.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("A páciens nevében csakis betűk szerepelhetnek!");
+                errors++;
+            }
+            if (paciensEmail.Text.Length < 10)
+            {
+                System.Windows.MessageBox.Show("A páciens email címe nem lehet üres és rövidebb mint 10 karakter!");
+                errors++;
+            }
+            if (paciensFelhasznalonev.Text.Length < 5)
+            {
+                System.Windows.MessageBox.Show("A páciens felhasználóneve nem lehet üres és rövidebb mint 10 karakter!");
+                errors++;
+            }
+            if (paciensSzemelyiszam.Text.Length != 12)
+            {
+                System.Windows.MessageBox.Show("A páciens személyi száma 12 számjegy!");
+                errors++;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(paciensSzemelyiszam.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("A páciens személyi számában csakis számok szerepelhetnek!");
+                errors++;
+            }
+            if (paciensJelszo.Password.Length < 5)
+            {
+                System.Windows.MessageBox.Show("A páciens megadott jelszava nem lehet üres és rövidebb mint 5 karakter!");
+                errors++;
+            }
+            if (paciensJelszo.Password != paciensJelszoUjra.Password)
+            {
+                System.Windows.MessageBox.Show("A páciens megadott jelszavai nem egyeznek!");
+                errors++;
+            }
+            if (paciensTAJ.Text.Length != 8)
+            {
+                System.Windows.MessageBox.Show("A páciens TAJ száma 8 számjegy!");
+                errors++;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(paciensTAJ.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("A páciens TAJ számában csakis számok szerepelhetnek!");
+                errors++;
+            }
+            if (paciensCim.Text.Length < 10)
+            {
+                System.Windows.MessageBox.Show("A páciens címe nem lehet rövidebb mint 10 karakter!");
+                errors++;
+            }
+            if (paciensTelefon.Text.Length < 12)
+            {
+                System.Windows.MessageBox.Show("A páciens telefonszáma nem lehet rövidebb mint 12 karakter!");
+                errors++;
+            }
+            if (paciensNeme.Text.Length < 1)
+            {
+                System.Windows.MessageBox.Show("A páciens születési dátuma nem üres!");
+                errors++;
+            }
+
+            if (errors == 0)
+            {
+                FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo ujPaciensFeldolgozo = new FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo();
+                bool ujPaciensFelveteleSikeres = ujPaciensFeldolgozo.ujPaciensFelvetele(
+                    paciensNev.Text,
+                    paciensEmail.Text,
+                    paciensFelhasznalonev.Text,
+                    paciensSzemelyiszam.Text,
+                    paciensJelszo.Password,
+                    paciensTAJ.Text,
+                    paciensCim.Text,
+                    paciensTelefon.Text,
+                    paciensSzuletesiDatum.SelectedDate.Value,
+                    paciensNeme.Text,
+                    paciensFelvetelDatum.SelectedDate.Value,
+                    paciensKezeloorvos.Text,
+                    paciensOsztaly.Text,
+                    paciensUgyintezo.Text,
+                    MagankorhazDB);
+
+                if (ujPaciensFelveteleSikeres)
+                {
+                    attekintesMenuGomb_Click(sender, e);
+                }
+            }
         }
     }
 }
