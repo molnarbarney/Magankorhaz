@@ -50,20 +50,14 @@
             <Label Content="Születési dátum" HorizontalAlignment="Left" Margin="440,159,0,0" VerticalAlignment="Top" Width="93"/>
             <Label Content="Felvétel dátuma" HorizontalAlignment="Left" Margin="590,159,0,0" VerticalAlignment="Top" Width="93"/>
             <Button x:Name="paciensKeresesGomb" Content="Keresés" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="744,186,0,0" VerticalAlignment="Top" Width="103" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="14" Height="33"/>
+            <Button x:Name="paciensMegtekintesGomb" Content="Megtekintés" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="955,186,0,0" VerticalAlignment="Top" Width="103" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="14" Height="33" Click="paciensMegtekintesGomb_Click"/>
 
             <TextBox x:Name="paciensKeresesNev" HorizontalAlignment="Left" Height="33" Margin="15,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontSize="16"/>
             <ComboBox x:Name="paciensKeresesOsztaly" HorizontalAlignment="Left" Margin="260,186,0,0" VerticalAlignment="Top" Width="171" Height="33" VerticalContentAlignment="Center"/>
             <DatePicker x:Name="paciensKeresesSzuletesiDatum" HorizontalAlignment="Left" Margin="443,186,0,0" VerticalAlignment="Top" Width="140" Height="33"/>
             <DatePicker x:Name="paciensKeresesFelvetelDatum" HorizontalAlignment="Left" Margin="594,186,0,0" VerticalAlignment="Top" Width="140" Height="33"/>
 
-            <Rectangle Fill="#FFEBEBEB" HorizontalAlignment="Left" Height="37" Margin="15,236,0,0" StrokeThickness="0" VerticalAlignment="Top" Width="1039" Stroke="Black"/>
-            <Label Content="Név" HorizontalAlignment="Left" Margin="21,239,0,0" VerticalAlignment="Top" Width="35"/>
-            <Label Content="Osztály" HorizontalAlignment="Left" Margin="258,239,0,0" VerticalAlignment="Top" Width="55"/>
-            <Label Content="Születési dátum" HorizontalAlignment="Left" Margin="440,239,0,0" VerticalAlignment="Top" Width="105"/>
-            <Label Content="Felvétel napja" HorizontalAlignment="Left" Margin="553,239,0,0" VerticalAlignment="Top" Width="94"/>
-            <Label Content="Opciók" HorizontalAlignment="Left" Margin="668,239,0,0" VerticalAlignment="Top" Width="54"/>
-
-            <DataGrid x:Name="paciensekAttekintesDataGrid" Margin="15,273,41,10" BorderThickness="0"/>
+            <DataGrid x:Name="paciensekAttekintesDataGrid" Margin="15,238,41,10" BorderThickness="0" Width="1043" ColumnWidth="207" CanUserResizeColumns="False" MaxColumnWidth="207"/>
         </Grid>
 
         <!-- Új páciens felvétele-->

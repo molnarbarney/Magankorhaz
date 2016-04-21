@@ -73,19 +73,29 @@ namespace Magankorhaz
             maiDatum.Content = DateTime.Now.Year + ". " + DateTime.Now.Month + ". " + DateTime.Now.Day + ".";
 
             // DataGrid feltöltése
+            // DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
             DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
         }
 
-        void DataGridFrissítése(List<Adatbazis.Paciens> paciensek)
+        /*
+        void DataGridFrissítéseRégi(List<Adatbazis.Paciens> paciensek)
+        {
+            // Szálbiztos
+            Dispatcher.Invoke(() =>
+            {
+                paciensekAttekintesDataGrid.ItemsSource = null;
+                paciensekAttekintesDataGrid.ItemsSource = paciensek.Select(x => new { Név = x.Nev, Email = x.Email, Felhasználónév = x.Felhasznalonev, SzületésiDátum = x.SzuletesiDatum.ToString("yyyy. MM. dd."), FelvételDátuma = x.FelvetelDatuma.ToString("yyyy. MM. dd.") }).ToList();
+            });
+        }
+        */
+
+        void DataGridFrissítése(List<object> paciensek)
         {
             // Szálbiztos
             Dispatcher.Invoke(() =>
             {
                 paciensekAttekintesDataGrid.ItemsSource = null;
                 paciensekAttekintesDataGrid.ItemsSource = paciensek.ToList();
-                //paciensekAttekintesDataGrid.Columns[0].Visibility = Visibility.Hidden;
-
-                //rates = doc.Descendants("Rate").Select(x => new Rate(date, x.Attribute("curr").Value, x.Attribute("unit").Value, x.Value)).ToList();
             });
         }
 
@@ -237,6 +247,11 @@ namespace Magankorhaz
                     attekintesMenuGomb_Click(sender, e);
                 }
             }
+        }
+
+        private void paciensMegtekintesGomb_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show(paciensekAttekintesDataGrid.SelectedCells.First().Item.ToString());
         }
     }
 }
