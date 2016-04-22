@@ -22,6 +22,7 @@ namespace Magankorhaz.Adatbazis
         public string Neme { get; set; }
         public int OrvosID { get; set; }
         public int OsztalyID { get; set; }
+        public int Szobaszam { get; set; }
         public int UgyvezetoID { get; set; }
         public DateTime FelvetelDatuma { get; set; }
         public DateTime TavozasDatuma { get; set; }

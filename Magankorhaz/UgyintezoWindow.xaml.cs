@@ -26,7 +26,7 @@ namespace Magankorhaz
             InitializeComponent();
 
             // Attekintés frissítés
-            AttekintesFrissites();        
+            AttekintesFrissites();
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
@@ -42,11 +42,12 @@ namespace Magankorhaz
 
         private void attekintesMenuGomb_Click(object sender, RoutedEventArgs e)
         {
+            AttekintesFrissites();
+
             ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
             szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
             paciensekAttekintesGrid.Visibility = Visibility.Visible;
-
-            AttekintesFrissites();
         }
 
         private void AttekintesFrissites()
@@ -75,6 +76,8 @@ namespace Magankorhaz
             // DataGrid feltöltése
             // DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
             DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
+
+            paciensMegtekintesGomb.Visibility = Visibility.Hidden;
         }
 
         /*
@@ -103,12 +106,14 @@ namespace Magankorhaz
         {
             szamlakezelesGrid.Visibility = Visibility.Hidden;
             paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
             ujPaciensFelveteleGrid.Visibility = Visibility.Visible;
 
-            // Adatok betöltése
+            // Adatok betöltéséhez
             FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo ujPaciensFeldolgozo = new FeldolgozoOsztalyok.UjPacinesFelvetelFeldolgozo();
 
             // Orvosok betöltése
+            paciensKezeloorvos.Items.Clear();
             List<string> orvosok = ujPaciensFeldolgozo.orvosokBetoltese(MagankorhazDB);
             foreach (var orvos in orvosok)
             {
@@ -116,6 +121,7 @@ namespace Magankorhaz
             }
 
             // Osztályok betöltése
+            paciensOsztaly.Items.Clear();
             List<string> osztalyok = ujPaciensFeldolgozo.osztalyokBetoltese(MagankorhazDB);
             foreach (var osztaly in osztalyok)
             {
@@ -123,6 +129,7 @@ namespace Magankorhaz
             }
 
             // Ügyintézők betöltése
+            paciensUgyintezo.Items.Clear();
             List<string> ugyintezok = ujPaciensFeldolgozo.ugyintezokBetoltese(MagankorhazDB);
             foreach (var ugyintezo in ugyintezok)
             {
@@ -133,6 +140,7 @@ namespace Magankorhaz
         {
             paciensekAttekintesGrid.Visibility = Visibility.Hidden;
             ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
             szamlakezelesGrid.Visibility = Visibility.Visible;
         }
         
@@ -251,7 +259,227 @@ namespace Magankorhaz
 
         private void paciensMegtekintesGomb_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show(paciensekAttekintesDataGrid.SelectedCells.First().Item.ToString());
+            szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Visible;
+
+            string DataGridRow = paciensekAttekintesDataGrid.SelectedItem.ToString();
+            string[] stringSeparators = new string[] { "Email = " };
+            string[] rowData = DataGridRow.Split(stringSeparators, StringSplitOptions.None);
+
+            string[] rowData2 = rowData[1].Split(',');
+            string paciensEmail = rowData2[0];
+
+            // Adatok betöltéséhez
+            FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo = new FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo(MagankorhazDB, paciensEmail);
+
+            Adatbazis.Paciens paciensAdatok = paciensAdatlapFeldolgozo.paciensAdatok;
+
+            paciensAdatNev.Text = paciensAdatok.Nev;
+            paciensAdatEmail.Text = paciensAdatok.Email;
+            paciensAdatFelhasznalonev.Text = paciensAdatok.Felhasznalonev;
+            paciensAdatSzemelyiSzam.Text = paciensAdatok.SzemelyiSzam;
+            paciensAdatTAJ.Text = Convert.ToString(paciensAdatok.TAJ);
+
+            paciensAdatSzuletesiDatum.SelectedDate = paciensAdatok.SzuletesiDatum; // szerkesztéshez
+            paciensAdatSzuletesiDatumText.Text = paciensAdatok.SzuletesiDatum.ToString("yyyy. MM. dd."); // megjelenítéshez
+
+            paciensAdatLakcim.Text = paciensAdatok.Cim;
+            paciensAdatTelefonszam.Text = paciensAdatok.Telefon;
+            paciensAdatNeme.Text = paciensAdatok.Neme;
+
+            if (paciensAdatok.LegutolsoBejelentkezes < DateTime.Now.AddYears(-100))
+            {
+                paciensAdatUtolsoBejelentkezes.Text = "";
+            }
+            else paciensAdatUtolsoBejelentkezes.Text = Convert.ToString(paciensAdatok.LegutolsoBejelentkezes);
+
+            paciensAdatFelvetel.Text = paciensAdatok.FelvetelDatuma.ToString("yyyy. MM. dd.");
+
+            if (paciensAdatok.TavozasDatuma < DateTime.Now.AddYears(-100))
+            {
+                paciensAdatTavozasText.Text = "";
+            }
+            else
+            {
+                paciensAdatTavozasText.Text = Convert.ToString(paciensAdatok.TavozasDatuma); // megjelenítéshez
+                paciensAdatTavozasDatum.SelectedDate = paciensAdatok.TavozasDatuma; // szerkesztéshez
+            }
+
+            paciensAdatOrvos.Text = "Ezt akkor kell beállítani, ha épp valakihez van időpontja";
+            paciensAdatUgyvezeto.Text = paciensAdatlapFeldolgozo.ugyintezoNev;
+
+            List<Adatbazis.Osztaly> osztalyok = paciensAdatlapFeldolgozo.osszesOsztaly;
+            foreach (var osztaly in osztalyok)
+            {
+                paciensAdatOsztalyComboBox.Items.Add(osztaly.Megnevezes);
+            }
+
+            paciensAdatOsztalyText.Content = paciensAdatlapFeldolgozo.paciensOsztaly;
+
+            for (int i = 1; i <= 20; i++)
+            {
+                paciensAdatSzobaComboBox.Items.Add(i);
+            }
+
+            if (paciensAdatok.Szobaszam == 0)
+            {
+                paciensAdatSzobaText.Content = "Nincs elhelyezve";
+            }
+            else paciensAdatSzobaText.Content = Convert.ToString(paciensAdatok.Szobaszam);
         }
+
+        private void paciensOsztalyElhelyezesGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensOsztalyElhelyezesGomb.Visibility = Visibility.Hidden;
+            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Visible;
+            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Visible;
+
+            paciensOsztalyAdatokFeloldasa();
+        }
+
+        private void paciensOsztalyElhelyezesMentesGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensOsztalyElhelyezesGomb.Visibility = Visibility.Visible;
+            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
+            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Hidden;
+
+            // TODO: ELLENŐRZÉS !!!
+            // TODO: MENTÉS !!!
+            // TODO: HA SIKERES A MENTÉS, AKKOR LEZÁRÁS !!!
+            // TODO: ÚJRATÖLTÉS !!! -> vagy üresen hagyni
+
+            paciensOsztalyAdatokLezarasa();
+        }
+
+
+        private void paciensOsztalyElhelyezesMegseGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensOsztalyElhelyezesGomb.Visibility = Visibility.Visible;
+            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
+            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Hidden;
+
+            paciensOsztalyAdatokLezarasa();
+        }
+
+        private void paciensOsztalyAdatokFeloldasa()
+        {
+            paciensAdatOsztalyComboBox.Visibility = Visibility.Visible;
+            paciensAdatOsztalyText.Visibility = Visibility.Hidden;
+
+            paciensAdatSzobaText.Visibility = Visibility.Hidden;
+            paciensAdatSzobaComboBox.Visibility = Visibility.Visible;
+        }
+
+        private void paciensOsztalyAdatokLezarasa()
+        {
+            paciensAdatOsztalyComboBox.Visibility = Visibility.Hidden;
+            paciensAdatOsztalyText.Visibility = Visibility.Visible;
+
+            paciensAdatSzobaText.Visibility = Visibility.Visible;
+            paciensAdatSzobaComboBox.Visibility = Visibility.Hidden;
+        }
+
+        private void paciensAdatokModositasGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensAdatokModositasGomb.IsEnabled = false;
+            paciensAdatokMentesGomb.Visibility = Visibility.Visible;
+            paciensAdatokMegseGomb.Visibility = Visibility.Visible;
+
+            paciensAdatokFeloldasa();
+        }
+
+        private void paciensAdatokMentesGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensAdatokModositasGomb.IsEnabled = true;
+            paciensAdatokMentesGomb.Visibility = Visibility.Hidden;
+            paciensAdatokMegseGomb.Visibility = Visibility.Hidden;
+
+            // TODO: ELLENŐRZÉS !!!
+            // TODO: MENTÉS !!!
+            // TODO: HA SIKERES A MENTÉS, AKKOR LEZÁRÁS !!!
+            // TODO: ÚJRATÖLTÉS !!! -> vagy üresen hagyni
+
+            paciensAdatokLezarasa();
+        }
+
+        private void paciensAdatokMegseGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensAdatokModositasGomb.IsEnabled = true;
+            paciensAdatokMentesGomb.Visibility = Visibility.Hidden;
+            paciensAdatokMegseGomb.Visibility = Visibility.Hidden;
+            paciensAdatokLezarasa();
+        }
+
+        private void paciensAdatokFeloldasa()
+        {
+            var bc = new BrushConverter();
+
+            paciensAdatNev.IsReadOnly = false;
+            paciensAdatNev.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+            paciensAdatEmail.IsReadOnly = false;
+            paciensAdatEmail.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+            paciensAdatFelhasznalonev.IsReadOnly = false;
+            paciensAdatFelhasznalonev.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+            paciensAdatSzemelyiSzam.IsReadOnly = false;
+            paciensAdatSzemelyiSzam.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+            paciensAdatTAJ.IsReadOnly = false;
+            paciensAdatTAJ.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+
+            paciensAdatSzuletesiDatum.Visibility = Visibility.Visible;
+            paciensAdatSzuletesiDatumText.Visibility = Visibility.Hidden;
+            paciensAdatSzuletesiDatum.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+
+            paciensAdatLakcim.IsReadOnly = false;
+            paciensAdatLakcim.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+            paciensAdatTelefonszam.IsReadOnly = false;
+            paciensAdatTelefonszam.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+
+            paciensAdatNeme.Visibility = Visibility.Hidden;
+            paciensAdatNemeComboBox.Visibility = Visibility.Visible;
+
+            paciensAdatTavozasDatum.Visibility = Visibility.Visible;
+            paciensAdatTavozasText.Visibility = Visibility.Hidden;
+            paciensAdatTavozasDatum.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+        }
+
+        private void paciensAdatokLezarasa()
+        {
+            var bc = new BrushConverter();
+
+            paciensAdatNev.IsReadOnly = true;
+            paciensAdatNev.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+            paciensAdatEmail.IsReadOnly = true;
+            paciensAdatEmail.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+            paciensAdatFelhasznalonev.IsReadOnly = true;
+            paciensAdatFelhasznalonev.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+            paciensAdatSzemelyiSzam.IsReadOnly = true;
+            paciensAdatSzemelyiSzam.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+            paciensAdatTAJ.IsReadOnly = true;
+            paciensAdatTAJ.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+
+            paciensAdatSzuletesiDatum.Visibility = Visibility.Hidden;
+            paciensAdatSzuletesiDatumText.Visibility = Visibility.Visible;
+            paciensAdatSzuletesiDatum.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+
+            paciensAdatLakcim.IsReadOnly = true;
+            paciensAdatLakcim.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+            paciensAdatTelefonszam.IsReadOnly = true;
+            paciensAdatTelefonszam.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+
+            paciensAdatNeme.Visibility = Visibility.Visible;
+            paciensAdatNemeComboBox.Visibility = Visibility.Hidden;
+
+            paciensAdatTavozasDatum.Visibility = Visibility.Hidden;
+            paciensAdatTavozasText.Visibility = Visibility.Visible;
+            paciensAdatTavozasDatum.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+        }
+
+        private void paciensekAttekintesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            paciensMegtekintesGomb.Visibility = Visibility.Visible;
+        }
+     
     }
 }
