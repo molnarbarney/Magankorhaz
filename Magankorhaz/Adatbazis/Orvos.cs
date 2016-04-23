@@ -27,5 +27,10 @@ namespace Magankorhaz.Adatbazis
         public DateTime MunkabaAllasDatuma { get; set; }
         public int OraberBrutto { get; set; }
         public int SzabadsagNapok { get; set; }
+
+        public override string ToString()
+        {
+            return Nev;
+        }
     }
 }

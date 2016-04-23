@@ -25,4 +25,17 @@ namespace Magankorhaz.Adatbazis
         {
         }
     }
+
+    static class AdatBazis
+    {
+        static MagankorhazDB dataBase = new MagankorhazDB();
+
+        public static MagankorhazDB DataBase
+        {
+            get { return AdatBazis.dataBase; }
+            set { AdatBazis.dataBase = value; }
+        }
+
+    }
+
 }

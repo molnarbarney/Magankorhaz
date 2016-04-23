@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Suli\Magankorhaz\obj\Debug\
+D:\Git\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-D:\Suli\Magankorhaz\App.xaml
+D:\Git\Magankorhaz\App.xaml
 7363796184
 
 261632604959
-16-384527636
+16-1196697965
 AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;VezetosegWindow.xaml;
 
 False

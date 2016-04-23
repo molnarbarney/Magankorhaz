@@ -20,20 +20,13 @@ namespace Magankorhaz
     /// </summary>
     public partial class MainWindow : Window
     {
-        Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB = new Adatbazis.MagankorhazDB();
+        //Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            var q0 = from akt in MagankorhazDB.Osztalyok
-                     select akt;
-
-            if (q0.Count() > 0)
-            {
-                db_connection_status.Content="Sikeres adatbázis csatlakozás!";
-            }
-            else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";
+            
         }
 
         private void login_button_Click(object sender, RoutedEventArgs e)
@@ -79,6 +72,20 @@ namespace Magankorhaz
                 vezetosegWindow.Show();
             }
             else MessageBox.Show("Sikertelen login!");
+        }
+
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //MagankorhazDB = new Adatbazis.MagankorhazDB();
+
+            var q0 = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok
+                     select akt;
+
+            if (q0.Count() > 0)
+            {
+                db_connection_status.Content = "Sikeres adatbázis csatlakozás!";
+            }
+            else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";
         }
     }
 }

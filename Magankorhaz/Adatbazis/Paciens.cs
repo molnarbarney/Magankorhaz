@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.Adatbazis
 {
-    class Paciens
+    public class Paciens
     {
         public int Id { get; set; }
         public string Nev { get; set; }
@@ -26,5 +26,10 @@ namespace Magankorhaz.Adatbazis
         public int UgyvezetoID { get; set; }
         public DateTime FelvetelDatuma { get; set; }
         public DateTime TavozasDatuma { get; set; }
+
+        public override string ToString()
+        {
+            return Nev + " \n" + Cim;
+        }
     }
 }

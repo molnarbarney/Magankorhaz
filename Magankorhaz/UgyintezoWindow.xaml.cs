@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +20,13 @@ namespace Magankorhaz
     /// </summary>
     public partial class UgyintezoWindow : Window
     {
-        Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB = new Adatbazis.MagankorhazDB();
+        //Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
+        ObservableCollection<Magankorhaz.Adatbazis.Paciens> pacienskek;
 
         public UgyintezoWindow()
         {
             InitializeComponent();
-
+       
             // Attekintés frissítés
             AttekintesFrissites();
         }
@@ -56,14 +58,14 @@ namespace Magankorhaz
             FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo ugyintezoAttekintesFeldolgozo = new FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo();
 
             // Szabad helyek
-            szabadFerohelyekSzam.Content = ugyintezoAttekintesFeldolgozo.szabadFerohelyek(MagankorhazDB);
+            szabadFerohelyekSzam.Content = ugyintezoAttekintesFeldolgozo.szabadFerohelyek();
 
             // Férfiak - nők aránya
-            paciensAranyokSzam.Content = ugyintezoAttekintesFeldolgozo.ferfiakNokAranya(MagankorhazDB);
+            paciensAranyokSzam.Content = ugyintezoAttekintesFeldolgozo.ferfiakNokAranya();
 
             // Legrégebbi páciens
             List<Adatbazis.Paciens> paciensek = new List<Adatbazis.Paciens>();
-            paciensek = ugyintezoAttekintesFeldolgozo.legregebbiLegujabbPaciens(MagankorhazDB);
+            paciensek = ugyintezoAttekintesFeldolgozo.legregebbiLegujabbPaciens();
 
             legregebbiPaciensNeve.Content = paciensek.First().Nev;
             legregebbiPaciensDatum.Content = paciensek.First().FelvetelDatuma.ToString("yyyy. MM. dd.");
@@ -75,7 +77,7 @@ namespace Magankorhaz
 
             // DataGrid feltöltése
             // DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
-            DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
+            DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek());
 
             paciensMegtekintesGomb.Visibility = Visibility.Hidden;
         }
@@ -114,7 +116,7 @@ namespace Magankorhaz
 
             // Orvosok betöltése
             paciensKezeloorvos.Items.Clear();
-            List<string> orvosok = ujPaciensFeldolgozo.orvosokBetoltese(MagankorhazDB);
+            List<string> orvosok = ujPaciensFeldolgozo.orvosokBetoltese(Magankorhaz.Adatbazis.AdatBazis.DataBase);
             foreach (var orvos in orvosok)
             {
                 paciensKezeloorvos.Items.Add(orvos);
@@ -122,7 +124,7 @@ namespace Magankorhaz
 
             // Osztályok betöltése
             paciensOsztaly.Items.Clear();
-            List<string> osztalyok = ujPaciensFeldolgozo.osztalyokBetoltese(MagankorhazDB);
+            List<string> osztalyok = ujPaciensFeldolgozo.osztalyokBetoltese(Magankorhaz.Adatbazis.AdatBazis.DataBase);
             foreach (var osztaly in osztalyok)
             {
                 paciensOsztaly.Items.Add(osztaly);
@@ -130,7 +132,7 @@ namespace Magankorhaz
 
             // Ügyintézők betöltése
             paciensUgyintezo.Items.Clear();
-            List<string> ugyintezok = ujPaciensFeldolgozo.ugyintezokBetoltese(MagankorhazDB);
+            List<string> ugyintezok = ujPaciensFeldolgozo.ugyintezokBetoltese(Magankorhaz.Adatbazis.AdatBazis.DataBase);
             foreach (var ugyintezo in ugyintezok)
             {
                 paciensUgyintezo.Items.Add(ugyintezo);
@@ -248,7 +250,7 @@ namespace Magankorhaz
                     paciensKezeloorvos.Text,
                     paciensOsztaly.Text,
                     paciensUgyintezo.Text,
-                    MagankorhazDB);
+                    Magankorhaz.Adatbazis.AdatBazis.DataBase);
 
                 if (ujPaciensFelveteleSikeres)
                 {
@@ -272,7 +274,7 @@ namespace Magankorhaz
             string paciensEmail = rowData2[0];
 
             // Adatok betöltéséhez
-            FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo = new FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo(MagankorhazDB, paciensEmail);
+            FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo = new FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo(Magankorhaz.Adatbazis.AdatBazis.DataBase, paciensEmail);
 
             Adatbazis.Paciens paciensAdatok = paciensAdatlapFeldolgozo.paciensAdatok;
 
@@ -479,6 +481,39 @@ namespace Magankorhaz
         private void paciensekAttekintesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             paciensMegtekintesGomb.Visibility = Visibility.Visible;
+        }
+
+        private void szamlaatekintesClick(object sender, RoutedEventArgs e)
+        {
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            //szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            ujszamlaGrid.Visibility = Visibility.Hidden;
+            szamlaattekintesGrid.Visibility = Visibility.Visible;
+        }
+
+
+
+        private void ujszamlakiallitasaClick(object sender, RoutedEventArgs e)
+        {
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            //szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            szamlaattekintesGrid.Visibility = Visibility.Hidden;
+            ujszamlaGrid.Visibility = Visibility.Visible;
+
+
+            var paciensek = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                            select akt;
+            pacienskek = new ObservableCollection<Magankorhaz.Adatbazis.Paciens>(paciensek);
+            pacienskivalasztasaComboBox.ItemsSource = pacienskek;
+
+            if (pacienskivalasztasaComboBox.SelectedItem != null)
+            {
+                //ugyfeladatai.Content = pacienskivalasztasaComboBox.ItemsSource.ToString();
+            }
         }
      
     }

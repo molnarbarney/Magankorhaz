@@ -8,23 +8,23 @@ namespace Magankorhaz.FeldolgozoOsztalyok
 {
     class UgyintezoAttekintesFeldolgozo
     {
-        public int szabadFerohelyek(Adatbazis.MagankorhazDB adatbazis)
+        public int szabadFerohelyek()
         {
-            var osszesHely = from akt in adatbazis.Osztalyok
+            var osszesHely = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok
                              select akt.OsszesFerohely;
 
             int osszesFerohely = osszesHely.Count() * osszesHely.First();
 
-            var hanyPaciensVanElhelyezve = from akt in adatbazis.Paciensek
+            var hanyPaciensVanElhelyezve = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
                                            where akt.OsztalyID != null
                                            select akt;
 
             return osszesFerohely - hanyPaciensVanElhelyezve.Count();
         }
 
-        public string ferfiakNokAranya(Adatbazis.MagankorhazDB adatbazis)
+        public string ferfiakNokAranya()
         {
-            var paciensek = from akt in adatbazis.Paciensek
+            var paciensek = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
                             select akt;
 
             int ferfiak = 0;
@@ -41,15 +41,15 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             return ferfiak + " - " + nok;
         }
 
-        public List<Adatbazis.Paciens> legregebbiLegujabbPaciens(Adatbazis.MagankorhazDB adatbazis)
+        public List<Adatbazis.Paciens> legregebbiLegujabbPaciens()
         {
             List<Adatbazis.Paciens> legregebbLegujabb = new List<Adatbazis.Paciens>();
 
-            var legregebbiPaciens = (from akt in adatbazis.Paciensek
+            var legregebbiPaciens = (from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
                             orderby akt.FelvetelDatuma ascending
                             select akt).FirstOrDefault();
 
-            var legujabbPaciens = (from akt in adatbazis.Paciensek
+            var legujabbPaciens = (from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
                                      orderby akt.FelvetelDatuma descending
                                      select akt).FirstOrDefault();
 
@@ -77,12 +77,12 @@ namespace Magankorhaz.FeldolgozoOsztalyok
         }
         */
 
-        public List<object> paciensek(Adatbazis.MagankorhazDB adatbazis)
+        public List<object> paciensek()
         {
             List<object> paciensek = new List<object>();
 
-            var paciensekSQL = from paciens in adatbazis.Paciensek
-                               join osztaly in adatbazis.Osztalyok on paciens.OsztalyID equals osztaly.Id
+            var paciensekSQL = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                               join osztaly in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok on paciens.OsztalyID equals osztaly.Id
                                select new { Név = paciens.Nev, Email = paciens.Email, Osztály = osztaly.Megnevezes, SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
 
             //System.Windows.MessageBox.Show(lekerdezes.First().Nev + " " + lekerdezes.First().osztály);
