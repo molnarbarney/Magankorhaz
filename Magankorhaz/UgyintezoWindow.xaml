@@ -46,17 +46,14 @@
 
             <Label x:Name="maiDatum" Content="" HorizontalAlignment="Left" Margin="875,67,0,0" VerticalAlignment="Top" Height="40" Width="171" FontFamily="Helvetica" FontSize="18" Foreground="White"/>
 
-            <Label Content="Név" HorizontalAlignment="Left" Margin="12,160,0,0" VerticalAlignment="Top" Width="54"/>
-            <Label Content="Osztály" HorizontalAlignment="Left" Margin="256,160,0,0" VerticalAlignment="Top" Width="54"/>
-            <Label Content="Születési dátum" HorizontalAlignment="Left" Margin="433,159,0,0" VerticalAlignment="Top" Width="93"/>
-            <Label Content="Felvétel dátuma" HorizontalAlignment="Left" Margin="643,159,0,0" VerticalAlignment="Top" Width="93"/>
-            <Button x:Name="paciensKeresesGomb" Content="Szűrés" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="859,188,0,0" VerticalAlignment="Top" Width="97" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="14" Height="31"/>
+            <Label Content="Név" HorizontalAlignment="Left" Margin="11,160,0,0" VerticalAlignment="Top" Width="54"/>
+            <Label Content="Születési dátum" HorizontalAlignment="Left" Margin="435,159,0,0" VerticalAlignment="Top" Width="93"/>
+            <Button x:Name="paciensKeresesGomb" Content="Szűrés" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="859,188,0,0" VerticalAlignment="Top" Width="97" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="14" Height="31" Click="paciensKeresesGomb_Click"/>
             <Button x:Name="paciensMegtekintesGomb" Content="Megtekintés" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="961,188,0,0" VerticalAlignment="Top" Width="97" BorderBrush="{x:Null}" FontFamily="Calibri" FontSize="14" Height="31" Visibility="Hidden" Click="paciensMegtekintesGomb_Click"/>
 
-            <TextBox x:Name="paciensKeresesNev" HorizontalAlignment="Left" Height="33" Margin="15,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16"/>
-            <ComboBox x:Name="paciensKeresesOsztaly" HorizontalAlignment="Left" Margin="225,186,0,0" VerticalAlignment="Top" Width="200" Height="33" VerticalContentAlignment="Center"/>
-            <DatePicker x:Name="paciensKeresesSzuletesiDatum" HorizontalAlignment="Left" Margin="436,186,0,0" VerticalAlignment="Top" Width="200" Height="33" FirstDayOfWeek="Monday" IsTodayHighlighted="True" Text="asdasd" SelectedDate="{x:Static sys:DateTime.Now}"/>
-            <DatePicker x:Name="paciensKeresesFelvetelDatum" HorizontalAlignment="Left" Margin="647,186,0,0" VerticalAlignment="Top" Width="200" Height="33" FirstDayOfWeek="Monday" IsTodayHighlighted="True" Text="asdasd" SelectedDate="{x:Static sys:DateTime.Now}"/>
+            <TextBox x:Name="paciensKeresesNev" HorizontalAlignment="Left" Height="33" Margin="15,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" FontSize="16"/>
+            <DatePicker x:Name="paciensKeresesSzuletesiDatum" HorizontalAlignment="Left" Margin="436,186,0,0" VerticalAlignment="Top" Width="411" Height="33" FirstDayOfWeek="Monday" IsTodayHighlighted="True" FontSize="16"/>
+            <!-- SelectedDate="{x:Static sys:DateTime.Now}" -->
 
             <DataGrid x:Name="paciensekAttekintesDataGrid" Margin="15,238,41,10" BorderThickness="0" Width="1043" ColumnWidth="207" CanUserResizeColumns="False" MaxColumnWidth="207" SelectionMode="Single" SelectionChanged="paciensekAttekintesDataGrid_SelectionChanged" />
         </Grid>
@@ -226,6 +223,7 @@
                 <Label Content="Ft" HorizontalAlignment="Left" Margin="200,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
             </Grid>
 
+<<<<<<< HEAD
             <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="450" Margin="30,60,0,0" VerticalAlignment="Top" Width="1045" Visibility="Hidden">
                 <ListBox>
 
@@ -247,6 +245,10 @@
                         <Label Content="Bafizetés dátuma" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
                     </Grid>
                 </ListBox>
+=======
+            <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="555" Margin="236,106,0,0" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
+
+>>>>>>> refs/remotes/origin/master
             </Grid>
         </Grid>
 
