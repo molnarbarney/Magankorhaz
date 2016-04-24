@@ -619,12 +619,6 @@ namespace Magankorhaz
                 //ugyfeladatai.Content = pacienskivalasztasaComboBox.ItemsSource.ToString();
             }
         }
-
-<<<<<<< HEAD
-        #endregion
-        //Kitti rész vége
-
-=======
         private void paciensKeresesGomb_Click(object sender, RoutedEventArgs e)
         {
             if (paciensKeresesNev.Text.Length < 1 && paciensKeresesSzuletesiDatum.SelectedDate == null)
@@ -644,7 +638,8 @@ namespace Magankorhaz
             // frissíteni a gridet
             DataGridFrissítése(szurtPaciensek);
         }
-     
->>>>>>> refs/remotes/origin/master
+
+        #endregion
+        // Kitti rész vége
     }
 }
