@@ -227,3 +227,5 @@ D:\Git\Magankorhaz\obj\Debug\MainWindow.baml
 D:\Git\Magankorhaz\obj\Debug\Magankorhaz.g.resources
 D:\Git\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
 D:\Git\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Migrations.InitialCreate.resources
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Migrations.vasarnap.resources

@@ -94,5 +94,54 @@ namespace Magankorhaz.FeldolgozoOsztalyok
 
             return paciensek;
         }
+
+        public List<object> Szures(string keresesNev, DateTime keresesSzuletesiDatum)
+        {
+            List<object> szurtPaciensek = new List<object>();
+
+            // Név és születési dátum
+            if (keresesNev.Length > 0 && keresesSzuletesiDatum != DateTime.Today)
+            {
+                var paciensekNevEsSzuletesiDatumAlapjan = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                                                          join osztaly in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok on paciens.OsztalyID equals osztaly.Id
+                                                          where paciens.Nev == keresesNev && paciens.SzuletesiDatum == keresesSzuletesiDatum
+                                                          select new { Név = paciens.Nev, Email = paciens.Email, Osztály = osztaly.Megnevezes, SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
+
+                foreach (var paciens in paciensekNevEsSzuletesiDatumAlapjan)
+                {
+                    szurtPaciensek.Add(paciens);
+                }
+            }
+
+            // Csak szültési dátum
+            if (keresesNev.Length < 1 && keresesSzuletesiDatum != DateTime.Today)
+            {
+                var paciensekSzuletesiDatumAlapjan = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                                                     join osztaly in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok on paciens.OsztalyID equals osztaly.Id
+                                                     where paciens.SzuletesiDatum == keresesSzuletesiDatum
+                                                     select new { Név = paciens.Nev, Email = paciens.Email, Osztály = osztaly.Megnevezes, SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
+
+                foreach (var paciens in paciensekSzuletesiDatumAlapjan)
+                {
+                    szurtPaciensek.Add(paciens);
+                }
+            }
+
+            // Csak név
+            if (keresesNev.Length > 0 && keresesSzuletesiDatum == DateTime.Today)
+            {
+                var paciensekNevAlapjan = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                                          join osztaly in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok on paciens.OsztalyID equals osztaly.Id
+                                          where paciens.Nev == keresesNev
+                                          select new { Név = paciens.Nev, Email = paciens.Email, Osztály = osztaly.Megnevezes, SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
+
+                foreach (var paciens in paciensekNevAlapjan)
+                {
+                    szurtPaciensek.Add(paciens);   
+                }
+            }
+
+            return szurtPaciensek;
+        }
     }
 }

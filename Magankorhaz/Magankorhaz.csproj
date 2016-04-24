@@ -69,6 +69,15 @@
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UgyintezoAttekintesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
+    <Compile Include="Migrations\201604210645117_InitialCreate.cs" />
+    <Compile Include="Migrations\201604210645117_InitialCreate.Designer.cs">
+      <DependentUpon>201604210645117_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604241043323_vasarnap.cs" />
+    <Compile Include="Migrations\201604241043323_vasarnap.Designer.cs">
+      <DependentUpon>201604241043323_vasarnap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrvosWindow.xaml.cs">
       <DependentUpon>OrvosWindow.xaml</DependentUpon>
     </Compile>
@@ -149,6 +158,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201604210645117_InitialCreate.resx">
+      <DependentUpon>201604210645117_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604241043323_vasarnap.resx">
+      <DependentUpon>201604241043323_vasarnap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
