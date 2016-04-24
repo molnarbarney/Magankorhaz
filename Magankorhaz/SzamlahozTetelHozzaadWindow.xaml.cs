@@ -21,11 +21,13 @@ namespace Magankorhaz
     public partial class SzamlahozTetelHozzaadWindow : Window
     {
         ObservableCollection<Magankorhaz.Adatbazis.Orvos> orvoskak;
+        ObservableCollection<string> kezelesek;
+        Magankorhaz.Adatbazis.Paciens emberke;
 
-        public SzamlahozTetelHozzaadWindow()
+        public SzamlahozTetelHozzaadWindow(Magankorhaz.Adatbazis.Paciens paciens)
         {
             InitializeComponent();
-
+            emberke = paciens;
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
@@ -35,11 +37,26 @@ namespace Magankorhaz
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var orvosokID = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Kartonok
+                            where emberke.Id == akt.PaciensID
+                            select akt.OrvosID;
+
             var orvosok = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Orvosok
+                          where orvosokID.Contains(akt.Id)
                           select akt;
 
             orvoskak = new ObservableCollection<Adatbazis.Orvos>(orvosok);
             kezeloorvosComboBox.ItemsSource = orvoskak;
+            kezeloorvosComboBox.SelectedItem = orvoskak.FirstOrDefault();
+
+            var kezeles = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Kartonok
+                          where (kezeloorvosComboBox.SelectedItem as Adatbazis.Orvos).Id == akt.OrvosID
+                          select akt.KezelesReszletei;
+
+           /* kezelesek = new ObservableCollection<string>(kezeles);
+            szolgaltatasneveComboBox.ItemsSource = kezelesek;
+            szolgaltatasneveComboBox.SelectedItem = kezelesek.FirstOrDefault();*/
+
         }
     }
 }

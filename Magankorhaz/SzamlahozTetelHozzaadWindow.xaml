@@ -4,13 +4,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SzamlahozTetelHozzaadWindow" Height="300" Width="300" Loaded="Window_Loaded">
     <Grid>
-        <Label Content="Szolgáltatás neve:" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="115"/>
-        <Label Content="Kezelő orvos:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label Content="Szolgáltatás neve:" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="115"/>
+        <Label Content="Kezelő orvos:" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="80"/>
         <Label Content="Kezelés ára:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="80"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="130,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="130,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152"/>
-        <ComboBox Name="kezeloorvosComboBox" HorizontalAlignment="Left" Margin="130,69,0,0" VerticalAlignment="Top" Width="152"/>
+        <ComboBox Name="kezeloorvosComboBox" HorizontalAlignment="Left" Margin="130,22,0,0" VerticalAlignment="Top" Width="152"/>
         <Button Name="okbutton"  Click="OKButton_Click" Content="OK" HorizontalAlignment="Left" Margin="107,209,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox Name="szolgaltatasneveComboBox" HorizontalAlignment="Left" Margin="131,72,0,0" VerticalAlignment="Top" Width="150"/>
 
     </Grid>
 </Window>
