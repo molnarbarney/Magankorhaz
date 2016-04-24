@@ -45,6 +45,8 @@ namespace Magankorhaz
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
 
+        //Barni része
+        #region Barni
         private void attekintesMenuGomb_Click(object sender, RoutedEventArgs e)
         {
             AttekintesFrissites();
@@ -152,7 +154,7 @@ namespace Magankorhaz
         
         private void HozzaadButton_Click(object sender, RoutedEventArgs e)
         {
-            SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow();
+            SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow(pacienskivalasztasaComboBox.SelectedItem as Magankorhaz.Adatbazis.Paciens);
             szth.ShowDialog();
         }
         
@@ -575,6 +577,13 @@ namespace Magankorhaz
             paciensMegtekintesGomb.Visibility = Visibility.Visible;
         }
 
+        #endregion
+        //Barni rész vége
+
+
+
+        //Kitti része
+        #region Kitti
         private void szamlaatekintesClick(object sender, RoutedEventArgs e)
         {
             ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
@@ -583,6 +592,9 @@ namespace Magankorhaz
             paciensekAttekintesGrid.Visibility = Visibility.Hidden;
             ujszamlaGrid.Visibility = Visibility.Hidden;
             szamlaattekintesGrid.Visibility = Visibility.Visible;
+
+
+
         }
 
 
@@ -607,7 +619,6 @@ namespace Magankorhaz
                 //ugyfeladatai.Content = pacienskivalasztasaComboBox.ItemsSource.ToString();
             }
         }
-
         private void paciensKeresesGomb_Click(object sender, RoutedEventArgs e)
         {
             if (paciensKeresesNev.Text.Length < 1 && paciensKeresesSzuletesiDatum.SelectedDate == null)
@@ -627,6 +638,8 @@ namespace Magankorhaz
             // frissíteni a gridet
             DataGridFrissítése(szurtPaciensek);
         }
-     
+
+        #endregion
+        // Kitti rész vége
     }
 }
