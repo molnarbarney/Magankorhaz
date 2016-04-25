@@ -260,3 +260,4 @@ D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Migrations.InitialCreate.resour
 D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Migrations.vasarnap.resources
 D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
 D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache

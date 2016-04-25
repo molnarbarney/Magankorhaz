@@ -8,6 +8,20 @@ namespace Magankorhaz.FeldolgozoOsztalyok
 {
     class UgyintezoAttekintesFeldolgozo
     {
+        // Ezeket akkor használom, amikor módosítom a páciens adatait (ideiglenes tároló)
+        public string paciensTempNev { get; set; }
+        public string paciensTempFelhasznalonev { get; set; }
+        public string paciensTempJelszo { get; set; }
+        public string paciensTempEmail { get; set; }
+        public string paciensTempSzemelyiSzam { get; set; }
+        public string paciensTempTAJ { get; set; }
+        public DateTime paciensTempSzuletesiDatum { get; set; }
+        public string paciensTempLakcim { get; set; }
+        public string paciensTempTelefonszam { get; set; }
+        public string paciensTempNeme { get; set; }
+        public DateTime paciensTempTavozasDatuma { get; set; }
+
+        // Ezeket akkor használom, amikor módosítom a páciens adatait (ideiglenes tároló)
         public int szabadFerohelyek()
         {
             var osszesHely = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok

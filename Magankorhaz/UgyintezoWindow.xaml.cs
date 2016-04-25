@@ -20,11 +20,13 @@ namespace Magankorhaz
     /// </summary>
     public partial class UgyintezoWindow : Window
     {
-        //Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
         ObservableCollection<Magankorhaz.Adatbazis.Paciens> pacienskek;
 
         // Adatok betöltéséhez
         FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo ugyintezoAttekintesFeldolgozo = new FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo();
+
+        // Páciens adatainak módosításához
+        FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo;
 
         public UgyintezoWindow()
         {
@@ -33,13 +35,11 @@ namespace Magankorhaz
             // Attekintés frissítés
             AttekintesFrissites();
         }
-
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
         {
             ugyintezoWindow.Close();
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
-
         private void ugyintezoWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.MainWindow.Visibility = Visibility.Visible;
@@ -78,7 +78,6 @@ namespace Magankorhaz
             maiDatum.Content = DateTime.Now.Year + ". " + DateTime.Now.Month + ". " + DateTime.Now.Day + ".";
 
             // DataGrid feltöltése
-            // DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek(MagankorhazDB));
             DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek());
 
             paciensMegtekintesGomb.Visibility = Visibility.Hidden;
@@ -87,18 +86,6 @@ namespace Magankorhaz
             paciensKeresesNev.Text = "";
             paciensKeresesSzuletesiDatum.SelectedDate = null;
         }
-
-        /*
-        void DataGridFrissítéseRégi(List<Adatbazis.Paciens> paciensek)
-        {
-            // Szálbiztos
-            Dispatcher.Invoke(() =>
-            {
-                paciensekAttekintesDataGrid.ItemsSource = null;
-                paciensekAttekintesDataGrid.ItemsSource = paciensek.Select(x => new { Név = x.Nev, Email = x.Email, Felhasználónév = x.Felhasznalonev, SzületésiDátum = x.SzuletesiDatum.ToString("yyyy. MM. dd."), FelvételDátuma = x.FelvetelDatuma.ToString("yyyy. MM. dd.") }).ToList();
-            });
-        }
-        */
 
         void DataGridFrissítése(List<object> paciensek)
         {
@@ -144,6 +131,7 @@ namespace Magankorhaz
                 paciensUgyintezo.Items.Add(ugyintezo);
             }
         }
+
         private void szamlakMenuGomb_Click(object sender, RoutedEventArgs e)
         {
             paciensekAttekintesGrid.Visibility = Visibility.Hidden;
@@ -151,7 +139,6 @@ namespace Magankorhaz
             paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
             szamlakezelesGrid.Visibility = Visibility.Visible;
         }
-       
 
         private void paciensFelveteleGomb_Click(object sender, RoutedEventArgs e)
         {
@@ -265,18 +252,18 @@ namespace Magankorhaz
             string paciensEmail = rowData2[0];
 
             // Adatok betöltéséhez
-            FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo = new FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo(Magankorhaz.Adatbazis.AdatBazis.DataBase, paciensEmail);
+            paciensAdatlapFeldolgozo = new FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo(paciensEmail);
 
             Adatbazis.Paciens paciensAdatok = paciensAdatlapFeldolgozo.paciensAdatok;
 
             paciensAdatNev.Text = paciensAdatok.Nev;
             paciensAdatEmail.Text = paciensAdatok.Email;
             paciensAdatFelhasznalonev.Text = paciensAdatok.Felhasznalonev;
+            paciensAdatJelszo.Password = paciensAdatok.Jelszo;
             paciensAdatSzemelyiSzam.Text = paciensAdatok.SzemelyiSzam;
             paciensAdatTAJ.Text = Convert.ToString(paciensAdatok.TAJ);
 
-            paciensAdatSzuletesiDatum.SelectedDate = paciensAdatok.SzuletesiDatum; // szerkesztéshez
-            paciensAdatSzuletesiDatumText.Text = paciensAdatok.SzuletesiDatum.ToString("yyyy. MM. dd."); // megjelenítéshez
+            paciensAdatSzuletesiDatum.SelectedDate = paciensAdatok.SzuletesiDatum;
 
             paciensAdatLakcim.Text = paciensAdatok.Cim;
             paciensAdatTelefonszam.Text = paciensAdatok.Telefon;
@@ -292,12 +279,12 @@ namespace Magankorhaz
 
             if (paciensAdatok.TavozasDatuma < DateTime.Now.AddYears(-100))
             {
-                paciensAdatTavozasText.Text = "";
+                paciensAdatTavozasDatum.Visibility = Visibility.Hidden;
             }
             else
             {
-                paciensAdatTavozasText.Text = Convert.ToString(paciensAdatok.TavozasDatuma); // megjelenítéshez
-                paciensAdatTavozasDatum.SelectedDate = paciensAdatok.TavozasDatuma; // szerkesztéshez
+                paciensAdatTavozasDatum.IsEnabled = false;
+                paciensAdatTavozasDatum.SelectedDate = paciensAdatok.TavozasDatuma;
             }
 
             paciensAdatOrvos.Text = "Ezt akkor kell beállítani, ha épp valakihez van időpontja";
@@ -346,7 +333,6 @@ namespace Magankorhaz
             paciensOsztalyAdatokLezarasa();
         }
 
-
         private void paciensOsztalyElhelyezesMegseGomb_Click(object sender, RoutedEventArgs e)
         {
             paciensOsztalyElhelyezesGomb.Visibility = Visibility.Visible;
@@ -373,49 +359,104 @@ namespace Magankorhaz
             paciensAdatSzobaText.Visibility = Visibility.Visible;
             paciensAdatSzobaComboBox.Visibility = Visibility.Hidden;
         }
+
         private void paciensAdatokModositasGomb_Click(object sender, RoutedEventArgs e)
         {
-            paciensAdatokModositasGomb.IsEnabled = false;
-            paciensAdatokMentesGomb.Visibility = Visibility.Visible;
-            paciensAdatokMegseGomb.Visibility = Visibility.Visible;
+            paciensAdatokModositasakorLetiltandoGombok();
 
-            // UgyintezoAttekintesFeldolgozo - osztályba kellenek temporary tulajdonságok
-            // ezeket a tulajdonságokat feltölteni, azzal ami jelenleg van a páciens adataiban
-            // ha nem jó valamelyik az ellenőrzéskor, akkor a temp-el felülírni
+            ugyintezoAttekintesFeldolgozo.paciensTempNev = paciensAdatNev.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempEmail = paciensAdatEmail.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempFelhasznalonev = paciensAdatFelhasznalonev.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempJelszo = paciensAdatJelszo.Password;
+            ugyintezoAttekintesFeldolgozo.paciensTempLakcim = paciensAdatLakcim.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempNeme = paciensAdatNeme.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempSzemelyiSzam = paciensAdatSzemelyiSzam.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempSzuletesiDatum = paciensAdatSzuletesiDatum.SelectedDate.Value;
+            ugyintezoAttekintesFeldolgozo.paciensTempTAJ = paciensAdatTAJ.Text;
+            ugyintezoAttekintesFeldolgozo.paciensTempTelefonszam = paciensAdatTelefonszam.Text;
+
+            if (paciensAdatTavozasDatum.SelectedDate != null)
+            {
+                ugyintezoAttekintesFeldolgozo.paciensTempTavozasDatuma = paciensAdatTavozasDatum.SelectedDate.Value;
+            }
+            else ugyintezoAttekintesFeldolgozo.paciensTempTavozasDatuma = new DateTime(1900, 1, 1);
 
             paciensAdatokFeloldasa();
         }
 
         private void paciensAdatokMentesGomb_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: ELLENŐRZÉS !!!
-            bool mindenoké = false;
-            while (mindenoké)
-            {
-                mindenoké = paciensAdatokEllenorzese();
-            }
-            
-            if (mindenoké)
+            if (paciensAdatokEllenorzese())
             {
                 paciensAdatokModositasGomb.IsEnabled = true;
                 paciensAdatokMentesGomb.Visibility = Visibility.Hidden;
                 paciensAdatokMegseGomb.Visibility = Visibility.Hidden;
 
-                // TODO: MENTÉS !!! -> paciensAdatTavozasDatum.SelectedDate = new DateTime(1900, 1, 1);
+                // Mentés
+                Adatbazis.Paciens modositottPaciens = new Adatbazis.Paciens();
+                modositottPaciens.Nev = paciensAdatNev.Text;
+                modositottPaciens.Email = paciensAdatEmail.Text;
+                modositottPaciens.Felhasznalonev = paciensAdatFelhasznalonev.Text;
+                modositottPaciens.Jelszo = paciensAdatJelszo.Password;
+                modositottPaciens.Cim = paciensAdatLakcim.Text;
+                modositottPaciens.Neme = paciensAdatNeme.Text;
+                modositottPaciens.SzemelyiSzam = paciensAdatSzemelyiSzam.Text;
+                modositottPaciens.SzuletesiDatum = paciensAdatSzuletesiDatum.SelectedDate.Value;
+                modositottPaciens.TAJ = Convert.ToInt32(paciensAdatTAJ.Text);
+                modositottPaciens.Telefon = paciensAdatTelefonszam.Text;
+                modositottPaciens.FelvetelDatuma = Convert.ToDateTime(paciensAdatFelvetel.Text);
+                
+                if (paciensAdatTavozasDatum.SelectedDate == null)
+                {
+                    modositottPaciens.TavozasDatuma = new DateTime(1900, 1, 1);
+                }
+                else modositottPaciens.TavozasDatuma = paciensAdatTavozasDatum.SelectedDate.Value;
 
-                // TODO: HA SIKERES A MENTÉS, AKKOR LEZÁRÁS !!!
+                bool sikeresMentes = paciensAdatlapFeldolgozo.PaciensModositasa(paciensAdatlapFeldolgozo.paciensAdatok.Id, modositottPaciens);
 
-                // TODO: ÚJRATÖLTÉS !!! -> vagy üresen hagyni
+                if (sikeresMentes)
+                {
+                    System.Windows.MessageBox.Show("Sikeres mentés!");
+
+                    paciensAdatNev.Text = modositottPaciens.Nev;
+                    paciensAdatEmail.Text = modositottPaciens.Email;
+                    paciensAdatFelhasznalonev.Text = modositottPaciens.Felhasznalonev;
+                    paciensAdatJelszo.Password = modositottPaciens.Jelszo;
+                    paciensAdatLakcim.Text = modositottPaciens.Cim;
+                    paciensAdatNeme.Text = modositottPaciens.Neme;
+                    paciensAdatSzemelyiSzam.Text = modositottPaciens.SzemelyiSzam;
+                    paciensAdatSzuletesiDatum.SelectedDate = modositottPaciens.SzuletesiDatum;
+                    paciensAdatTAJ.Text = Convert.ToString(modositottPaciens.TAJ);
+                    paciensAdatTelefonszam.Text = modositottPaciens.Telefon;
+                    paciensAdatTavozasDatum.SelectedDate = modositottPaciens.TavozasDatuma;
+                }
 
                 paciensAdatokLezarasa();
+                paciensAdatokModositasaUtalFloldandoGombok();
             }
         }
 
         private void paciensAdatokMegseGomb_Click(object sender, RoutedEventArgs e)
         {
-            paciensAdatokModositasGomb.IsEnabled = true;
-            paciensAdatokMentesGomb.Visibility = Visibility.Hidden;
-            paciensAdatokMegseGomb.Visibility = Visibility.Hidden;
+            paciensAdatokModositasaUtalFloldandoGombok();
+
+            paciensAdatNev.Text = ugyintezoAttekintesFeldolgozo.paciensTempNev;
+            paciensAdatEmail.Text = ugyintezoAttekintesFeldolgozo.paciensTempEmail;
+            paciensAdatFelhasznalonev.Text = ugyintezoAttekintesFeldolgozo.paciensTempFelhasznalonev;
+            paciensAdatJelszo.Password = ugyintezoAttekintesFeldolgozo.paciensTempJelszo;
+            paciensAdatLakcim.Text = ugyintezoAttekintesFeldolgozo.paciensTempLakcim;
+            paciensAdatNeme.Text = ugyintezoAttekintesFeldolgozo.paciensTempNeme;
+            paciensAdatSzemelyiSzam.Text = ugyintezoAttekintesFeldolgozo.paciensTempSzemelyiSzam;
+            paciensAdatSzuletesiDatum.SelectedDate = ugyintezoAttekintesFeldolgozo.paciensTempSzuletesiDatum;
+            paciensAdatTAJ.Text = ugyintezoAttekintesFeldolgozo.paciensTempTAJ;
+            paciensAdatTelefonszam.Text = ugyintezoAttekintesFeldolgozo.paciensTempTelefonszam;
+
+            if (ugyintezoAttekintesFeldolgozo.paciensTempTavozasDatuma == new DateTime(1900, 1, 1))
+            {
+                paciensAdatTavozasDatum.SelectedDate = null;
+            }
+            else paciensAdatTavozasDatum.SelectedDate = ugyintezoAttekintesFeldolgozo.paciensTempTavozasDatuma;
+            
             paciensAdatokLezarasa();
         }
 
@@ -429,13 +470,15 @@ namespace Magankorhaz
             paciensAdatEmail.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
             paciensAdatFelhasznalonev.IsReadOnly = false;
             paciensAdatFelhasznalonev.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+            paciensAdatJelszo.IsEnabled = true;
+            paciensAdatJelszo.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
+
             paciensAdatSzemelyiSzam.IsReadOnly = false;
             paciensAdatSzemelyiSzam.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
             paciensAdatTAJ.IsReadOnly = false;
             paciensAdatTAJ.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
 
-            paciensAdatSzuletesiDatum.Visibility = Visibility.Visible;
-            paciensAdatSzuletesiDatumText.Visibility = Visibility.Hidden;
+            paciensAdatSzuletesiDatum.IsEnabled = true;
             paciensAdatSzuletesiDatum.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
 
             paciensAdatLakcim.IsReadOnly = false;
@@ -446,83 +489,87 @@ namespace Magankorhaz
             paciensAdatNeme.Visibility = Visibility.Hidden;
             paciensAdatNemeComboBox.Visibility = Visibility.Visible;
 
+            paciensAdatTavozasDatum.IsEnabled = true;
             paciensAdatTavozasDatum.Visibility = Visibility.Visible;
-            paciensAdatTavozasText.Visibility = Visibility.Hidden;
             paciensAdatTavozasDatum.Foreground = (Brush)bc.ConvertFrom("#FFF75E24");
         }
 
         private bool paciensAdatokEllenorzese()
         {
-            // JELSZÓ MÓDOSÍTÁS ???
-
             int errors = 0;
 
             if (paciensAdatNev.Text.Length < 5)
             {
                 System.Windows.MessageBox.Show("A páciens neve nem lehet üres és rövidebb mint 5 karakter!");
+                paciensAdatNev.Text = ugyintezoAttekintesFeldolgozo.paciensTempNev;
                 errors++;
             }
             if (!System.Text.RegularExpressions.Regex.IsMatch(paciensAdatNev.Text, "^[a-zA-Z]"))
             {
                 MessageBox.Show("A páciens nevében csakis betűk szerepelhetnek!");
+                paciensAdatNev.Text = ugyintezoAttekintesFeldolgozo.paciensTempNev;
                 errors++;
             }
             if (paciensAdatEmail.Text.Length < 10)
             {
                 System.Windows.MessageBox.Show("A páciens email címe nem lehet üres és rövidebb mint 10 karakter!");
+                paciensAdatEmail.Text = ugyintezoAttekintesFeldolgozo.paciensTempEmail;
                 errors++;
             }
             if (paciensAdatFelhasznalonev.Text.Length < 5)
             {
                 System.Windows.MessageBox.Show("A páciens felhasználóneve nem lehet üres és rövidebb mint 10 karakter!");
+                paciensAdatFelhasznalonev.Text = ugyintezoAttekintesFeldolgozo.paciensTempFelhasznalonev;
                 errors++;
             }
             if (paciensAdatSzemelyiSzam.Text.Length != 12)
             {
                 System.Windows.MessageBox.Show("A páciens személyi száma 12 számjegy!");
+                paciensAdatSzemelyiSzam.Text = ugyintezoAttekintesFeldolgozo.paciensTempSzemelyiSzam;
                 errors++;
             }
             if (System.Text.RegularExpressions.Regex.IsMatch(paciensAdatSzemelyiSzam.Text, "^[a-zA-Z]"))
             {
                 MessageBox.Show("A páciens személyi számában csakis számok szerepelhetnek!");
+                paciensAdatSzemelyiSzam.Text = ugyintezoAttekintesFeldolgozo.paciensTempSzemelyiSzam;
                 errors++;
             }
-            /*if (paciensJelszo.Password.Length < 5)
+            if (paciensAdatJelszo.Password.Length < 5)
             {
                 System.Windows.MessageBox.Show("A páciens megadott jelszava nem lehet üres és rövidebb mint 5 karakter!");
+                paciensAdatJelszo.Password = ugyintezoAttekintesFeldolgozo.paciensTempJelszo;
                 errors++;
             }
-            if (paciensJelszo.Password != paciensJelszoUjra.Password)
-            {
-                System.Windows.MessageBox.Show("A páciens megadott jelszavai nem egyeznek!");
-                errors++;
-            }*/
             if (paciensAdatTAJ.Text.Length != 8)
             {
                 System.Windows.MessageBox.Show("A páciens TAJ száma 8 számjegy!");
+                paciensAdatTAJ.Text = ugyintezoAttekintesFeldolgozo.paciensTempTAJ;
                 errors++;
             }
             if (System.Text.RegularExpressions.Regex.IsMatch(paciensAdatTAJ.Text, "^[a-zA-Z]"))
             {
                 MessageBox.Show("A páciens TAJ számában csakis számok szerepelhetnek!");
+                paciensAdatTAJ.Text = ugyintezoAttekintesFeldolgozo.paciensTempTAJ;
                 errors++;
             }
             if (paciensAdatLakcim.Text.Length < 10)
             {
                 System.Windows.MessageBox.Show("A páciens címe nem lehet rövidebb mint 10 karakter!");
+                paciensAdatLakcim.Text = ugyintezoAttekintesFeldolgozo.paciensTempLakcim;
                 errors++;
             }
             if (paciensAdatTelefonszam.Text.Length < 12)
             {
                 System.Windows.MessageBox.Show("A páciens telefonszáma nem lehet rövidebb mint 12 karakter!");
+                paciensAdatTelefonszam.Text = ugyintezoAttekintesFeldolgozo.paciensTempTelefonszam;
                 errors++;
             }
 
             if (errors > 0)
             {
-                return true;
+                return false;
             }
-            else return false;
+            else return true;
         }
 
         private void paciensAdatokLezarasa()
@@ -535,13 +582,15 @@ namespace Magankorhaz
             paciensAdatEmail.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
             paciensAdatFelhasznalonev.IsReadOnly = true;
             paciensAdatFelhasznalonev.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+            paciensAdatJelszo.IsEnabled = false;
+            paciensAdatJelszo.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
+
             paciensAdatSzemelyiSzam.IsReadOnly = true;
             paciensAdatSzemelyiSzam.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
             paciensAdatTAJ.IsReadOnly = true;
             paciensAdatTAJ.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
 
-            paciensAdatSzuletesiDatum.Visibility = Visibility.Hidden;
-            paciensAdatSzuletesiDatumText.Visibility = Visibility.Visible;
+            paciensAdatSzuletesiDatum.IsEnabled = false;
             paciensAdatSzuletesiDatum.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
 
             paciensAdatLakcim.IsReadOnly = true;
@@ -552,11 +601,43 @@ namespace Magankorhaz
             paciensAdatNeme.Visibility = Visibility.Visible;
             paciensAdatNemeComboBox.Visibility = Visibility.Hidden;
 
-            paciensAdatTavozasDatum.Visibility = Visibility.Hidden;
-            paciensAdatTavozasText.Visibility = Visibility.Visible;
+            paciensAdatTavozasDatum.IsEnabled = false;
+            if (paciensAdatTavozasDatum.SelectedDate == null)
+            {
+                paciensAdatTavozasDatum.Visibility = Visibility.Hidden;
+            }
             paciensAdatTavozasDatum.Foreground = (Brush)bc.ConvertFrom("#FF1C9BB8");
         }
 
+        private void paciensAdatokModositasakorLetiltandoGombok()
+        {
+            paciensAdatokModositasGomb.IsEnabled = false;
+            paciensAdatokMentesGomb.Visibility = Visibility.Visible;
+            paciensAdatokMegseGomb.Visibility = Visibility.Visible;
+            paciensAdatokTorlesGomb.IsEnabled = false;
+
+            attekintesMenuGomb.IsEnabled = false;
+            ujPaciensMenuGomb.IsEnabled = false;
+            szamlakMenuGomb.IsEnabled = false;
+            paciensOsztalyElhelyezesGomb.IsEnabled = false;
+            paciensAdatUjIdopontGomb.IsEnabled = false;
+            kijelentkezesButton.IsEnabled = false;
+        }
+
+        private void paciensAdatokModositasaUtalFloldandoGombok()
+        {
+            paciensAdatokModositasGomb.IsEnabled = true;
+            paciensAdatokMentesGomb.Visibility = Visibility.Hidden;
+            paciensAdatokMegseGomb.Visibility = Visibility.Hidden;
+            paciensAdatokTorlesGomb.IsEnabled = true;
+
+            attekintesMenuGomb.IsEnabled = true;
+            ujPaciensMenuGomb.IsEnabled = true;
+            szamlakMenuGomb.IsEnabled = true;
+            paciensOsztalyElhelyezesGomb.IsEnabled = true;
+            paciensAdatUjIdopontGomb.IsEnabled = true;
+            kijelentkezesButton.IsEnabled = true;
+        }
         private void paciensekAttekintesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             paciensMegtekintesGomb.Visibility = Visibility.Visible;
