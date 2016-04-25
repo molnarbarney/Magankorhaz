@@ -390,7 +390,7 @@ namespace Magankorhaz
         {
             // TODO: ELLENŐRZÉS !!!
             bool mindenoké = false;
-            while (mindenoké)
+            /*while (mindenoké)
             {
                 mindenoké = paciensAdatokEllenorzese();
             }
@@ -408,7 +408,7 @@ namespace Magankorhaz
                 // TODO: ÚJRATÖLTÉS !!! -> vagy üresen hagyni
 
                 paciensAdatokLezarasa();
-            }
+            }*/
         }
 
         private void paciensAdatokMegseGomb_Click(object sender, RoutedEventArgs e)
