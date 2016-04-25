@@ -45,7 +45,7 @@ namespace Magankorhaz
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
 
-        //Barni része
+        // Barni része
         #region Barni
         private void attekintesMenuGomb_Click(object sender, RoutedEventArgs e)
         {
@@ -287,7 +287,7 @@ namespace Magankorhaz
                 paciensAdatTavozasDatum.SelectedDate = paciensAdatok.TavozasDatuma;
             }
 
-            paciensAdatOrvos.Text = "Ezt akkor kell beállítani, ha épp valakihez van időpontja";
+            paciensAdatOrvos.Text = paciensAdatlapFeldolgozo.orvosNev;
             paciensAdatUgyvezeto.Text = paciensAdatlapFeldolgozo.ugyintezoNev;
 
             List<Adatbazis.Osztaly> osztalyok = paciensAdatlapFeldolgozo.osszesOsztaly;
@@ -302,7 +302,7 @@ namespace Magankorhaz
             {
                 paciensAdatSzobaComboBox.Items.Add(i);
             }
-
+            
             if (paciensAdatok.Szobaszam == 0)
             {
                 paciensAdatSzobaText.Content = "Nincs elhelyezve";
@@ -310,34 +310,41 @@ namespace Magankorhaz
             else paciensAdatSzobaText.Content = Convert.ToString(paciensAdatok.Szobaszam);
         }
 
-        private void paciensOsztalyElhelyezesGomb_Click(object sender, RoutedEventArgs e)
+        private void paciensOsztalyElhelyezesModositasGomb_Click(object sender, RoutedEventArgs e)
         {
-            paciensOsztalyElhelyezesGomb.Visibility = Visibility.Hidden;
-            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Visible;
-            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Visible;
+            paciensElhelyezesModositasakorLetiltandoGombok();
 
             paciensOsztalyAdatokFeloldasa();
         }
 
         private void paciensOsztalyElhelyezesMentesGomb_Click(object sender, RoutedEventArgs e)
         {
-            paciensOsztalyElhelyezesGomb.Visibility = Visibility.Visible;
-            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
-            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Hidden;
+            bool elhelyezheto = paciensAdatlapFeldolgozo.paciensElhelyezesEllenorzes(paciensAdatOsztalyComboBox.SelectedValue.ToString(), Convert.ToInt32(paciensAdatSzobaComboBox.SelectedItem));
 
-            // TODO: ELLENŐRZÉS !!!
-            // TODO: MENTÉS !!!
-            // TODO: HA SIKERES A MENTÉS, AKKOR LEZÁRÁS !!!
-            // TODO: ÚJRATÖLTÉS !!! -> vagy üresen hagyni
+            if (elhelyezheto)
+            {
+                bool sikeresMentes = paciensAdatlapFeldolgozo.paciensElhelyezesMentes(paciensAdatlapFeldolgozo.paciensAdatok.Id, paciensAdatOsztalyComboBox.SelectedValue.ToString(), Convert.ToInt32(paciensAdatSzobaComboBox.SelectedItem));
 
-            paciensOsztalyAdatokLezarasa();
+                if (sikeresMentes)
+                {
+                    paciensAdatOsztalyText.Content = paciensAdatOsztalyComboBox.SelectedValue.ToString();
+                    paciensAdatSzobaText.Content = paciensAdatSzobaComboBox.SelectedItem.ToString();
+
+                    paciensOsztalyElhelyezesModositasGomb.Visibility = Visibility.Visible;
+                    paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
+                    paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Hidden;
+
+                    paciensElhelyezesModositasakorFeloldandoGombok();
+
+                    paciensOsztalyAdatokLezarasa();
+                }
+            }
+            else System.Windows.MessageBox.Show("Ez a szoba már foglalt! Kérem válasszon egy másikat!");
         }
 
         private void paciensOsztalyElhelyezesMegseGomb_Click(object sender, RoutedEventArgs e)
         {
-            paciensOsztalyElhelyezesGomb.Visibility = Visibility.Visible;
-            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
-            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Hidden;
+            paciensElhelyezesModositasakorFeloldandoGombok();
 
             paciensOsztalyAdatokLezarasa();
         }
@@ -619,7 +626,7 @@ namespace Magankorhaz
             attekintesMenuGomb.IsEnabled = false;
             ujPaciensMenuGomb.IsEnabled = false;
             szamlakMenuGomb.IsEnabled = false;
-            paciensOsztalyElhelyezesGomb.IsEnabled = false;
+            paciensOsztalyElhelyezesModositasGomb.IsEnabled = false;
             paciensAdatUjIdopontGomb.IsEnabled = false;
             kijelentkezesButton.IsEnabled = false;
         }
@@ -634,10 +641,47 @@ namespace Magankorhaz
             attekintesMenuGomb.IsEnabled = true;
             ujPaciensMenuGomb.IsEnabled = true;
             szamlakMenuGomb.IsEnabled = true;
-            paciensOsztalyElhelyezesGomb.IsEnabled = true;
+            paciensOsztalyElhelyezesModositasGomb.IsEnabled = true;
             paciensAdatUjIdopontGomb.IsEnabled = true;
             kijelentkezesButton.IsEnabled = true;
         }
+
+        private void paciensElhelyezesModositasakorLetiltandoGombok()
+        {
+            paciensOsztalyElhelyezesModositasGomb.Visibility = Visibility.Hidden;
+            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Visible;
+            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Visible;
+
+            paciensAdatokModositasGomb.IsEnabled = false;
+            paciensAdatokTorlesGomb.IsEnabled = false;
+
+            attekintesMenuGomb.IsEnabled = false;
+            ujPaciensMenuGomb.IsEnabled = false;
+            szamlakMenuGomb.IsEnabled = false;
+
+            paciensAdatUjIdopontGomb.IsEnabled = false;
+            kijelentkezesButton.IsEnabled = false;
+        }
+
+        private void paciensElhelyezesModositasakorFeloldandoGombok()
+        {
+            paciensOsztalyElhelyezesModositasGomb.Visibility = Visibility.Visible;
+            paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
+            paciensOsztalyElhelyezesMegseGomb.Visibility = Visibility.Hidden;
+
+            paciensAdatokModositasGomb.IsEnabled = true;
+            paciensAdatokMentesGomb.Visibility = Visibility.Hidden;
+            paciensAdatokMegseGomb.Visibility = Visibility.Hidden;
+            paciensAdatokTorlesGomb.IsEnabled = true;
+
+            attekintesMenuGomb.IsEnabled = true;
+            ujPaciensMenuGomb.IsEnabled = true;
+            szamlakMenuGomb.IsEnabled = true;
+            paciensOsztalyElhelyezesModositasGomb.IsEnabled = true;
+            paciensAdatUjIdopontGomb.IsEnabled = true;
+            kijelentkezesButton.IsEnabled = true;
+        }
+
         private void paciensekAttekintesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             paciensMegtekintesGomb.Visibility = Visibility.Visible;
@@ -664,11 +708,9 @@ namespace Magankorhaz
         }
 
         #endregion
-        //Barni rész vége
+        // Barni rész vége
 
-
-
-        //Kitti része
+        // Kitti része
         #region Kitti
         private void szamlaatekintesClick(object sender, RoutedEventArgs e)
         {
@@ -724,7 +766,7 @@ namespace Magankorhaz
             }
         }
         
-        #endregion
+        #endregion        
         // Kitti rész vége
     }
 }

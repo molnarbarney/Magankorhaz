@@ -10,6 +10,7 @@ namespace Magankorhaz.FeldolgozoOsztalyok
     {
         public Adatbazis.Paciens paciensAdatok { get; set; }
         public string ugyintezoNev { get; set; }
+        public string orvosNev { get; set; }
         public string paciensOsztaly { get; set; }
         public List<Adatbazis.Osztaly> osszesOsztaly { get; set; }
 
@@ -29,16 +30,23 @@ namespace Magankorhaz.FeldolgozoOsztalyok
 
             ugyintezoNev = ugyintezo.First();
 
+            // Pácienst kezelő orvos megkeresése
+            var orvos = from akt in Adatbazis.AdatBazis.DataBase.Orvosok
+                        where akt.Id == paciensAdatok.OrvosID
+                        select akt.Nev;
+
+            orvosNev = orvos.First();
+
             // Páciens osztályának és (ha van) szobájának megkeresése
             var osztály = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
-                            where akt.Id == paciensAdatok.OsztalyID
-                            select akt.Megnevezes;
+                          where akt.Id == paciensAdatok.OsztalyID
+                          select akt.Megnevezes;
 
             paciensOsztaly = osztály.First();
 
             // Összes osztály megkeresése és ComboBox feltöltése, hogyha majd változtatni szeretne
             var osztalyok = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
-                          select akt;
+                            select akt;
 
             osszesOsztaly = osztalyok.ToList();
         }
@@ -46,8 +54,8 @@ namespace Magankorhaz.FeldolgozoOsztalyok
         public bool PaciensModositasa(int modositandoPaciensID, Adatbazis.Paciens modositottPaciens)
         {
             var paciensek = from akt in Adatbazis.AdatBazis.DataBase.Paciensek
-                          where akt.Id == modositandoPaciensID
-                          select akt;
+                            where akt.Id == modositandoPaciensID
+                            select akt;
 
             foreach (var paciens in paciensek)
             {
@@ -70,9 +78,62 @@ namespace Magankorhaz.FeldolgozoOsztalyok
                 else paciens.TavozasDatuma = modositottPaciens.TavozasDatuma;
             }
 
-            Adatbazis.AdatBazis.DataBase.SaveChanges();
+            int mentes = Adatbazis.AdatBazis.DataBase.SaveChanges();
 
-            return true;
+            if (mentes > 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        public bool paciensElhelyezesEllenorzes(string osztalyNev, int szobaszam)
+        {
+            // OsztalyID megkeresése
+            var osztalyIDs = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
+                             where akt.Megnevezes == osztalyNev
+                             select akt.Id;
+
+            int osztalyID = osztalyIDs.First();
+
+            // Megnézi, hogy üres-e a szoba -> ha talál a "where" feltételben szereplő adatot, akkor az már foglalt...
+            var uresSzobak = from akt in Adatbazis.AdatBazis.DataBase.Paciensek
+                             where akt.OsztalyID == osztalyID && akt.Szobaszam == szobaszam
+                             select akt;
+
+            if (uresSzobak.Count() > 0)
+            {
+                return false;
+            }
+            else return true;
+        }
+
+        public bool paciensElhelyezesMentes(int paciensID, string osztalyNev, int szobaszam)
+        {
+            // OsztalyID megkeresése
+            var osztalyIDs = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
+                             where akt.Megnevezes == osztalyNev
+                             select akt.Id;
+
+            int osztalyID = osztalyIDs.First();
+
+            var elhelyezendoPaciensek = from akt in Adatbazis.AdatBazis.DataBase.Paciensek
+                                        where akt.Id == paciensID
+                                        select akt;
+
+            foreach (var elhelyezendoPaciens in elhelyezendoPaciensek)
+            {
+                elhelyezendoPaciens.OsztalyID = osztalyID;
+                elhelyezendoPaciens.Szobaszam = szobaszam;
+            }
+
+            int mentes = Adatbazis.AdatBazis.DataBase.SaveChanges();
+
+            if (mentes > 0)
+            {
+                return true;
+            }
+            else return false;
         }
 
     }

@@ -20,7 +20,7 @@
         <!-- Tartalmak -->
 
         <!-- Áttekintés -->
-        <Grid x:Name="paciensekAttekintesGrid" HorizontalAlignment="Left" Height="548" Margin="239,112,0,0" VerticalAlignment="Top" Width="1095" Visibility="Hidden">
+        <Grid x:Name="paciensekAttekintesGrid" HorizontalAlignment="Left" Height="548" Margin="239,112,0,0" VerticalAlignment="Top" Width="1095" Visibility="Visible">
             <Label Content="Páciensek áttekintése" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
@@ -101,7 +101,7 @@
         </Grid>
 
         <!-- Páciens adatai, elhelyezése, időpontjai -->
-        <Grid x:Name="paciensMegtekinteseGrid" HorizontalAlignment="Left" Height="548" Margin="245,113,0,0" VerticalAlignment="Top" Width="1089" Visibility="Visible">
+        <Grid x:Name="paciensMegtekinteseGrid" HorizontalAlignment="Left" Height="548" Margin="245,113,0,0" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
             <Label Content="Páciens adatai" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
@@ -161,14 +161,14 @@
             <Rectangle HorizontalAlignment="Left" Height="71" Margin="422,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="648" Fill="#FFEBEBEB"/>
 
             <Label Content="Osztály:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,76,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <Label x:Name="paciensAdatOsztalyText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="490,76,0,0" VerticalAlignment="Top" Width="372" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
-            <ComboBox x:Name="paciensAdatOsztalyComboBox" HorizontalAlignment="Left" Margin="491,76,0,0" VerticalAlignment="Top" Width="372" Height="24" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <Label x:Name="paciensAdatOsztalyText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="490,78,0,0" VerticalAlignment="Top" Width="372" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
+            <ComboBox x:Name="paciensAdatOsztalyComboBox" HorizontalAlignment="Left" Margin="491,78,0,0" VerticalAlignment="Top" Width="372" Height="24" VerticalContentAlignment="Center" Visibility="Hidden" SelectedIndex="0"/>
 
             <Label Content="Szobaszám:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,102,0,0" VerticalAlignment="Top" Width="77" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <Label x:Name="paciensAdatSzobaText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="514,102,0,0" VerticalAlignment="Top" Width="123" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28"/>
-            <ComboBox x:Name="paciensAdatSzobaComboBox" HorizontalAlignment="Left" Margin="515,102,0,0" VerticalAlignment="Top" Width="123" Height="24" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <Label x:Name="paciensAdatSzobaText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="514,104,0,0" VerticalAlignment="Top" Width="123" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28"/>
+            <ComboBox x:Name="paciensAdatSzobaComboBox" HorizontalAlignment="Left" Margin="515,104,0,0" VerticalAlignment="Top" Width="123" Height="24" VerticalContentAlignment="Center" Visibility="Hidden" SelectedIndex="0"/>
 
-            <Button x:Name="paciensOsztalyElhelyezesGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="881,89,0,0" VerticalAlignment="Top" Width="79" Height="26" Click="paciensOsztalyElhelyezesGomb_Click"/>
+            <Button x:Name="paciensOsztalyElhelyezesModositasGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="881,89,0,0" VerticalAlignment="Top" Width="79" Height="26" Click="paciensOsztalyElhelyezesModositasGomb_Click"/>
             <Button x:Name="paciensOsztalyElhelyezesMegseGomb" Content="Mégse" HorizontalAlignment="Left" Margin="881,89,0,0" VerticalAlignment="Top" Width="79" Height="26" Visibility="Hidden" Click="paciensOsztalyElhelyezesMegseGomb_Click"/>
             <Button x:Name="paciensOsztalyElhelyezesMentesGomb" Content="Mentés" HorizontalAlignment="Left" Margin="972,89,0,0" VerticalAlignment="Top" Width="79" Height="26" Visibility="Hidden" Click="paciensOsztalyElhelyezesMentesGomb_Click"/>
 
