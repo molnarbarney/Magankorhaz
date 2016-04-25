@@ -151,22 +151,7 @@ namespace Magankorhaz
             paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
             szamlakezelesGrid.Visibility = Visibility.Visible;
         }
-        
-        private void HozzaadButton_Click(object sender, RoutedEventArgs e)
-        {
-            SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow(pacienskivalasztasaComboBox.SelectedItem as Magankorhaz.Adatbazis.Paciens);
-            szth.ShowDialog();
-        }
-        
-        private void TorlesButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void paciensFelveteleGomb_Click(object sender, RoutedEventArgs e)
         {
@@ -577,48 +562,6 @@ namespace Magankorhaz
             paciensMegtekintesGomb.Visibility = Visibility.Visible;
         }
 
-        #endregion
-        //Barni rész vége
-
-
-
-        //Kitti része
-        #region Kitti
-        private void szamlaatekintesClick(object sender, RoutedEventArgs e)
-        {
-            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
-            //szamlakezelesGrid.Visibility = Visibility.Hidden;
-            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
-            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
-            ujszamlaGrid.Visibility = Visibility.Hidden;
-            szamlaattekintesGrid.Visibility = Visibility.Visible;
-
-
-
-        }
-
-
-
-        private void ujszamlakiallitasaClick(object sender, RoutedEventArgs e)
-        {
-            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
-            //szamlakezelesGrid.Visibility = Visibility.Hidden;
-            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
-            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
-            szamlaattekintesGrid.Visibility = Visibility.Hidden;
-            ujszamlaGrid.Visibility = Visibility.Visible;
-
-
-            var paciensek = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
-                            select akt;
-            pacienskek = new ObservableCollection<Magankorhaz.Adatbazis.Paciens>(paciensek);
-            pacienskivalasztasaComboBox.ItemsSource = pacienskek;
-
-            if (pacienskivalasztasaComboBox.SelectedItem != null)
-            {
-                //ugyfeladatai.Content = pacienskivalasztasaComboBox.ItemsSource.ToString();
-            }
-        }
         private void paciensKeresesGomb_Click(object sender, RoutedEventArgs e)
         {
             if (paciensKeresesNev.Text.Length < 1 && paciensKeresesSzuletesiDatum.SelectedDate == null)
@@ -639,6 +582,67 @@ namespace Magankorhaz
             DataGridFrissítése(szurtPaciensek);
         }
 
+        #endregion
+        //Barni rész vége
+
+
+
+        //Kitti része
+        #region Kitti
+        private void szamlaatekintesClick(object sender, RoutedEventArgs e)
+        {
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            //szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            ujszamlaGrid.Visibility = Visibility.Hidden;
+            szamlaattekintesGrid.Visibility = Visibility.Visible;
+        }
+
+        private void HozzaadButton_Click(object sender, RoutedEventArgs e)
+        {
+            SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow(pacienskivalasztasaComboBox.SelectedItem as Magankorhaz.Adatbazis.Paciens);
+            szth.ShowDialog();
+            if (szth.DialogResult == true)
+            {
+                Adatbazis.Orvos orvos = (Adatbazis.Orvos)szth.kezeloorvosComboBox.SelectedItem;
+                string diagnozis = (string)szth.szolgaltatasneveComboBox.SelectedItem;
+                int ar = (int)szth.SzolgaltatasAraLabel.Content;
+            }
+        }
+
+        private void TorlesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ujszamlakiallitasaClick(object sender, RoutedEventArgs e)
+        {
+            ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
+            //szamlakezelesGrid.Visibility = Visibility.Hidden;
+            paciensMegtekinteseGrid.Visibility = Visibility.Hidden;
+            paciensekAttekintesGrid.Visibility = Visibility.Hidden;
+            szamlaattekintesGrid.Visibility = Visibility.Hidden;
+            ujszamlaGrid.Visibility = Visibility.Visible;
+
+
+            var paciensek = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                            select akt;
+            pacienskek = new ObservableCollection<Magankorhaz.Adatbazis.Paciens>(paciensek);
+            pacienskivalasztasaComboBox.ItemsSource = pacienskek;
+            pacienskivalasztasaComboBox.SelectedItem = pacienskek.FirstOrDefault();
+
+            if (pacienskivalasztasaComboBox.SelectedItem != null)
+            {
+                //ugyfeladatai.Content = pacienskivalasztasaComboBox.ItemsSource.ToString();
+            }
+        }
+        
         #endregion
         // Kitti rész vége
     }
