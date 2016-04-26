@@ -42,7 +42,10 @@ namespace Magankorhaz.FeldolgozoOsztalyok
                           where akt.Id == paciensAdatok.OsztalyID
                           select akt.Megnevezes;
 
-            paciensOsztaly = osztály.First();
+            if (osztály.Count() > 0)
+            {
+                paciensOsztaly = osztály.First();
+            }
 
             // Összes osztály megkeresése és ComboBox feltöltése, hogyha majd változtatni szeretne
             var osztalyok = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
@@ -75,7 +78,15 @@ namespace Magankorhaz.FeldolgozoOsztalyok
                 {
                     paciens.TavozasDatuma = paciens.TavozasDatuma;
                 }
-                else paciens.TavozasDatuma = modositottPaciens.TavozasDatuma;
+                else
+                {
+                    // Ha már távozott, akkor nincs elhelyezve
+                    paciens.TavozasDatuma = modositottPaciens.TavozasDatuma;
+                    paciens.OsztalyID = 0;
+                    paciens.Szobaszam = 0;
+
+                    paciensOsztaly = "Nincs elhelyezve";
+                }
             }
 
             int mentes = Adatbazis.AdatBazis.DataBase.SaveChanges();
@@ -125,6 +136,7 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             {
                 elhelyezendoPaciens.OsztalyID = osztalyID;
                 elhelyezendoPaciens.Szobaszam = szobaszam;
+                elhelyezendoPaciens.TavozasDatuma = new DateTime(1900, 1, 1);
             }
 
             int mentes = Adatbazis.AdatBazis.DataBase.SaveChanges();

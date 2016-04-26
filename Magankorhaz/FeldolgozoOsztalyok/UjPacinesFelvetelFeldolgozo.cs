@@ -75,6 +75,17 @@ namespace Magankorhaz.FeldolgozoOsztalyok
         {
             int errors = 0;
 
+            // Van-e már ilyen felhasználónév
+            var felhasznalonevek = from akt in adatbazis.Paciensek
+                                   where akt.Felhasznalonev == paciensFelhasznalonev
+                                   select akt;
+
+            if (felhasznalonevek.Count() > 0)
+            {
+                System.Windows.MessageBox.Show("Ilyen felhasználónévvel már létezik egy páciens. Válasszon másik felhasználónevet)!");
+                errors++;
+            }
+
             // Van-e már hasonló személyi számmal bent páciens
             var szemelyiSzamok = from akt in adatbazis.Paciensek
                      where akt.SzemelyiSzam == paciensSzemelyiszam

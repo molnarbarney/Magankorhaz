@@ -21,9 +21,11 @@ namespace Magankorhaz
     public partial class VezetosegWindow : Window
     {
         ViewModel vm;
-        public VezetosegWindow()
+        public VezetosegWindow(string felhasznalonev)
         {
             InitializeComponent();
+
+            felhasznalo.Content = felhasznalonev;
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)

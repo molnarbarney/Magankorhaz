@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Adatbazis\Ugyvezeto.cs" />
     <Compile Include="DiagramKeszito.cs" />
+    <Compile Include="FeldolgozoOsztalyok\Beleptetes.cs" />
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UgyintezoAttekintesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
@@ -186,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="SQL_szkriptek_mentes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LoginDetails.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

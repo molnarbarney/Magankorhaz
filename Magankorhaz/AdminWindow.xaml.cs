@@ -19,9 +19,11 @@ namespace Magankorhaz
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public AdminWindow()
+        public AdminWindow(string felhasznalonev)
         {
             InitializeComponent();
+
+            felhasznalo.Content = felhasznalonev;
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)

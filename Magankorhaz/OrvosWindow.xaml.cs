@@ -19,9 +19,11 @@ namespace Magankorhaz
     /// </summary>
     public partial class OrvosWindow : Window
     {
-        public OrvosWindow()
+        public OrvosWindow(string felhasznalonev)
         {
             InitializeComponent();
+
+            felhasznalo.Content = felhasznalonev;
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)

@@ -28,9 +28,11 @@ namespace Magankorhaz
         // Páciens adatainak módosításához
         FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo;
 
-        public UgyintezoWindow()
+        public UgyintezoWindow(string felhasznalonev)
         {
             InitializeComponent();
+
+            felhasznalo.Content = felhasznalonev;
        
             // Attekintés frissítés
             AttekintesFrissites();
@@ -62,29 +64,45 @@ namespace Magankorhaz
             // Szabad helyek
             szabadFerohelyekSzam.Content = ugyintezoAttekintesFeldolgozo.szabadFerohelyek();
 
-            // Férfiak - nők aránya
-            paciensAranyokSzam.Content = ugyintezoAttekintesFeldolgozo.ferfiakNokAranya();
+            // Egy kis hard coded érték...
+            if (Convert.ToInt32(szabadFerohelyekSzam.Content) != 540)
+            {
+                // Férfiak - nők aránya
+                paciensAranyokSzam.Content = ugyintezoAttekintesFeldolgozo.ferfiakNokAranya();
 
-            // Legrégebbi páciens
-            List<Adatbazis.Paciens> paciensek = new List<Adatbazis.Paciens>();
-            paciensek = ugyintezoAttekintesFeldolgozo.legregebbiLegujabbPaciens();
+                // Legrégebbi páciens
+                List<Adatbazis.Paciens> paciensek = new List<Adatbazis.Paciens>();
+                paciensek = ugyintezoAttekintesFeldolgozo.legregebbiLegujabbPaciens();
 
-            legregebbiPaciensNeve.Content = paciensek.First().Nev;
-            legregebbiPaciensDatum.Content = paciensek.First().FelvetelDatuma.ToString("yyyy. MM. dd.");
-            legujabbPaciensNeve.Content = paciensek.Last().Nev;
-            legujabbPaciensDatum.Content = paciensek.Last().FelvetelDatuma.ToString("yyyy. MM. dd.");
+                legregebbiPaciensNeve.Content = paciensek.First().Nev;
+                legregebbiPaciensDatum.Content = paciensek.First().FelvetelDatuma.ToString("yyyy. MM. dd.");
+                legujabbPaciensNeve.Content = paciensek.Last().Nev;
+                legujabbPaciensDatum.Content = paciensek.Last().FelvetelDatuma.ToString("yyyy. MM. dd.");
 
+                // DataGrid feltöltése
+                DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek());
+
+                paciensMegtekintesGomb.Visibility = Visibility.Hidden;
+
+                // Szűrők lenullázása
+                paciensKeresesGomb.IsEnabled = true;
+                paciensKeresesNev.Text = "";
+                paciensKeresesSzuletesiDatum.SelectedDate = null;
+            }
+            else
+            {
+                paciensAranyokSzam.Content = "";
+                legregebbiPaciensNeve.Content = "";
+                legregebbiPaciensDatum.Content = "";
+                legujabbPaciensNeve.Content = "";
+                legujabbPaciensDatum.Content = "";
+
+                // Szűrők letiltása
+                paciensKeresesGomb.IsEnabled = false;
+            }
+         
             // Dátum
             maiDatum.Content = DateTime.Now.Year + ". " + DateTime.Now.Month + ". " + DateTime.Now.Day + ".";
-
-            // DataGrid feltöltése
-            DataGridFrissítése(ugyintezoAttekintesFeldolgozo.paciensek());
-
-            paciensMegtekintesGomb.Visibility = Visibility.Hidden;
-
-            // Szűrők lenullázása
-            paciensKeresesNev.Text = "";
-            paciensKeresesSzuletesiDatum.SelectedDate = null;
         }
 
         void DataGridFrissítése(List<object> paciensek)
@@ -329,6 +347,7 @@ namespace Magankorhaz
                 {
                     paciensAdatOsztalyText.Content = paciensAdatOsztalyComboBox.SelectedValue.ToString();
                     paciensAdatSzobaText.Content = paciensAdatSzobaComboBox.SelectedItem.ToString();
+                    paciensAdatTavozasDatum.SelectedDate = null;
 
                     paciensOsztalyElhelyezesModositasGomb.Visibility = Visibility.Visible;
                     paciensOsztalyElhelyezesMentesGomb.Visibility = Visibility.Hidden;
@@ -436,6 +455,12 @@ namespace Magankorhaz
                     paciensAdatTAJ.Text = Convert.ToString(modositottPaciens.TAJ);
                     paciensAdatTelefonszam.Text = modositottPaciens.Telefon;
                     paciensAdatTavozasDatum.SelectedDate = modositottPaciens.TavozasDatuma;
+
+                    if (paciensAdatlapFeldolgozo.paciensOsztaly == "Nincs elhelyezve")
+                    {
+                        paciensAdatOsztalyText.Content = paciensAdatlapFeldolgozo.paciensOsztaly;
+                        paciensAdatSzobaText.Content = "";
+                    }
                 }
 
                 paciensAdatokLezarasa();

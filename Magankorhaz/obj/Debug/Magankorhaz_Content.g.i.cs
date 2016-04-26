@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sql_szkriptek_mentes.txt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logindetails.txt")]
 
 
