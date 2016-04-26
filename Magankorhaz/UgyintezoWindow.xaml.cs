@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -746,6 +748,7 @@ namespace Magankorhaz
             paciensekAttekintesGrid.Visibility = Visibility.Hidden;
             ujszamlaGrid.Visibility = Visibility.Hidden;
             szamlaattekintesGrid.Visibility = Visibility.Visible;
+
         }
 
         private void HozzaadButton_Click(object sender, RoutedEventArgs e)
@@ -757,12 +760,30 @@ namespace Magankorhaz
                 Adatbazis.Orvos orvos = (Adatbazis.Orvos)szth.kezeloorvosComboBox.SelectedItem;
                 string diagnozis = (string)szth.szolgaltatasneveComboBox.SelectedItem;
                 int ar = (int)szth.SzolgaltatasAraLabel.Content;
+
+                vmsz.SzamlahozSzamlak.Add(new Szamlahoz() { Orvos = orvos.Nev, SzolgaltatasNeve = diagnozis, SzolgaltatasAra = ar });
+                int összeg = 0;
+                foreach (var item in vmsz.SzamlahozSzamlak)
+                {
+                    összeg += item.SzolgaltatasAra;
+                }
+                fizetendoosszeg.Content = összeg;
             }
+
         }
 
         private void TorlesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SzamlaTartalom.SelectedIndex != -1)
+            {
+                vmsz.SzamlahozSzamlak.RemoveAt(SzamlaTartalom.SelectedIndex);
+            }
+            int összeg = 0;
+            foreach (var item in vmsz.SzamlahozSzamlak)
+            {
+                összeg += item.SzolgaltatasAra;
+            }
+            fizetendoosszeg.Content = összeg;
         }
 
         private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
@@ -785,14 +806,53 @@ namespace Magankorhaz
             pacienskek = new ObservableCollection<Magankorhaz.Adatbazis.Paciens>(paciensek);
             pacienskivalasztasaComboBox.ItemsSource = pacienskek;
             pacienskivalasztasaComboBox.SelectedItem = pacienskek.FirstOrDefault();
+        }
 
-            if (pacienskivalasztasaComboBox.SelectedItem != null)
+        ViewModelSzamlahoz vmsz;
+        private void szamlakezelesGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            vmsz = new ViewModelSzamlahoz();
+            this.DataContext = vmsz;
+        }
+
+        #endregion            
+        // Kitti rész vége
+    }
+
+    class BindableSzamlahoz : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string s = "")
+        {
+            if (PropertyChanged != null)
             {
-                //ugyfeladatai.Content = pacienskivalasztasaComboBox.ItemsSource.ToString();
+                PropertyChanged(this, new PropertyChangedEventArgs(s));
             }
         }
+    }
+
+    class ViewModelSzamlahoz : BindableSzamlahoz
+    {
+
+        ObservableCollection<Szamlahoz> szamlahozSzamlak;
+
+        public ObservableCollection<Szamlahoz> SzamlahozSzamlak
+        {
+            get { return szamlahozSzamlak; }
+            set { szamlahozSzamlak = value; OnPropertyChanged(); }
+        }
         
-        #endregion        
-        // Kitti rész vége
+        public ViewModelSzamlahoz()
+        {
+            szamlahozSzamlak = new ObservableCollection<Szamlahoz>();
+        }
+
+    }
+
+    public class Szamlahoz
+    {
+        public string Orvos { get; set; }
+        public string SzolgaltatasNeve { get; set; }
+        public int SzolgaltatasAra { get; set; }
     }
 }

@@ -71,6 +71,7 @@
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UgyintezoAttekintesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
+    <Compile Include="KihasznaltsagDiagramKeszito.cs" />
     <Compile Include="Migrations\201604210645117_InitialCreate.cs" />
     <Compile Include="Migrations\201604210645117_InitialCreate.Designer.cs">
       <DependentUpon>201604210645117_InitialCreate.cs</DependentUpon>

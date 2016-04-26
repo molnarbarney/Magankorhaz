@@ -48,6 +48,14 @@ namespace Magankorhaz
             set { megalakzatok = value; OnPropertyChanged(); }
         }
 
+        List<Alakzat> megtobbalakzatok;
+
+        public List<Alakzat> Megtobbalakzatok
+        {
+            get { return megtobbalakzatok; }
+            set { megtobbalakzatok = value; }
+        }
+
         ObservableCollection<Elemek> listaelemek;
 
         public ObservableCollection<Elemek> Listaelemek
@@ -64,6 +72,14 @@ namespace Magankorhaz
             set { meglistaelemek = value; OnPropertyChanged(); }
         }
 
+        ObservableCollection<Elemek> megtobblistaelemek;
+
+        public ObservableCollection<Elemek> Megtobblistaelemek
+        {
+            get { return megtobblistaelemek; }
+            set { megtobblistaelemek = value; }
+        }
+
         public ViewModel(int cw, int ch)
         {
             this.cw = cw;
@@ -72,6 +88,8 @@ namespace Magankorhaz
             alakzatok = new List<Alakzat>();
             meglistaelemek = new ObservableCollection<Elemek>();
             megalakzatok = new List<Alakzat>();
+            megtobblistaelemek = new ObservableCollection<Elemek>();
+            megtobbalakzatok = new List<Alakzat>();
         }
 
 
@@ -95,6 +113,7 @@ namespace Magankorhaz
                 MegAlakzatok.Add(new Alakzat(i * szelesseg, ch - MegListaelemek[i].Érték, szelesseg, MegListaelemek[i].Érték));
             }
         }
+
     }
     class Bindable : INotifyPropertyChanged
     {
