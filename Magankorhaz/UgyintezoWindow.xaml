@@ -20,7 +20,7 @@
         <!-- Tartalmak -->
 
         <!-- Áttekintés -->
-        <Grid x:Name="paciensekAttekintesGrid" HorizontalAlignment="Left" Height="548" Margin="239,112,0,0" VerticalAlignment="Top" Width="1095" Visibility="Hidden">
+        <Grid x:Name="paciensekAttekintesGrid" HorizontalAlignment="Left" Height="548" Margin="239,112,0,0" VerticalAlignment="Top" Width="1095" Visibility="Visible">
             <Label Content="Páciensek áttekintése" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
@@ -101,7 +101,7 @@
         </Grid>
 
         <!-- Páciens adatai, elhelyezése, időpontjai -->
-        <Grid x:Name="paciensMegtekinteseGrid" HorizontalAlignment="Left" Height="548" Margin="245,113,0,0" VerticalAlignment="Top" Width="1089" Visibility="Visible">
+        <Grid x:Name="paciensMegtekinteseGrid" HorizontalAlignment="Left" Height="548" Margin="245,113,0,0" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
             <Label Content="Páciens adatai" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
