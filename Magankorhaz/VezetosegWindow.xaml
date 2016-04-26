@@ -45,7 +45,7 @@
         </Grid>
 
         <!-- Költségvetési kimutatások -->
-        <Grid x:Name="koltsegvetesikimutatasokmenu"  HorizontalAlignment="Left" Height="556" Margin="304,105,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden">
+        <Grid Loaded="koltsegvetesikimutatasokmenu_Loaded" x:Name="koltsegvetesikimutatasokmenu"  HorizontalAlignment="Left" Height="556" Margin="304,105,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden">
             <Button Content="Mutasd" Click="KoltsegvetesClick" HorizontalAlignment="Left" Margin="424,57,0,0" VerticalAlignment="Top" Width="75" Height="40"  RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <DatePicker Name="kts1date" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
             <DatePicker Name="kts2date" HorizontalAlignment="Left" Margin="200,57,0,0" VerticalAlignment="Top"/>
@@ -58,15 +58,15 @@
         </Grid>
 
         <!-- Osztályok kihasználtsága -->
-        <Grid x:Name="osztalyokkihasznaltsagamenu" HorizontalAlignment="Left" Height="556" Margin="233,105,0,0" VerticalAlignment="Top" Width="1102" Visibility="Hidden">
+        <Grid Loaded="osztalyokkihasznaltsagamenu_Loaded" x:Name="osztalyokkihasznaltsagamenu" HorizontalAlignment="Left" Height="556" Margin="233,105,0,0" VerticalAlignment="Top" Width="1102" Visibility="Hidden">
             <Label Content="Osztály kiválasztása" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <ComboBox HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="218"/>
-            <Button Content="Mutasd" HorizontalAlignment="Left" Margin="165,139,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            <DatePicker HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
-            <DatePicker HorizontalAlignment="Left" Margin="213,59,0,0" VerticalAlignment="Top"/>
+            <ComboBox Name="osztalyokCombobox" ItemsSource="{Binding Osztalyok}" DisplayMemberPath="Megnevezes" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="218"/>
+            <Button Content="Mutasd" Click="KihasznaltsagClick" HorizontalAlignment="Left" Margin="165,139,0,0" VerticalAlignment="Top" Width="75"/>
+            <DatePicker Name="kih1date" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
+            <DatePicker Name="kih2date" HorizontalAlignment="Left" Margin="213,59,0,0" VerticalAlignment="Top"/>
             <Label Content="-tól" HorizontalAlignment="Left" Margin="146,57,0,0" VerticalAlignment="Top"/>
             <Label Content="-ig" HorizontalAlignment="Left" Margin="406,65,0,0" VerticalAlignment="Top"/>
-            <Canvas HorizontalAlignment="Left" Height="230" Margin="626,252,0,0" VerticalAlignment="Top" Width="466" Background="Azure"/>
+            <Canvas Name="kihasznaltsagvaszon" Opacity="0.7" HorizontalAlignment="Left" Height="230" Margin="626,252,0,0" VerticalAlignment="Top" Width="466"/>
         </Grid>
 
     </Grid>

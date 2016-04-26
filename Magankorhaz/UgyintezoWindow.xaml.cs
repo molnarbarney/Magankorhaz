@@ -747,6 +747,12 @@ namespace Magankorhaz
             szamlaattekintesGrid.Visibility = Visibility.Visible;
         }
 
+        ObservableCollection<string> orvosneve = new ObservableCollection<string>();
+
+        ObservableCollection<string> szolgaltatasneve = new ObservableCollection<string>();
+
+        ObservableCollection<int> szolgaltatasara = new ObservableCollection<int>();
+
         private void HozzaadButton_Click(object sender, RoutedEventArgs e)
         {
             SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow(pacienskivalasztasaComboBox.SelectedItem as Magankorhaz.Adatbazis.Paciens);
@@ -756,6 +762,15 @@ namespace Magankorhaz
                 Adatbazis.Orvos orvos = (Adatbazis.Orvos)szth.kezeloorvosComboBox.SelectedItem;
                 string diagnozis = (string)szth.szolgaltatasneveComboBox.SelectedItem;
                 int ar = (int)szth.SzolgaltatasAraLabel.Content;
+
+                o_neve.Content = (string)szth.kezeloorvosComboBox.SelectedItem.ToString();
+                sz_neve.Content = (string)szth.szolgaltatasneveComboBox.SelectedItem;
+                sz_ara.Content = (int)szth.SzolgaltatasAraLabel.Content;
+
+                orvosneve.Add((o_neve.Content.ToString()));
+                szolgaltatasneve.Add((string)sz_neve.Content);
+                szolgaltatasara.Add((int)sz_ara.Content);
+
             }
         }
 

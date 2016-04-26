@@ -204,15 +204,13 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="28*"/>
                             <RowDefinition Height="28*"/>
-                            <RowDefinition Height="28*"/>
-                            <RowDefinition Height="28*"/>
                         </Grid.RowDefinitions>
                         <Label Name="szolgneve" Content="Szolgáltatás megnevezése" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="161" Height="27" Grid.RowSpan="2"/>
                         <Label Name="kezeloorvos" Content="Kezelő orvos" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.RowSpan="2" Width="84"/>
                         <Label Name="kezelesara" Content="Kezelés ára" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Grid.Column="2" Width="71"/>
-                        <Label Content="Szolgáltatás megnevezése" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" />
-                        <Label Content="{Binding orvoskak}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
-                        <Label Content="Kezelés ára" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
+                        <Label Name="sz_neve" Content="Szolgáltatás megnevezése" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" />
+                        <Label Name="o_neve" Content="Kezelő orvos" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
+                        <Label Name="sz_ara" Content="Kezelés ára" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
                     </Grid>
                 </ListBox>
                 <Label Content="Igénybevett szolgáltatások:" HorizontalAlignment="Left" Margin="6,172,0,0" VerticalAlignment="Top" Height="30" Width="286"/>
@@ -220,7 +218,7 @@
                 <Button Content="Törlés" Click="TorlesButton_Click" HorizontalAlignment="Left" Margin="720,332,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
                 <Button Content="Számla kiállítása" Click="SzamlaKiallitasaButton_Click" HorizontalAlignment="Left" Margin="366,512,0,0" VerticalAlignment="Top" Width="178" Height="24"/>
                 <Label Content="Összesen" x:Name="osszegmezo" HorizontalAlignment="Left" Margin="6,416,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="42" Width="94"/>
-                <TextBox HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94"/>
+                <Label Name="fizetendoosszeg" HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" VerticalAlignment="Top" Width="94"/>
                 <Label Content="Ft" HorizontalAlignment="Left" Margin="200,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
             </Grid>
             
