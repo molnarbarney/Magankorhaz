@@ -20,7 +20,7 @@
         <!-- Tartalmak -->
 
         <!-- Áttekintés -->
-        <Grid x:Name="paciensekAttekintesGrid" HorizontalAlignment="Left" Height="548" Margin="239,112,0,0" VerticalAlignment="Top" Width="1095" Visibility="Visible">
+        <Grid x:Name="paciensekAttekintesGrid" HorizontalAlignment="Left" Height="548" Margin="239,112,0,0" VerticalAlignment="Top" Width="1095" Visibility="Hidden">
             <Label Content="Páciensek áttekintése" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
@@ -101,60 +101,72 @@
         </Grid>
 
         <!-- Páciens adatai, elhelyezése, időpontjai -->
-        <Grid x:Name="paciensMegtekinteseGrid" HorizontalAlignment="Left" Height="548" Margin="245,113,0,0" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
+        <Grid x:Name="paciensMegtekinteseGrid" HorizontalAlignment="Left" Height="548" Margin="245,113,0,0" VerticalAlignment="Top" Width="1089" Visibility="Visible">
             <Label Content="Páciens adatai" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="472" Margin="10,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="391"/>
-            <Ellipse HorizontalAlignment="Left" Height="134" Margin="-7,41,0,0" Stroke="White" StrokeThickness="10" VerticalAlignment="Top" Width="134" Fill="#FFD0D0D6"/>
 
-            <TextBox x:Name="paciensAdatNev" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="22" Margin="132,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF1C9BB8" SelectionBrush="{x:Null}" IsReadOnly="True" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatEmail" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="18" Margin="132,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
-            <TextBox x:Name="paciensAdatFelhasznalonev" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="18" Margin="132,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Név:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,80,0,0" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <Label Content="E-mail:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,105,0,0" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <Label Content="Felhasználónév:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,130,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <Label Content="Jelszó:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,155,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
 
-            <PasswordBox x:Name="paciensAdatJelszo" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="133,150,0,0" VerticalAlignment="Top" Width="263" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" Background="{x:Null}" IsEnabled="False"/>
+            <TextBox x:Name="paciensAdatNev" HorizontalAlignment="Left" Height="22" Margin="69,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF1C9BB8" SelectionBrush="{x:Null}" IsReadOnly="True" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatEmail" HorizontalAlignment="Left" Height="18" Margin="79,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <TextBox x:Name="paciensAdatFelhasznalonev" HorizontalAlignment="Left" Height="18" Margin="132,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Személyi szám:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,184,0,0" VerticalAlignment="Top" Width="94" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatSzemelyiSzam" HorizontalAlignment="Left" Height="18" Margin="123,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <PasswordBox x:Name="paciensAdatJelszo" HorizontalAlignment="Left" Margin="77,160,0,0" VerticalAlignment="Top" Width="319" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" Background="{x:Null}" IsEnabled="False" RenderTransformOrigin="0.5,0.5">
+                <PasswordBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.01"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </PasswordBox.RenderTransform>
+            </PasswordBox>
 
-            <Label Content="TAJ:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,207,0,0" VerticalAlignment="Top" Width="37" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatTAJ" HorizontalAlignment="Left" Height="18" Margin="61,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Személyi szám:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,180,0,0" VerticalAlignment="Top" Width="94" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatSzemelyiSzam" HorizontalAlignment="Left" Height="18" Margin="123,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Születési dátum:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,228,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <DatePicker x:Name="paciensAdatSzuletesiDatum" HorizontalAlignment="Left" Margin="127,230,0,0" VerticalAlignment="Top" IsTodayHighlighted="True" BorderBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" BorderThickness="0" FirstDayOfWeek="Monday" IsEnabled="False"/>
-            <!--<TextBox x:Name="paciensAdatSzuletesiDatumText" HorizontalAlignment="Left" Height="20" Margin="128,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>-->
+            <Label Content="TAJ:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,205,0,0" VerticalAlignment="Top" Width="37" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatTAJ" HorizontalAlignment="Left" Height="18" Margin="62,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Lakcím:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="23,249,0,0" VerticalAlignment="Top" Width="53" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatLakcim" HorizontalAlignment="Left" Height="20" Margin="75,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Születési dátum:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,230,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <DatePicker x:Name="paciensAdatSzuletesiDatum" HorizontalAlignment="Left" Margin="127,233,0,0" VerticalAlignment="Top" IsTodayHighlighted="True" BorderBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" BorderThickness="0" FirstDayOfWeek="Monday" IsEnabled="False"/>
 
-            <Label Content="Telefon:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,273,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatTelefonszam" HorizontalAlignment="Left" Height="20" Margin="76,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Lakcím:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="23,255,0,0" VerticalAlignment="Top" Width="53" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatLakcim" HorizontalAlignment="Left" Height="20" Margin="81,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Neme:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,297,0,0" VerticalAlignment="Top" Width="48" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatNeme" HorizontalAlignment="Left" Height="20" Margin="75,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Telefon:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,280,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatTelefonszam" HorizontalAlignment="Left" Height="20" Margin="83,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="311" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+
+            <Label Content="Neme:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,305,0,0" VerticalAlignment="Top" Width="48" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatNeme" HorizontalAlignment="Left" Height="20" Margin="77,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
             <ComboBox x:Name="paciensAdatNemeComboBox" HorizontalAlignment="Left" Margin="75,300,0,0" VerticalAlignment="Top" Width="81" SelectedIndex="0" Visibility="Hidden">
                 <ComboBoxItem x:Name="ferfii" Content="Férfi"/>
                 <ComboBoxItem x:Name="noo" Content="Nő"/>
             </ComboBox>
 
-            <Label Content="Utolsó bejelentkezés:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,321,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatUtolsoBejelentkezes" HorizontalAlignment="Left" Height="20" Margin="157,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Utolsó bejelentkezés:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,330,0,0" VerticalAlignment="Top" Width="130" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatUtolsoBejelentkezes" HorizontalAlignment="Left" Height="20" Margin="160,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Felvétel dátuma:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,345,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatFelvetel" HorizontalAlignment="Left" Height="20" Margin="132,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Felvétel dátuma:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,355,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatFelvetel" HorizontalAlignment="Left" Height="20" Margin="134,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Távozás dátuma:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,369,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <DatePicker x:Name="paciensAdatTavozasDatum" HorizontalAlignment="Left" Margin="132,374,0,0" VerticalAlignment="Top" IsTodayHighlighted="True" BorderBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" BorderThickness="0" FirstDayOfWeek="Monday" Visibility="Visible"/>
+            <Label Content="Távozás dátuma:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Width="105" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <DatePicker x:Name="paciensAdatTavozasDatum" HorizontalAlignment="Left" Margin="133,383,0,0" VerticalAlignment="Top" IsTodayHighlighted="True" BorderBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" BorderThickness="0" FirstDayOfWeek="Monday" Visibility="Visible"/>
 
-            <Label Content="Jelenlegi kezelőorvos:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,392,0,0" VerticalAlignment="Top" Width="134" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatOrvos" HorizontalAlignment="Left" Height="20" Margin="161,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Jelenlegi kezelőorvos:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,405,0,0" VerticalAlignment="Top" Width="134" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatOrvos" HorizontalAlignment="Left" Height="20" Margin="163,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
-            <Label Content="Felelős ügyintező:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,416,0,0" VerticalAlignment="Top" Width="113" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <TextBox x:Name="paciensAdatUgyvezeto" HorizontalAlignment="Left" Height="20" Margin="140,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
+            <Label Content="Felelős ügyintező:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,430,0,0" VerticalAlignment="Top" Width="113" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
+            <TextBox x:Name="paciensAdatUgyvezeto" HorizontalAlignment="Left" Height="20" Margin="142,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
 
             <Button x:Name="paciensAdatokModositasGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="24,498,0,0" VerticalAlignment="Top" Width="79" Height="27" Click="paciensAdatokModositasGomb_Click"/>
             <Button x:Name="paciensAdatokMentesGomb" Content="Mentés" HorizontalAlignment="Left" Margin="119,498,0,0" VerticalAlignment="Top" Width="79" Height="27" Visibility="Hidden" Click="paciensAdatokMentesGomb_Click"/>
-            <Button x:Name="paciensAdatokTorlesGomb" Content="Törlés" HorizontalAlignment="Left" Margin="308,498,0,0" VerticalAlignment="Top" Width="79" Height="27"/>
+            <Button x:Name="paciensAdatokTorlesGomb" Content="Törlés" HorizontalAlignment="Left" Margin="308,498,0,0" VerticalAlignment="Top" Width="79" Height="27" Visibility="Hidden"/>
             <Button x:Name="paciensAdatokMegseGomb" Content="Mégse" HorizontalAlignment="Left" Margin="212,498,0,0" VerticalAlignment="Top" Width="79" Height="27" Visibility="Hidden" Click="paciensAdatokMegseGomb_Click"/>
 
             <!-- Elhelyezés -->
@@ -180,7 +192,6 @@
             <Label Content="Vizsgálat helye" HorizontalAlignment="Left" Margin="691,166,0,0" VerticalAlignment="Top"/>
             <Button x:Name="paciensAdatUjIdopontGomb" Content="Új időpont felvétele" HorizontalAlignment="Left" Margin="905,166,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
             <DataGrid x:Name="paciensIdpontokListView" Height="338" Margin="422,200,19,10" Width="648" BorderThickness="0"/>
-            
         </Grid>
 
         <!-- Számlakezelés -->
@@ -223,7 +234,7 @@
                 <TextBox HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94"/>
                 <Label Content="Ft" HorizontalAlignment="Left" Margin="200,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
             </Grid>
-            
+
             <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="450" Margin="30,60,0,0" VerticalAlignment="Top" Width="1045" Visibility="Hidden">
                 <ListBox>
 
@@ -245,7 +256,7 @@
                         <Label Content="Bafizetés dátuma" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
                     </Grid>
                 </ListBox>
-                
+
             </Grid>
         </Grid>
 
