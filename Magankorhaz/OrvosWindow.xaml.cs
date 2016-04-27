@@ -25,6 +25,7 @@ namespace Magankorhaz
         public OrvosWindow(string felhasznalonev)
         {
             InitializeComponent();
+            felhasznalo.Content = felhasznalonev;
             orvos = OrvosBetoltese(felhasznalonev);
             FeluletBeallitasa();
         }
@@ -49,7 +50,7 @@ namespace Magankorhaz
         Magankorhaz.Adatbazis.Orvos OrvosBetoltese(string felhasznalonev)
         {
             //TODO adatbazisbol beszerezni
-            if(felhasznalonev == "orvos")
+            if (felhasznalonev == "orvos")
             {
                 OrvosRendelesFeldolgozo feldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase);
                 return feldolgozo.ElsoOrvos();
@@ -74,6 +75,6 @@ namespace Magankorhaz
             orvosTartalomGrid.Children.Clear();
             orvosTartalomGrid.Children.Add(new OrvosRendelesek(orvos));
         }
-       
+
     }
 }
