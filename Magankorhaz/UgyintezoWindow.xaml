@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="UgyintezoWindow" Height="700" Width="1350" ResizeMode="CanMinimize" Closing="ugyintezoWindow_Closing">
+        Title="Magánkórház - Ügyintéző" Height="700" Width="1350" ResizeMode="CanMinimize" Closing="ugyintezoWindow_Closing">
     <Grid>
         <!-- Felső sor -->
         <Rectangle x:Name="menu_header_background" Fill="#FF1D3446" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="229" Margin="-1,0,0,0" StrokeThickness="0"/>
@@ -173,11 +173,11 @@
             <Rectangle HorizontalAlignment="Left" Height="71" Margin="422,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="648" Fill="#FFEBEBEB"/>
 
             <Label Content="Osztály:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,76,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <Label x:Name="paciensAdatOsztalyText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="490,78,0,0" VerticalAlignment="Top" Width="372" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
+            <Label x:Name="paciensAdatOsztalyText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="490,76,0,0" VerticalAlignment="Top" Width="372" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
             <ComboBox x:Name="paciensAdatOsztalyComboBox" HorizontalAlignment="Left" Margin="491,78,0,0" VerticalAlignment="Top" Width="372" Height="24" VerticalContentAlignment="Center" Visibility="Hidden" SelectedIndex="0"/>
 
             <Label Content="Szobaszám:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,102,0,0" VerticalAlignment="Top" Width="77" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
-            <Label x:Name="paciensAdatSzobaText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="514,104,0,0" VerticalAlignment="Top" Width="123" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28"/>
+            <Label x:Name="paciensAdatSzobaText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="514,102,0,0" VerticalAlignment="Top" Width="123" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28"/>
             <ComboBox x:Name="paciensAdatSzobaComboBox" HorizontalAlignment="Left" Margin="515,104,0,0" VerticalAlignment="Top" Width="123" Height="24" VerticalContentAlignment="Center" Visibility="Hidden" SelectedIndex="0"/>
 
             <Button x:Name="paciensOsztalyElhelyezesModositasGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="881,89,0,0" VerticalAlignment="Top" Width="79" Height="26" Click="paciensOsztalyElhelyezesModositasGomb_Click"/>
@@ -187,11 +187,15 @@
 
             <!-- Időpontok -->
             <Rectangle Fill="#FFEBEBEB" HorizontalAlignment="Left" Height="42" Margin="422,158,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="648"/>
-            <Label Content="Vizsgálat ideje" HorizontalAlignment="Left" Margin="432,166,0,0" VerticalAlignment="Top"/>
-            <Label Content="Megnevezése" HorizontalAlignment="Left" Margin="561,166,0,0" VerticalAlignment="Top"/>
-            <Label Content="Vizsgálat helye" HorizontalAlignment="Left" Margin="691,166,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="paciensAdatUjIdopontGomb" Content="Új időpont felvétele" HorizontalAlignment="Left" Margin="905,166,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
-            <DataGrid x:Name="paciensIdpontokListView" Height="338" Margin="422,200,19,10" Width="648" BorderThickness="0"/>
+            <Button x:Name="paciensAdatUjIdopontGomb" Content="Új időpont felvétele" HorizontalAlignment="Left" Margin="927,166,0,0" VerticalAlignment="Top" Width="131" Height="26" Click="paciensAdatUjIdopontGomb_Click"/>
+            <Button x:Name="paciensAdatIdopontTorleseGomb" Content="Törlés" HorizontalAlignment="Left" Margin="851,166,0,0" VerticalAlignment="Top" Width="62" Height="26" Visibility="Hidden" Click="paciensAdatIdopontTorleseGomb_Click"/>
+            <Button x:Name="paciensAdatIdopontModositasaGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="774,166,0,0" VerticalAlignment="Top" Width="62" Height="26" Visibility="Hidden" Click="paciensAdatIdopontModositasaGomb_Click"/>
+            <DataGrid x:Name="paciensIdpontokListView" Height="338" Margin="422,200,19,10" Width="648" BorderThickness="0" ColumnWidth="214" CanUserResizeColumns="False" MaxColumnWidth="214" SelectionMode="Single" SelectionChanged="paciensIdpontokListView_SelectionChanged"/>
+            <Button x:Name="IdopontokRefreshGomb" Content="" HorizontalAlignment="Left" Margin="435,170,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="IdopontokRefreshGomb_Click" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Pictures/refresh.png"/>
+                </Button.Background>
+            </Button>
         </Grid>
 
         <!-- Számlakezelés -->
