@@ -379,7 +379,11 @@ D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magán
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosRendelesek.g.cs
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosSajatAdatok.g.cs
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjIdopontFelvetele.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.g.cs
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.baml
-D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.g.cs
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosIdopontModositasa.baml
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosRendelesek.baml
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosSajatAdatok.baml
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjIdopontFelvetele.baml
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosIdopontModositasa.g.cs
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosRendelesek.g.cs
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosSajatAdatok.g.cs
+D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjIdopontFelvetele.g.cs

@@ -203,7 +203,7 @@
             <Button Content="Számlák áttekintése" Click="szamlaatekintesClick" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
             <Button Content="Új számla kiállítása" Click="ujszamlakiallitasaClick" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
             <!--Új számla kiállítása-->
-            <Grid x:Name="ujszamlaGrid" HorizontalAlignment="Left" Height="555" Margin="30,60,0,0" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
+            <Grid x:Name="ujszamlaGrid" HorizontalAlignment="Left" Height="555" Margin="33,56,-33,-56" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
                 <ComboBox x:Name="pacienskivalasztasaComboBox" Text="Páciens kiválasztása..." HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="131" Height="26" />
                 <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
                 <GroupBox x:Name="ugyfeladatai" Content="{Binding ElementName=pacienskivalasztasaComboBox, Path=SelectedItem}" Header="Ügyfél adatai:" HorizontalAlignment="Left" Margin="6,40,0,0" VerticalAlignment="Top" Height="126" Width="440"/>
@@ -216,13 +216,15 @@
                                     <ColumnDefinition Width="200"/>
                                     <ColumnDefinition Width="200"/>
                                     <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="200"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="28" />
                                 </Grid.RowDefinitions>
-                                <Label Content="{Binding SzolgaltatasNeve}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" />
-                                <Label Content="{Binding Orvos}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="{Binding SzolgaltatasAra}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="2"/>
+                                <Label Name="kartonID" Content="{Binding KartonID}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" />
+                                <Label Content="{Binding SzolgaltatasNeve}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" />
+                                <Label Content="{Binding Orvos}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="2"/>
+                                <Label Content="{Binding SzolgaltatasAra}" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="3"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -230,32 +232,36 @@
                 <Label Content="Igénybevett szolgáltatások:" HorizontalAlignment="Left" Margin="6,172,0,0" VerticalAlignment="Top" Height="30" Width="286"/>
                 <Button Content="Hozzáadás" Click="HozzaadButton_Click" HorizontalAlignment="Left" Margin="42,352,0,0" VerticalAlignment="Top" Width="134" Height="22"/>
                 <Button Content="Törlés" Click="TorlesButton_Click" HorizontalAlignment="Left" Margin="215,352,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
-                <Button Content="Számla kiállítása" Click="SzamlaKiallitasaButton_Click" HorizontalAlignment="Left" Margin="719,416,0,0" VerticalAlignment="Top" Width="178" Height="24"/>
+                <Button Content="Számla kiállítása" Click="SzamlaKiallitasaButton_Click" IsEnabled="{Binding ElementName=FizetveCheckBox, Path=IsChecked}" HorizontalAlignment="Left" Margin="719,416,0,0" VerticalAlignment="Top" Width="178" Height="24"/>
                 <Label Content="Összesen:" x:Name="osszegmezo" HorizontalAlignment="Left" Margin="6,416,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="42" Width="100"/>
                 <Label Name="fizetendoosszeg" HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" VerticalAlignment="Top" Width="94" FontSize="20" FontWeight="Bold"/>
                 <Label Content="Ft" HorizontalAlignment="Left" Margin="160,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
+                <CheckBox Name="FizetveCheckBox" Content="Fizetve" HorizontalAlignment="Left" Margin="779,352,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
             </Grid>
 
             <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="450" Margin="30,60,0,0" VerticalAlignment="Top" Width="1045" Visibility="Hidden">
-                <ListBox>
-
-                    <Grid Height="112" Width="900">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="180*"/>
-                            <ColumnDefinition Width="180*"/>
-                            <ColumnDefinition Width="180*"/>
-                            <ColumnDefinition Width="180*"/>
-                            <ColumnDefinition Width="180*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="45*"/>
-                        </Grid.RowDefinitions>
-                        <Label Content="Páciens ID" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" />
-                        <Label Content="Karton ID" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
-                        <Label Content="Fizetendő" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
-                        <Label Content="Befizetve?" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3"/>
-                        <Label Content="Bafizetés dátuma" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
-                    </Grid>
+                <ListBox Name="TaroltSzamlaTartalom">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="180"/>
+                                    <ColumnDefinition Width="180"/>
+                                    <ColumnDefinition Width="180"/>
+                                    <ColumnDefinition Width="180"/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="{Binding PaciensID}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" />
+                                <Label Content="{Binding KartonID}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="{Binding Fizetendo}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
+                                <Label Content="{Binding Befizetve}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3"/>
+                                <Label Content="{Binding BefizetesDatuma}" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
 
             </Grid>

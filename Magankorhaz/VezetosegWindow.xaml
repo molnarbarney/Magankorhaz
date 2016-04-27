@@ -28,7 +28,7 @@
             <Rectangle x:Name="stat_1_Copy" Fill="#FFFC9D9B" HorizontalAlignment="Left" Height="100" Margin="421,55,0,0" VerticalAlignment="Top" Width="200"/>
             <Rectangle x:Name="stat_2_Copy" Fill="#FF56B1C4" HorizontalAlignment="Left" Height="100" Margin="632,55,0,0" VerticalAlignment="Top" Width="200"/>
 
-            <Label x:Name="legutolsolekerdezesdatuma" Content="2016. 04. 24." HorizontalAlignment="Left" Margin="14,64,0,0" VerticalAlignment="Top" Height="40" Width="173" FontFamily="Helvetica" FontSize="18" Foreground="White"/>
+            <Label x:Name="legutolsolekerdezesdatuma" Content="" HorizontalAlignment="Left" Margin="14,64,0,0" VerticalAlignment="Top" Height="40" Width="173" FontFamily="Helvetica" FontSize="18" Foreground="White"/>
             <Label Content="Legutolsó lekérdezés" Typography.Capitals="SmallCaps" HorizontalAlignment="Left" Margin="14,117,0,0" VerticalAlignment="Top" Height="30" Width="173" FontFamily="Calibri" FontSize="16" Foreground="White" RenderTransformOrigin="0.5,0.5"/>
 
             <Label x:Name="legnagyobbbevetel" Content="250.000 Ft" HorizontalAlignment="Left" Margin="224,67,0,0" VerticalAlignment="Top" Height="40" Width="172" FontFamily="Helvetica" FontSize="18" Foreground="White"/>
@@ -46,7 +46,7 @@
 
         <!-- Költségvetési kimutatások -->
         <Grid Loaded="koltsegvetesikimutatasokmenu_Loaded" x:Name="koltsegvetesikimutatasokmenu"  HorizontalAlignment="Left" Height="556" Margin="304,105,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden">
-            <Button Content="Mutasd" Click="KoltsegvetesClick" HorizontalAlignment="Left" Margin="424,57,0,0" VerticalAlignment="Top" Width="75" Height="40"  RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
+            <Button Content="Mutasd" Name="ktskimutatasButton" Click="KoltsegvetesClick" HorizontalAlignment="Left" Margin="424,57,0,0" VerticalAlignment="Top" Width="75" Height="40"  RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <DatePicker Name="kts1date" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
             <DatePicker Name="kts2date" HorizontalAlignment="Left" Margin="200,57,0,0" VerticalAlignment="Top"/>
             <Label Content="-tól" HorizontalAlignment="Left" Margin="145,57,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
@@ -61,7 +61,7 @@
         <Grid Loaded="osztalyokkihasznaltsagamenu_Loaded" x:Name="osztalyokkihasznaltsagamenu" HorizontalAlignment="Left" Height="556" Margin="233,105,0,0" VerticalAlignment="Top" Width="1102" Visibility="Hidden">
             <Label Content="Osztály kiválasztása" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             <ComboBox Name="osztalyokCombobox" ItemsSource="{Binding Osztalyok}" DisplayMemberPath="Megnevezes" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="218"/>
-            <Button Content="Mutasd" Click="KihasznaltsagClick" HorizontalAlignment="Left" Margin="165,139,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="Mutasd" Name="kihasznaltsagButton" Click="KihasznaltsagClick" HorizontalAlignment="Left" Margin="165,139,0,0" VerticalAlignment="Top" Width="75"/>
             <DatePicker Name="kih1date" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
             <DatePicker Name="kih2date" HorizontalAlignment="Left" Margin="213,59,0,0" VerticalAlignment="Top"/>
             <Label Content="-tól" HorizontalAlignment="Left" Margin="146,57,0,0" VerticalAlignment="Top"/>
