@@ -9,8 +9,8 @@
     <Grid HorizontalAlignment="Left" Height="652" Margin="10,10,0,0" VerticalAlignment="Top" Width="1327">
         <Image HorizontalAlignment="Left" Height="632" Margin="172,0,0,0" VerticalAlignment="Top" Width="945" Source="Pictures/healthcare.png" Opacity="0.1"/>
         <Label Content="Magánkórház v0.2" HorizontalAlignment="Center" Margin="490,134,515,460" VerticalAlignment="Center" FontSize="36" FontWeight="Bold"/>
-        <TextBox x:Name="felhasznalonev" HorizontalAlignment="Left" Height="38" Margin="490,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" FontSize="24" Text="ugyintezo"/>
-        <PasswordBox x:Name="jelszo" HorizontalAlignment="Left" Margin="490,336,0,0" VerticalAlignment="Top" Height="38" Width="322" FontSize="24" Password="ugyintezo"/>
+        <TextBox x:Name="felhasznalonev" HorizontalAlignment="Left" Height="38" Margin="490,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" FontSize="24" Text="orvos"/>
+        <PasswordBox x:Name="jelszo" HorizontalAlignment="Left" Margin="490,336,0,0" VerticalAlignment="Top" Height="38" Width="322" FontSize="24" Password="orvos"/>
         <Label Content="Felhasználónév" HorizontalAlignment="Left" Margin="490,218,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="Jelszó" HorizontalAlignment="Left" Margin="490,299,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="login_button" Content="Belépés" HorizontalAlignment="Left" Margin="618,393,0,0" VerticalAlignment="Top" Width="75" FontSize="18" FontWeight="Bold" Click="login_button_Click" IsDefault="True"/>

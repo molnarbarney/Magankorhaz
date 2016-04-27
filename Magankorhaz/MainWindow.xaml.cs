@@ -20,7 +20,7 @@ namespace Magankorhaz
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
+        Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
 
         public MainWindow()
         {
@@ -42,9 +42,9 @@ namespace Magankorhaz
             else if (felhasznalonev.Text == "orvos" && jelszo.Password == "orvos")
             {
                 mainWindow.Hide();
+                OrvosWindow orvosWindow = new OrvosWindow(felhasznalonev.Text);
                 felhasznalonev.Clear();
                 jelszo.Clear();
-                OrvosWindow orvosWindow = new OrvosWindow();
                 orvosWindow.Show();
             }
             else if (felhasznalonev.Text == "paciens" && jelszo.Password == "paciens")
@@ -76,7 +76,7 @@ namespace Magankorhaz
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //MagankorhazDB = new Adatbazis.MagankorhazDB();
+            MagankorhazDB = new Adatbazis.MagankorhazDB();
 
             var q0 = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok
                      select akt;

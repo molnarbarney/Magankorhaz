@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Adatbazis\Ugyvezeto.cs" />
     <Compile Include="DiagramKeszito.cs" />
+    <Compile Include="FeldolgozoOsztalyok\OrvosRendelesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UgyintezoAttekintesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
@@ -91,9 +92,22 @@
     <Compile Include="UgyintezoWindow.xaml.cs">
       <DependentUpon>UgyintezoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlok\OrvosIdopontModositasa.xaml.cs">
+      <DependentUpon>OrvosIdopontModositasa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OrvosRendelesek.xaml.cs">
+      <DependentUpon>OrvosRendelesek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OrvosSajatAdatok.xaml.cs">
+      <DependentUpon>OrvosSajatAdatok.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OrvosUjIdopontFelvetele.xaml.cs">
+      <DependentUpon>OrvosUjIdopontFelvetele.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VezetosegWindow.xaml.cs">
       <DependentUpon>VezetosegWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModellek\OrvosRendelesekViewModel.cs" />
     <Page Include="AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +151,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UgyintezoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosIdopontModositasa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosRendelesek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosSajatAdatok.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosUjIdopontFelvetele.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

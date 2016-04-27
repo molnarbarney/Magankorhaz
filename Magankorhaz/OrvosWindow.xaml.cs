@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Magankorhaz.UserControlok;
+using Magankorhaz.FeldolgozoOsztalyok;
 
 namespace Magankorhaz
 {
@@ -19,9 +21,12 @@ namespace Magankorhaz
     /// </summary>
     public partial class OrvosWindow : Window
     {
-        public OrvosWindow()
+        Magankorhaz.Adatbazis.Orvos orvos;
+        public OrvosWindow(string felhasznalonev)
         {
             InitializeComponent();
+            orvos = OrvosBetoltese(felhasznalonev);
+            FeluletBeallitasa();
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
@@ -34,5 +39,41 @@ namespace Magankorhaz
         {
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
+
+        private void orvosWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            OrvosSajatAdatok sajatAdatok = new OrvosSajatAdatok(orvos);
+            orvosTartalomGrid.Children.Add(sajatAdatok);
+        }
+
+        Magankorhaz.Adatbazis.Orvos OrvosBetoltese(string felhasznalonev)
+        {
+            //TODO adatbazisbol beszerezni
+            if(felhasznalonev == "orvos")
+            {
+                OrvosRendelesFeldolgozo feldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase);
+                return feldolgozo.ElsoOrvos();
+            }
+            return new Adatbazis.Orvos();
+        }
+
+        void FeluletBeallitasa()
+        {
+            felhasznalo.Content = orvos.Nev;
+            felhasznaloTipus.Content = "Orvos";
+        }
+
+        private void sajatadatokMenuGomb_Click(object sender, RoutedEventArgs e)
+        {
+            orvosTartalomGrid.Children.Clear();
+            orvosTartalomGrid.Children.Add(new OrvosSajatAdatok(orvos));
+        }
+
+        private void rendelesekMenuGomb_Click(object sender, RoutedEventArgs e)
+        {
+            orvosTartalomGrid.Children.Clear();
+            orvosTartalomGrid.Children.Add(new OrvosRendelesek(orvos));
+        }
+       
     }
 }

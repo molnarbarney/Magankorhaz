@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Magankorhaz\Magankorhaz\obj\Debug\
+C:\Users\markm\Desktop\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-D:\Magankorhaz\Magankorhaz\App.xaml
-7363796184
+C:\Users\markm\Desktop\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\App.xaml
+11-941872830
 
-32135301919
-16-638563961
-AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;VezetosegWindow.xaml;
+38-217970977
+16-372675588
+AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;VezetosegWindow.xaml;
 
 False
 

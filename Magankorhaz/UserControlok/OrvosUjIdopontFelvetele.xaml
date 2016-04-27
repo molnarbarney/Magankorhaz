@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Magankorhaz.UserControlok.OrvosUjIdopontFelvetele"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="Transparent">
+        <Image HorizontalAlignment="Left" Source="../Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2" />
+        <ListBox Width="250" Height="400" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="paciensListBox" Background="Transparent" ItemsSource="{Binding Paciensek}"></ListBox>
+        <Label Content="Dátum:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,50,0,0" />
+        <DatePicker x:Name="datumDatePicker" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="150,50,0,0" Width="300" Height="30" BorderBrush="Transparent"/>
+        <Label Content="Idő:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,80,0,0" />
+        <TextBox x:Name="idoOraTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="20" MaxLength="2" Margin="500,85,0,0" PreviewKeyDown="idoOraTextBox_PreviewKeyDown"/>
+        <Label Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,80,0,0" />
+        <TextBox x:Name="idoPercTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="20" MaxLength="2" Margin="550,85,0,0" PreviewKeyDown="idoPercTextBox_PreviewKeyDown"/>
+        <Label  Margin="420,130,0,0" Content="Megnevezés:" />
+        <TextBox x:Name="megnevezesTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Margin="500,130,0,0" MaxLines="10" />
+        <Label x:Name="orvosLabel" FontSize="16" Margin="450,400,0,0" />
+        <Button x:Name="ujIdopontFelveteleButton" Width="200" Height="50" Margin="450,450,0,0" Content="Új időpont felvétele" Click="ujIdopontFelveteleButton_Click"/>
+    </Grid>
+</UserControl>
