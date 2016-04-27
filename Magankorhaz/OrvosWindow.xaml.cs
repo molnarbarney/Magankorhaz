@@ -25,9 +25,10 @@ namespace Magankorhaz
         public OrvosWindow(string felhasznalonev)
         {
             InitializeComponent();
+            // Ez állítja be a fejlécet!
             felhasznalo.Content = felhasznalonev;
+
             orvos = OrvosBetoltese(felhasznalonev);
-            FeluletBeallitasa();
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
@@ -56,12 +57,6 @@ namespace Magankorhaz
                 return feldolgozo.ElsoOrvos();
             }
             return new Adatbazis.Orvos();
-        }
-
-        void FeluletBeallitasa()
-        {
-            felhasznalo.Content = orvos.Nev;
-            felhasznaloTipus.Content = "Orvos";
         }
 
         private void sajatadatokMenuGomb_Click(object sender, RoutedEventArgs e)

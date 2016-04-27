@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Suli\Szt2\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-D:\Suli\Szt2\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\App.xaml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\App.xaml
 11-941872830
 
-42868487024
-16-1809529636
+44-452303060
+16993362600
 AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;VezetosegWindow.xaml;
 
-True
+False
 

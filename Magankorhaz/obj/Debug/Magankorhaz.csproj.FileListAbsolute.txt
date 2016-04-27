@@ -370,3 +370,12 @@ C:\Users\markm\Desktop\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Us
 C:\Users\markm\Desktop\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
 C:\Users\markm\Desktop\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosIdopontModositasa.baml
 C:\Users\markm\Desktop\gitshare\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosIdopontModositasa.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosIdopontModositasa.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosRendelesek.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosSajatAdatok.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjIdopontFelvetele.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosIdopontModositasa.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosRendelesek.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosSajatAdatok.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjIdopontFelvetele.g.cs
