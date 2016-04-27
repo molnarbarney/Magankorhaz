@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\App.xaml
-11-941872830
+13272300769
 
-44-452303060
+471026381437
 16993362600
-AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;VezetosegWindow.xaml;
+AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;UserControlok\UgyintezoIdopontFelvetel.xaml;UserControlok\UgyintezoIdopontModositas.xaml;VezetosegWindow.xaml;
 
 False
 

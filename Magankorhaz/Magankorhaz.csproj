@@ -70,6 +70,7 @@
     <Compile Include="FeldolgozoOsztalyok\Beleptetes.cs" />
     <Compile Include="FeldolgozoOsztalyok\OrvosRendelesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
+    <Compile Include="FeldolgozoOsztalyok\RendelesiIdopontFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UgyintezoAttekintesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\UjPacinesFelvetelFeldolgozo.cs" />
     <Compile Include="KihasznaltsagDiagramKeszito.cs" />
@@ -105,6 +106,12 @@
     </Compile>
     <Compile Include="UserControlok\OrvosUjIdopontFelvetele.xaml.cs">
       <DependentUpon>OrvosUjIdopontFelvetele.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\UgyintezoIdopontFelvetel.xaml.cs">
+      <DependentUpon>UgyintezoIdopontFelvetel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\UgyintezoIdopontModositas.xaml.cs">
+      <DependentUpon>UgyintezoIdopontModositas.xaml</DependentUpon>
     </Compile>
     <Compile Include="VezetosegWindow.xaml.cs">
       <DependentUpon>VezetosegWindow.xaml</DependentUpon>
@@ -172,6 +179,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlok\UgyintezoIdopontFelvetel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\UgyintezoIdopontModositas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VezetosegWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -218,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="SQL_szkriptek_mentes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

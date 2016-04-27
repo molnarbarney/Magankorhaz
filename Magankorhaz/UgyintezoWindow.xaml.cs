@@ -28,8 +28,14 @@ namespace Magankorhaz
         // Adatok betöltéséhez
         FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo ugyintezoAttekintesFeldolgozo = new FeldolgozoOsztalyok.UgyintezoAttekintesFeldolgozo();
 
+        // Időpontok frissítése/feltöltése
+        Magankorhaz.FeldolgozoOsztalyok.RendelesiIdopontFeldolgozo idopontFeldolgozo = new FeldolgozoOsztalyok.RendelesiIdopontFeldolgozo();
+
         // Páciens adatainak módosításához
         FeldolgozoOsztalyok.PaciensAdatlapFeldolgozo paciensAdatlapFeldolgozo;
+
+        // PáciensID - ha kéne valamihez
+        public int paciensID { get; set; }
 
         public UgyintezoWindow(string felhasznalonev)
         {
@@ -277,6 +283,8 @@ namespace Magankorhaz
 
             Adatbazis.Paciens paciensAdatok = paciensAdatlapFeldolgozo.paciensAdatok;
 
+            this.paciensID = paciensAdatok.Id;
+
             paciensAdatNev.Text = paciensAdatok.Nev;
             paciensAdatEmail.Text = paciensAdatok.Email;
             paciensAdatFelhasznalonev.Text = paciensAdatok.Felhasznalonev;
@@ -311,6 +319,7 @@ namespace Magankorhaz
             paciensAdatOrvos.Text = paciensAdatlapFeldolgozo.orvosNev;
             paciensAdatUgyvezeto.Text = paciensAdatlapFeldolgozo.ugyintezoNev;
 
+            // Elhelyezéshez feltöltés
             List<Adatbazis.Osztaly> osztalyok = paciensAdatlapFeldolgozo.osszesOsztaly;
             foreach (var osztaly in osztalyok)
             {
@@ -329,6 +338,77 @@ namespace Magankorhaz
                 paciensAdatSzobaText.Content = "Nincs elhelyezve";
             }
             else paciensAdatSzobaText.Content = Convert.ToString(paciensAdatok.Szobaszam);
+
+            // Időpontok frissítése/feltöltése
+            IdopontokFrissitese();            
+        }
+
+        private void IdopontokFrissitese()
+        {
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
+
+            List<object> idopontok = idopontFeldolgozo.RendelesiIdopontokLekerdezese(this.paciensID);
+            if (idopontok != null)
+            {
+                paciensIdpontokListView.ItemsSource = null;
+                paciensIdpontokListView.ItemsSource = idopontok.ToList();
+            }
+        }
+
+        private void IdopontokRefreshGomb_Click(object sender, RoutedEventArgs e)
+        {
+            IdopontokFrissitese();   
+        }
+
+        private void paciensAdatUjIdopontGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
+
+            UserControlok.UgyintezoIdopontFelvetel ujIdopont = new UserControlok.UgyintezoIdopontFelvetel();
+            ujIdopont.paciensID = this.paciensID;
+            ujIdopont.ShowDialog();
+        }
+
+        private void paciensAdatIdopontModositasaGomb_Click(object sender, RoutedEventArgs e)
+        {
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
+
+            UserControlok.UgyintezoIdopontModositas modositottIdopont = new UserControlok.UgyintezoIdopontModositas();
+            modositottIdopont.paciensID = this.paciensID;
+            modositottIdopont.modositandoIdopont = paciensIdpontokListView.SelectedValue.ToString();
+            modositottIdopont.ShowDialog();
+        }
+
+        private void paciensIdpontokListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Visible;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Visible;
+        }
+
+        private void paciensAdatIdopontTorleseGomb_Click(object sender, RoutedEventArgs e)
+        {
+            string idopontSor = paciensIdpontokListView.SelectedValue.ToString();
+
+            string[] idopontSorAdatok = idopontSor.Split(new string[] { "= " }, StringSplitOptions.None);
+
+            string datumString = idopontSorAdatok[1].Remove(idopontSorAdatok[1].Length - 8);
+            string reszletek = idopontSorAdatok[3].Remove(idopontSorAdatok[3].Length - 2);
+
+            int torles = idopontFeldolgozo.IdopontTorlese(Convert.ToDateTime(datumString), reszletek);
+
+            if (torles > 0)
+            {
+                System.Windows.MessageBox.Show("Sikeres törlés!"); 
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Hiba történt!");
+            }
+
+            IdopontokFrissitese();
         }
 
         private void paciensOsztalyElhelyezesModositasGomb_Click(object sender, RoutedEventArgs e)
@@ -656,6 +736,8 @@ namespace Magankorhaz
             szamlakMenuGomb.IsEnabled = false;
             paciensOsztalyElhelyezesModositasGomb.IsEnabled = false;
             paciensAdatUjIdopontGomb.IsEnabled = false;
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
             kijelentkezesButton.IsEnabled = false;
         }
 
@@ -671,6 +753,8 @@ namespace Magankorhaz
             szamlakMenuGomb.IsEnabled = true;
             paciensOsztalyElhelyezesModositasGomb.IsEnabled = true;
             paciensAdatUjIdopontGomb.IsEnabled = true;
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
             kijelentkezesButton.IsEnabled = true;
         }
 
@@ -688,6 +772,8 @@ namespace Magankorhaz
             szamlakMenuGomb.IsEnabled = false;
 
             paciensAdatUjIdopontGomb.IsEnabled = false;
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
             kijelentkezesButton.IsEnabled = false;
         }
 
@@ -707,6 +793,8 @@ namespace Magankorhaz
             szamlakMenuGomb.IsEnabled = true;
             paciensOsztalyElhelyezesModositasGomb.IsEnabled = true;
             paciensAdatUjIdopontGomb.IsEnabled = true;
+            paciensAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
+            paciensAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
             kijelentkezesButton.IsEnabled = true;
         }
 
