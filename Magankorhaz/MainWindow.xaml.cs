@@ -20,6 +20,7 @@ namespace Magankorhaz
     /// </summary>
     public partial class MainWindow : Window
     {
+        Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
         public MainWindow()
         {
             InitializeComponent();
@@ -75,6 +76,8 @@ namespace Magankorhaz
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            MagankorhazDB = new Adatbazis.MagankorhazDB();
+
             var q0 = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok
                      select akt;
 
