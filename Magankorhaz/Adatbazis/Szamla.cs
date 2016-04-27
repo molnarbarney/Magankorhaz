@@ -14,5 +14,10 @@ namespace Magankorhaz.Adatbazis
         public int Fizetendo { get; set; }
         public bool Befizetve { get; set; }
         public DateTime BefizetesDatuma { get; set; }
+
+        public override string ToString()
+        {
+            return PaciensID + " " + KartonID + " " + Fizetendo + " " + Befizetve;
+        }
     }
 }

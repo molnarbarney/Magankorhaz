@@ -740,6 +740,8 @@ namespace Magankorhaz
 
         // Kitti része
         #region Kitti
+
+        ObservableCollection<Magankorhaz.Adatbazis.Szamla> TaroltKartonok;
         private void szamlaatekintesClick(object sender, RoutedEventArgs e)
         {
             ujPaciensFelveteleGrid.Visibility = Visibility.Hidden;
@@ -749,19 +751,31 @@ namespace Magankorhaz
             ujszamlaGrid.Visibility = Visibility.Hidden;
             szamlaattekintesGrid.Visibility = Visibility.Visible;
 
+
+            
+            TaroltSzamlaTartalom.ItemsSource = TaroltKartonok;
         }
 
         private void HozzaadButton_Click(object sender, RoutedEventArgs e)
         {
             SzamlahozTetelHozzaadWindow szth = new SzamlahozTetelHozzaadWindow(pacienskivalasztasaComboBox.SelectedItem as Magankorhaz.Adatbazis.Paciens);
             szth.ShowDialog();
+            
             if (szth.DialogResult == true)
             {
                 Adatbazis.Orvos orvos = (Adatbazis.Orvos)szth.kezeloorvosComboBox.SelectedItem;
                 string diagnozis = (string)szth.szolgaltatasneveComboBox.SelectedItem;
                 int ar = (int)szth.SzolgaltatasAraLabel.Content;
 
-                vmsz.SzamlahozSzamlak.Add(new Szamlahoz() { Orvos = orvos.Nev, SzolgaltatasNeve = diagnozis, SzolgaltatasAra = ar });
+                var ídé = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Kartonok
+                          where akt.OrvosID == orvos.Id && akt.KezelesReszletei == diagnozis && akt.KezelesKoltsege == ar
+                          select akt.Id;
+
+                var szamlaId = from akt in Adatbazis.AdatBazis.DataBase.Szamlak
+                               where akt.KartonID == ídé.FirstOrDefault()
+                               select akt.Id;
+
+                vmsz.SzamlahozSzamlak.Add(new Szamlahoz() { Id = szamlaId.FirstOrDefault(), Orvos = orvos.Nev, SzolgaltatasNeve = diagnozis, SzolgaltatasAra = ar, KartonID = ídé.FirstOrDefault() });
                 int összeg = 0;
                 foreach (var item in vmsz.SzamlahozSzamlak)
                 {
@@ -788,6 +802,21 @@ namespace Magankorhaz
 
         private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
         {
+            //Páciens ID, Karton ID, Fizetendő, Befizetve?, Befizetes datuma
+
+            foreach (var item in Magankorhaz.Adatbazis.AdatBazis.DataBase.Szamlak)
+            {
+                item.Fizetendo = vmsz.SzamlahozSzamlak.SingleOrDefault(x => x.Id == item.Id).SzolgaltatasAra;
+                item.Befizetve = true;
+                item.BefizetesDatuma = DateTime.UtcNow.ToLocalTime();
+            }
+            Magankorhaz.Adatbazis.AdatBazis.DataBase.SaveChanges();
+
+            var q = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Szamlak
+                    where akt.Fizetendo != null
+                    select akt;
+
+            TaroltKartonok = new ObservableCollection<Adatbazis.Szamla>(q);
 
         }
 
@@ -806,6 +835,12 @@ namespace Magankorhaz
             pacienskek = new ObservableCollection<Magankorhaz.Adatbazis.Paciens>(paciensek);
             pacienskivalasztasaComboBox.ItemsSource = pacienskek;
             pacienskivalasztasaComboBox.SelectedItem = pacienskek.FirstOrDefault();
+
+            vmsz.SzamlahozSzamlak.Clear();
+            if (FizetveCheckBox.IsChecked.Value)
+            {
+                FizetveCheckBox.IsChecked = false;
+            }
         }
 
         ViewModelSzamlahoz vmsz;
@@ -813,6 +848,12 @@ namespace Magankorhaz
         {
             vmsz = new ViewModelSzamlahoz();
             this.DataContext = vmsz;
+
+            var q = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Szamlak
+                    where akt.Fizetendo != null
+                    select akt;
+
+            TaroltKartonok = new ObservableCollection<Adatbazis.Szamla>(q);
         }
 
         #endregion            
@@ -851,8 +892,10 @@ namespace Magankorhaz
 
     public class Szamlahoz
     {
+        public int Id { get; set; }
         public string Orvos { get; set; }
         public string SzolgaltatasNeve { get; set; }
         public int SzolgaltatasAra { get; set; }
+        public int KartonID { get; set; }
     }
 }

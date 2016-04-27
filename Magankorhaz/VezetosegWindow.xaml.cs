@@ -135,6 +135,7 @@ namespace Magankorhaz
         //Ha Költségvetési kimutatást készítek
         private void KoltsegvetesClick(object sender, RoutedEventArgs e)
         {
+            legutolsolekerdezesdatuma.Content = DateTime.UtcNow.ToLocalTime();
             vm.Alakzatok.Clear();
             vm.MegAlakzatok.Clear();
             vm.Listaelemek.Clear();
@@ -189,7 +190,7 @@ namespace Magankorhaz
                 Console.WriteLine(item.Key + " " + item.Count());
             }
 
-
+            legutolsolekerdezesdatuma.Content = DateTime.UtcNow.ToLocalTime();
             mvm.Alakzatok.Clear();
             mvm.Listaelemek.Clear();
             if (kih1date.SelectedDate != null && kih2date.SelectedDate != null)
