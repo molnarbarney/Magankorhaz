@@ -5,7 +5,7 @@
     <Grid>
         <Rectangle x:Name="menu_header_background" Fill="#FF1D3446" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="229" Margin="-1,0,0,0" StrokeThickness="0"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="1116" StrokeThickness="0" Margin="228,0,0,0"/>
-        <Label x:Name="felhasznalo" Content="Orvos Tesztelő" HorizontalAlignment="Left" Margin="245,22,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3446"/>
+        <Label x:Name="felhasznalo" Content="" HorizontalAlignment="Left" Margin="245,22,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3446"/>
         <Label x:Name="felhasznaloTipus" Content="Orvos" HorizontalAlignment="Left" Margin="245,59,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF355061"/>
         <Button x:Name="kijelentkezesButton" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="1199,22,0,0" VerticalAlignment="Top" Width="117" Height="52" Click="kijelentkezesButton_Click" FontSize="16"/>
 

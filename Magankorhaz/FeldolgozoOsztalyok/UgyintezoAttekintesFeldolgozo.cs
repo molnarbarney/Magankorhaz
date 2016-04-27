@@ -8,6 +8,20 @@ namespace Magankorhaz.FeldolgozoOsztalyok
 {
     class UgyintezoAttekintesFeldolgozo
     {
+        // Ezeket akkor használom, amikor módosítom a páciens adatait (ideiglenes tároló)
+        public string paciensTempNev { get; set; }
+        public string paciensTempFelhasznalonev { get; set; }
+        public string paciensTempJelszo { get; set; }
+        public string paciensTempEmail { get; set; }
+        public string paciensTempSzemelyiSzam { get; set; }
+        public string paciensTempTAJ { get; set; }
+        public DateTime paciensTempSzuletesiDatum { get; set; }
+        public string paciensTempLakcim { get; set; }
+        public string paciensTempTelefonszam { get; set; }
+        public string paciensTempNeme { get; set; }
+        public DateTime paciensTempTavozasDatuma { get; set; }
+
+        // Ezeket akkor használom, amikor módosítom a páciens adatait (ideiglenes tároló)
         public int szabadFerohelyek()
         {
             var osszesHely = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok
@@ -59,35 +73,24 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             return legregebbLegujabb;
         }
 
-        /*
-        public List<Adatbazis.Paciens> paciensek(Adatbazis.MagankorhazDB adatbazis)
-        {
-            List<Adatbazis.Paciens> paciensek = new List<Adatbazis.Paciens>();
-
-            var paciensekSQL = from paciens in adatbazis.Paciensek
-                               orderby paciens.Nev descending
-                               select paciens;
-
-            foreach (var paciens in paciensekSQL)
-            {
-                paciensek.Add(paciens);
-            }
-
-            return paciensek;
-        }
-        */
-
         public List<object> paciensek()
         {
             List<object> paciensek = new List<object>();
 
-            var paciensekSQL = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
-                               join osztaly in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok on paciens.OsztalyID equals osztaly.Id
-                               select new { Név = paciens.Nev, Email = paciens.Email, Osztály = osztaly.Megnevezes, SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
+            var paciensekSQLOsztalyonElhelyezve = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                                                  join osztaly in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok on paciens.OsztalyID equals osztaly.Id
+                                                  select new { Név = paciens.Nev, Email = paciens.Email, Osztály = osztaly.Megnevezes, SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
+            
+            var paciensekSQLOsztalyNelkul = from paciens in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
+                                            where paciens.OsztalyID == 0 && paciens.Szobaszam == 0
+                                            select new { Név = paciens.Nev, Email = paciens.Email, Osztály = "Nincs elhelyezve", SzületésiDátum = paciens.SzuletesiDatum, FelvételiDátum = paciens.FelvetelDatuma };
 
-            //System.Windows.MessageBox.Show(lekerdezes.First().Nev + " " + lekerdezes.First().osztály);
+            foreach (var paciens in paciensekSQLOsztalyonElhelyezve)
+            {
+                paciensek.Add(paciens);
+            }
 
-            foreach (var paciens in paciensekSQL)
+            foreach (var paciens in paciensekSQLOsztalyNelkul)
             {
                 paciensek.Add(paciens);
             }

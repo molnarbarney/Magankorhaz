@@ -21,57 +21,57 @@ namespace Magankorhaz
     public partial class MainWindow : Window
     {
         Magankorhaz.Adatbazis.MagankorhazDB MagankorhazDB;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            
         }
 
         private void login_button_Click(object sender, RoutedEventArgs e)
         {
-            if (felhasznalonev.Text == "admin" && jelszo.Password == "admin")
+            Magankorhaz.FeldolgozoOsztalyok.Beleptetes beleptetes = new FeldolgozoOsztalyok.Beleptetes();
+            string[] adatok = beleptetes.BeleptetesEllenorzes(felhasznalonev.Text, jelszo.Password);
+
+            if (adatok[0] == "admin")
             {
                 mainWindow.Hide();
                 felhasznalonev.Clear();
                 jelszo.Clear();
-                AdminWindow adminWindow = new AdminWindow();
+                AdminWindow adminWindow = new AdminWindow(adatok[1]);
                 adminWindow.Show();
             }
-            else if (felhasznalonev.Text == "orvos" && jelszo.Password == "orvos")
+            else if (adatok[0] == "orvos")
             {
                 mainWindow.Hide();
-                OrvosWindow orvosWindow = new OrvosWindow(felhasznalonev.Text);
                 felhasznalonev.Clear();
                 jelszo.Clear();
+                OrvosWindow orvosWindow = new OrvosWindow(adatok[1]);
                 orvosWindow.Show();
             }
-            else if (felhasznalonev.Text == "paciens" && jelszo.Password == "paciens")
+            else if (adatok[0] == "paciens")
             {
                 mainWindow.Hide();
                 felhasznalonev.Clear();
                 jelszo.Clear();
-                PaciensWindow paciensWindow = new PaciensWindow();
+                PaciensWindow paciensWindow = new PaciensWindow(adatok[1]);
                 paciensWindow.Show();
             }
-            else if (felhasznalonev.Text == "ugyintezo" && jelszo.Password == "ugyintezo")
+            else if (adatok[0] == "ugyintezo")
             {
                 mainWindow.Hide();
                 felhasznalonev.Clear();
                 jelszo.Clear();
-                UgyintezoWindow ugyintezoWindow = new UgyintezoWindow();
+                UgyintezoWindow ugyintezoWindow = new UgyintezoWindow(adatok[1]);
                 ugyintezoWindow.Show();
             }
-            else if (felhasznalonev.Text == "vezetoseg" && jelszo.Password == "vezetoseg")
+            else if (adatok[0] == "vezetoseg")
             {
                 mainWindow.Hide();
                 felhasznalonev.Clear();
                 jelszo.Clear();
-                VezetosegWindow vezetosegWindow = new VezetosegWindow();
+                VezetosegWindow vezetosegWindow = new VezetosegWindow(adatok[1]);
                 vezetosegWindow.Show();
             }
-            else MessageBox.Show("Sikertelen login!");
+            else MessageBox.Show(adatok[0]);
         }
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)

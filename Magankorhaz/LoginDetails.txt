@@ -1,0 +1,23 @@
+﻿Ügyintezők:
+kiss.eva			1234
+nagy.bela			1234
+
+Vezetőségi tagok:
+fonok.janos			1234
+
+Orvosok:
+mohacsi.istvan		1234
+kardos.tamas		1234
+nagy.zsolt			1234
+szigeti.dora		1234
+alfoldi.ferenc		1234
+
+Páciensek:
+kiss.arpad			12345
+nagy.eva			12345
+kovacs.jozsef		12345
+prohaszka.ferenc	12345
+kiss.zoltan			12345
+
+Adminok:
+admin				1234

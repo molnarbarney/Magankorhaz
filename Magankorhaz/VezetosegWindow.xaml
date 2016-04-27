@@ -1,13 +1,15 @@
 ﻿<Window x:Name="vezetosegWindow" x:Class="Magankorhaz.VezetosegWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VezetosegWindow" Height="700" Width="1350"  ResizeMode="CanMinimize" WindowState="Maximized" Closing="vezetosegWindow_Closing" Loaded="vezetosegWindow_Loaded">
+        Title="VezetosegWindow" Height="700" Width="1350"  ResizeMode="CanMinimize" Closing="vezetosegWindow_Closing" Loaded="vezetosegWindow_Loaded">
     <Grid>
         <!-- Körbe a menüs rész -->
         <Rectangle x:Name="menu_background" Fill="#FF355061" HorizontalAlignment="Left" Height="571" Stroke="Black" VerticalAlignment="Top" Width="229" Margin="-1,100,0,0" StrokeThickness="0"/>
         <Image x:Name="login_background" HorizontalAlignment="Left" Height="538" Margin="594,254,-160,-103" VerticalAlignment="Top" Width="838" Source="Pictures/healthcare.png" Opacity="0.2"/>
         <Rectangle x:Name="menu_header_background" Fill="#FF1D3446" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="229" Margin="-1,0,0,0" StrokeThickness="0"/>
         <Rectangle x:Name="header_background" Fill="#FFEBEBEB" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="1106" Margin="228,0,0,0" StrokeThickness="0"/>
+        <Label x:Name="felhasznalo" Content="" HorizontalAlignment="Left" Margin="245,22,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3446"/>
+        <Label x:Name="felhasznaloTipus" Content="Vezetőségi tag" HorizontalAlignment="Left" Margin="245,59,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF355061"/>
 
         <!-- Feliratok/ gombok -->
         <Button Content="Kejelentkezés" x:Name="kijelentkezesButton" HorizontalAlignment="Left" Margin="1193,25,0,0" VerticalAlignment="Top" Width="117" Height="52" Click="kijelentkezesButton_Click"/>
@@ -43,7 +45,7 @@
         </Grid>
 
         <!-- Költségvetési kimutatások -->
-        <Grid x:Name="koltsegvetesikimutatasokmenu"  HorizontalAlignment="Left" Height="556" Margin="304,105,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden">
+        <Grid Loaded="koltsegvetesikimutatasokmenu_Loaded" x:Name="koltsegvetesikimutatasokmenu"  HorizontalAlignment="Left" Height="556" Margin="304,105,0,0" VerticalAlignment="Top" Width="1030" Visibility="Hidden">
             <Button Content="Mutasd" Click="KoltsegvetesClick" HorizontalAlignment="Left" Margin="424,57,0,0" VerticalAlignment="Top" Width="75" Height="40"  RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
             <DatePicker Name="kts1date" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
             <DatePicker Name="kts2date" HorizontalAlignment="Left" Margin="200,57,0,0" VerticalAlignment="Top"/>
@@ -56,15 +58,15 @@
         </Grid>
 
         <!-- Osztályok kihasználtsága -->
-        <Grid x:Name="osztalyokkihasznaltsagamenu" HorizontalAlignment="Left" Height="556" Margin="233,105,0,0" VerticalAlignment="Top" Width="1102" Visibility="Hidden">
+        <Grid Loaded="osztalyokkihasznaltsagamenu_Loaded" x:Name="osztalyokkihasznaltsagamenu" HorizontalAlignment="Left" Height="556" Margin="233,105,0,0" VerticalAlignment="Top" Width="1102" Visibility="Hidden">
             <Label Content="Osztály kiválasztása" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <ComboBox HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="218"/>
-            <Button Content="Mutasd" HorizontalAlignment="Left" Margin="165,139,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            <DatePicker HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
-            <DatePicker HorizontalAlignment="Left" Margin="213,59,0,0" VerticalAlignment="Top"/>
+            <ComboBox Name="osztalyokCombobox" ItemsSource="{Binding Osztalyok}" DisplayMemberPath="Megnevezes" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top" Width="218"/>
+            <Button Content="Mutasd" Click="KihasznaltsagClick" HorizontalAlignment="Left" Margin="165,139,0,0" VerticalAlignment="Top" Width="75"/>
+            <DatePicker Name="kih1date" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top"/>
+            <DatePicker Name="kih2date" HorizontalAlignment="Left" Margin="213,59,0,0" VerticalAlignment="Top"/>
             <Label Content="-tól" HorizontalAlignment="Left" Margin="146,57,0,0" VerticalAlignment="Top"/>
             <Label Content="-ig" HorizontalAlignment="Left" Margin="406,65,0,0" VerticalAlignment="Top"/>
-            <Canvas HorizontalAlignment="Left" Height="230" Margin="626,252,0,0" VerticalAlignment="Top" Width="466" Background="Azure"/>
+            <Canvas Name="kihasznaltsagvaszon" Opacity="0.7" HorizontalAlignment="Left" Height="230" Margin="626,252,0,0" VerticalAlignment="Top" Width="466"/>
         </Grid>
 
     </Grid>

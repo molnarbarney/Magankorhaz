@@ -19,9 +19,11 @@ namespace Magankorhaz
     /// </summary>
     public partial class PaciensWindow : Window
     {
-        public PaciensWindow()
+        public PaciensWindow(string felhasznalonev)
         {
             InitializeComponent();
+
+            felhasznalo.Content = felhasznalonev;
         }
 
         private void kijelentkezesButton_Click(object sender, RoutedEventArgs e)
