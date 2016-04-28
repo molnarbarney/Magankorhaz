@@ -99,10 +99,9 @@
         </Grid>
         <Canvas x:Name="kezelesVaszon" HorizontalAlignment="Left" Height="558" Margin="235,108,0,0" VerticalAlignment="Top" Width="1101">
             <DatePicker x:Name="tolDate" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="54"/>
-            <DatePicker x:Name="igDate" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="228" Canvas.Top="54"/>
+            <DatePicker x:Name="igDate" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="142" Canvas.Top="54"/>
             <Label Content="Kezeléseim" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Canvas.Left="20" Canvas.Top="17"/>
-            <Label Content="-tól" Canvas.Left="144" Canvas.Top="47" FontSize="16" FontWeight="Bold"/>
-            <Label Content="-ig" Canvas.Left="346" Canvas.Top="47" FontSize="16" FontWeight="Bold"/>
+            <Label Content=":" Canvas.Left="127" Canvas.Top="47" FontSize="16" FontWeight="Bold"/>
             <Button x:Name="kezelesLekerdezes" Content="Mutasd!" Canvas.Left="407" Canvas.Top="54" Width="100" Height="30" FontSize="16" FontWeight="Bold" Click="Button_Click"/>
             <ListView HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="463" Canvas.Left="4" Canvas.Top="90" Width="1093" Name="kezelesLista" Visibility="Hidden" SelectionChanged="kezelesLista_SelectionChanged">
                 <ListView.ItemContainerStyle>
