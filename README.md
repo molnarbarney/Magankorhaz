@@ -19,3 +19,5 @@ SZT2
 4. Ha a fenti sort beírtad, akkor aktívnak kell lennie ennek a mezőnek: "Select or enter database name"
 5. Ott választ ki a "magankorhazDB"-t
 6. OK és újrafuttatod a kódot
+
+:)
