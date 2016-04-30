@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.Adatbazis
 {
-    class Recept
+    public class Recept
     {
         public int Id { get; set; }
         public string Reszletek { get; set; }

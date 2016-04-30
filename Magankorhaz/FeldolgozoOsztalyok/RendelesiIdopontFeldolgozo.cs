@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.FeldolgozoOsztalyok
 {
-    class RendelesiIdopontFeldolgozo
+    public class RendelesiIdopontFeldolgozo
     {
         //public List<Adatbazis.Idopont> paciensIdopontok { get; set; }
         public int OrvosIDMenteshez { get; set; }

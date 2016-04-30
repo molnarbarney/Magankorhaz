@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.FeldolgozoOsztalyok
 {
-    class UjPacinesFelvetelFeldolgozo
+    public class UjPacinesFelvetelFeldolgozo
     {
         // ComboBox-ok feltöltése adatokkal
 

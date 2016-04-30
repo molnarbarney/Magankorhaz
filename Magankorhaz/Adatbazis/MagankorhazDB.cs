@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace Magankorhaz.Adatbazis
 {
-    class MagankorhazDB : DbContext
+    public class MagankorhazDB : DbContext
     {
         public DbSet<Admin> Adminok { get; set; }
         public DbSet<Idopont> Idopontok { get; set; }
@@ -26,9 +26,9 @@ namespace Magankorhaz.Adatbazis
         }
     }
 
-    static class AdatBazis
+    public static class AdatBazis
     {
-        static MagankorhazDB dataBase = new MagankorhazDB();
+        public static MagankorhazDB dataBase = new MagankorhazDB();
 
         public static MagankorhazDB DataBase
         {

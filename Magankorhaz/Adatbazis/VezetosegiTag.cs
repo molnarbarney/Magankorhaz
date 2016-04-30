@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.Adatbazis
 {
-    class VezetosegiTag
+    public class VezetosegiTag
     {
         public int Id { get; set; }
         public string Nev { get; set; }

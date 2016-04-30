@@ -487,3 +487,11 @@ D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
 D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
 D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.exe
 D:\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.pdb
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\JelszoModositas.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\JelszoModositas.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs

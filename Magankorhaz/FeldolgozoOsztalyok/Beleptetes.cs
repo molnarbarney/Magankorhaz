@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.FeldolgozoOsztalyok
 {
-    class Beleptetes
+    public class Beleptetes
     {
         public string[] BeleptetesEllenorzes(string felhasznalonev, string jelszo)
         {
