@@ -75,8 +75,14 @@ namespace Magankorhaz.UserControlok
                 {
                     MessageBox.Show("A megadott időpont foglalt!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                foglaltIdopontokListBox.ItemsSource = IdopontFeldolgozo.IdopontLekeres(Orvos);
+                else
+                {
+                    foglaltIdopontokListBox.ItemsSource = IdopontFeldolgozo.IdopontLekeres(Orvos);
+                    MessageBox.Show("Időpont sikeresen felvéve!", "Időpont felvéve", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ((Window)Parent).Close();
+                }
             }
+
         }
 
         private void idopontDatum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

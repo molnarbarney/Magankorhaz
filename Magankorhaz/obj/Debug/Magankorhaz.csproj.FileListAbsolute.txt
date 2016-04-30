@@ -530,3 +530,5 @@ D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosKez
 D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjKezelesFelvetele.baml
 D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosKezelesModositasa.g.cs
 D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjKezelesFelvetele.g.cs
+D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.baml
+D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs
