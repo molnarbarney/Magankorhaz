@@ -10,3 +10,15 @@ D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magán
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.SqlServer.xml
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.dll
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.pdb
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\Tesztek.dll.config
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\Tesztek.dll
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\Tesztek.pdb
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.dll
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\Magankorhaz.exe
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\Magankorhaz.pdb
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.xml
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.csprojResolveAssemblyReference.cache
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.dll
+D:\Projects\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.pdb

@@ -59,6 +59,7 @@ namespace Magankorhaz.UserControlok
                 case 14: idopontOra.SelectedIndex = 5; break;
                 case 15: idopontOra.SelectedIndex = 6; break;
                 case 16: idopontOra.SelectedIndex = 7; break;
+                default: idopontOra.SelectedIndex = 0; break;
             }
             if (ValasztottKezeles.KezelesDatuma.Minute < 30)
                 idopontPerc.SelectedIndex = 0;

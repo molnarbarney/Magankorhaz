@@ -11,7 +11,16 @@
 
         <Image HorizontalAlignment="Left" Source="../Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2" />
         <Label Content="Páciensek:" Margin="50,20,0,0" FontSize="16" FontWeight="Bold" Foreground="#FF1D3446" HorizontalAlignment="Left" Typography.Capitals="SmallCaps" />
-        <ListBox Width="250" Height="400" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="paciensListBox" Background="Transparent" ItemsSource="{Binding Paciensek}" BorderBrush="Transparent"></ListBox>
+        <ListBox Width="250" Height="400" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="paciensListBox" Background="Transparent" ItemsSource="{Binding Paciensek}" BorderBrush="Transparent">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Nev}" />
+                        <TextBlock Text="{Binding SzuletesiDatum, StringFormat={}{0:yyyy-MM-dd}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Label Content="Kezelések:" Margin="350,20,0,0" FontSize="16" FontWeight="Bold" Foreground="#FF1D3446" HorizontalAlignment="Left" Typography.Capitals="SmallCaps" />
         <DataGrid x:Name="kezelesekDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" Margin="350,50,0,0" Width="700" Background="Transparent" Height="400" ItemsSource="{Binding Kezelesek}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" AutoGenerateColumns="False" SelectionMode="Single" BorderBrush="Transparent" SelectionChanged="kezelesekDataGrid_SelectionChanged">
             <DataGrid.Columns>

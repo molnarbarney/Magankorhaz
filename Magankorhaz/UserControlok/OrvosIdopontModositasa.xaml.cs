@@ -97,6 +97,7 @@ namespace Magankorhaz.UserControlok
             }
             else
             {
+                IdopontFeldolgozo.IdopontTorlese(Idopont.FoglaltIdopont);
                 DateTime ujIdopont = DateTime.Parse(idopontDatum.Text);
                 ujIdopont = ujIdopont.AddHours(int.Parse(idopontOra.Text));
                 ujIdopont = ujIdopont.AddMinutes(int.Parse(idopontPerc.Text));
@@ -104,7 +105,12 @@ namespace Magankorhaz.UserControlok
                 {
                     MessageBox.Show("A megadott időpont foglalt!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                foglaltIdopontokListBox.ItemsSource = IdopontFeldolgozo.IdopontLekeres(Orvos);
+                else
+                {
+                    foglaltIdopontokListBox.ItemsSource = IdopontFeldolgozo.IdopontLekeres(Orvos);
+                    MessageBox.Show("Időpont sikeresen felvéve!", "Időpont felvéve", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ((Window)Parent).Close();
+                }
             }
         }
 
