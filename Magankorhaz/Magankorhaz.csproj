@@ -47,6 +47,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -90,6 +92,12 @@
     <Compile Include="PaciensWindow.xaml.cs">
       <DependentUpon>PaciensWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Rate.cs" />
+    <Compile Include="Service References\MNBService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="SzamlahozTetelHozzaadWindow.xaml.cs">
       <DependentUpon>SzamlahozTetelHozzaadWindow.xaml</DependentUpon>
     </Compile>
@@ -125,6 +133,9 @@
     </Compile>
     <Compile Include="UserControlok\UgyintezoIdopontModositas.xaml.cs">
       <DependentUpon>UgyintezoIdopontModositas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValutaValto.xaml.cs">
+      <DependentUpon>ValutaValto.xaml</DependentUpon>
     </Compile>
     <Compile Include="VezetosegWindow.xaml.cs">
       <DependentUpon>VezetosegWindow.xaml</DependentUpon>
@@ -217,6 +228,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ValutaValto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VezetosegWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +267,25 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrenciesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrencyUnitsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrentExchangeRatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetDateIntervalResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetExchangeRatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\mnb_old.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -266,6 +300,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MNBService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MNBService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MNBService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MNBService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

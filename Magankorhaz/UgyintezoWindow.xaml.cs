@@ -944,7 +944,13 @@ namespace Magankorhaz
             TaroltKartonok = new ObservableCollection<Adatbazis.Szamla>(q);
         }
 
+        private void ValutaValto_Click(object sender, RoutedEventArgs e)
+        {
+            ValutaValto vv = new ValutaValto(fizetendoosszeg.Content.ToString());
+            vv.ShowDialog();
+        }
         #endregion            
+
         // Kitti rész vége
     }
 

@@ -193,27 +193,12 @@ namespace Magankorhaz
             legutolsolekerdezesdatuma.Content = DateTime.UtcNow.ToLocalTime();
             mvm.Alakzatok.Clear();
             mvm.Listaelemek.Clear();
-            if (kih1date.SelectedDate != null && kih2date.SelectedDate != null)
-            {
-                if (kih1date.SelectedDate.Value <= kih2date.SelectedDate.Value)
-                {
-                    int napokdarab = (int)kih2date.SelectedDate.Value.Subtract(kih1date.SelectedDate.Value).TotalDays + 1;
-                    for (int i = 0; i < napokdarab; i++)
-                    {
-                        mvm.Listaelemek.Add(new MegElemek(rand.Next(0, 20)));
-                    }
-                    mvm.Rajzol();
 
-                }
-                else
-                {
-                    MessageBox.Show("A kezdeti és végdátum fel lett cserélve!");
-                }
-            }
-            else
+            foreach (var item in akarmi)
             {
-                MessageBox.Show("Nincs kiválasztva dátum!");
+                mvm.Listaelemek.Add(new MegElemek(item.Count()));
             }
+            mvm.Rajzol();
         }
 
         //Ha betölt a költségvetési kimutatások Grid, akkor fut le
