@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Barney\Desktop\magankorhazBálint\Magankorhaz\obj\Debug\
+D:\Magankorhaz\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-C:\Users\Barney\Desktop\magankorhazBálint\Magankorhaz\App.xaml
-14625126464
+D:\Magankorhaz\Magankorhaz\App.xaml
+15-1637446607
 
-48531066273
-16-113740406
-AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\JelszoModositas.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;UserControlok\UgyintezoIdopontFelvetel.xaml;UserControlok\UgyintezoIdopontModositas.xaml;VezetosegWindow.xaml;
+51-1736521211
+18657412843
+AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\JelszoModositas.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;UserControlok\UgyintezoIdopontFelvetel.xaml;UserControlok\UgyintezoIdopontModositas.xaml;ValutaValto.xaml;VezetosegWindow.xaml;
 
-True
+False
 

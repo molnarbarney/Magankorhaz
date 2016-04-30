@@ -237,6 +237,7 @@
                 <Label Name="fizetendoosszeg" HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" VerticalAlignment="Top" Width="94" FontSize="20" FontWeight="Bold"/>
                 <Label Content="Ft" HorizontalAlignment="Left" Margin="160,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
                 <CheckBox Name="FizetveCheckBox" Content="Fizetve" HorizontalAlignment="Left" Margin="779,352,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+                <Button Click="ValutaValto_Click" Content="ValutaVáltó" HorizontalAlignment="Left" Margin="500,416,0,0" VerticalAlignment="Top"></Button>
             </Grid>
 
             <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="450" Margin="30,60,0,0" VerticalAlignment="Top" Width="1045" Visibility="Hidden">
