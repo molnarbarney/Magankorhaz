@@ -9,7 +9,7 @@
         <Label Content="Orvos adatai" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
         <Image HorizontalAlignment="Left" Source="../Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="472" Margin="10,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="391"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="472" Margin="10,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="303"/>
 
         <Label Content="Név:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,80,0,0" VerticalAlignment="Top" Width="45" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
         <Label Content="E-mail:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="24,105,0,0" VerticalAlignment="Top" Width="54" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
@@ -56,7 +56,7 @@
         -->
 
         <!-- Elhelyezés -->
-        <Rectangle HorizontalAlignment="Left" Height="71" Margin="422,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="648" Fill="#FFEBEBEB"/>
+        <Rectangle HorizontalAlignment="Left" Height="71" Margin="333,66,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="737" Fill="#FFEBEBEB"/>
 
         <Label Content="Osztály:" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="432,76,0,0" VerticalAlignment="Top" Width="58" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
         <Label x:Name="orvosAdatOsztalyText" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="490,76,0,0" VerticalAlignment="Top" Width="372" Background="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" Height="28" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
@@ -64,11 +64,11 @@
 
 
         <!-- Időpontok -->
-        <Rectangle Fill="#FFEBEBEB" HorizontalAlignment="Left" Height="42" Margin="422,158,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="648"/>
+        <Rectangle Fill="#FFEBEBEB" HorizontalAlignment="Left" Height="42" Margin="334,158,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="736"/>
         <Button x:Name="orvosAdatUjIdopontGomb" Content="Új időpont felvétele" HorizontalAlignment="Left" Margin="927,166,0,0" VerticalAlignment="Top" Width="131" Height="26" Click="orvosAdatUjIdopontGomb_Click" />
         <Button x:Name="orvosAdatIdopontTorleseGomb" Content="Törlés" HorizontalAlignment="Left" Margin="851,166,0,0" VerticalAlignment="Top" Width="62" Height="26" Visibility="Hidden" Click="orvosAdatIdopontTorleseGomb_Click" />
         <Button x:Name="orvosAdatIdopontModositasaGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="774,166,0,0" VerticalAlignment="Top" Width="62" Height="26" Visibility="Hidden" Click="orvosAdatIdopontModositasaGomb_Click"/>
-        <DataGrid x:Name="orvosIdopontokDataGrid" Height="338" Margin="422,200,19,10" Width="648" BorderThickness="0" ColumnWidth="214" CanUserResizeColumns="False" MaxColumnWidth="214" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" IsReadOnly="True" SelectionChanged="orvosIdopontokDataGrid_SelectionChanged" />
+        <DataGrid x:Name="orvosIdopontokDataGrid" Height="338" Margin="334,200,19,10" BorderThickness="0" ColumnWidth="182" CanUserResizeColumns="False" MaxColumnWidth="182" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" IsReadOnly="True" SelectionChanged="orvosIdopontokDataGrid_SelectionChanged" />
         <Button x:Name="IdopontokRefreshGomb" Content="" HorizontalAlignment="Left" Margin="435,170,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Click="IdopontokRefreshGomb_Click">
             <Button.Background>
                 <ImageBrush ImageSource="../Pictures/refresh.png"/>
