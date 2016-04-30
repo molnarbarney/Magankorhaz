@@ -870,6 +870,14 @@ namespace Magankorhaz
                     összeg += item.SzolgaltatasAra;
                 }
                 fizetendoosszeg.Content = összeg;
+                if (fizetendoosszeg.Content != null && !fizetendoosszeg.Content.Equals(0))
+                {
+                    valutavaltoButton.IsEnabled = true;
+                }
+                else
+                {
+                    valutavaltoButton.IsEnabled = false;
+                }
             }
 
         }
@@ -886,6 +894,14 @@ namespace Magankorhaz
                 összeg += item.SzolgaltatasAra;
             }
             fizetendoosszeg.Content = összeg;
+            if (fizetendoosszeg.Content != null && !fizetendoosszeg.Content.Equals(0))
+            {
+                valutavaltoButton.IsEnabled = true;
+            }
+            else
+            {
+                valutavaltoButton.IsEnabled = false;
+            }
         }
 
         private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
@@ -929,6 +945,8 @@ namespace Magankorhaz
             {
                 FizetveCheckBox.IsChecked = false;
             }
+            valutavaltoButton.IsEnabled = false;
+            fizetendoosszeg.Content = 0;
         }
 
         ViewModelSzamlahoz vmsz;

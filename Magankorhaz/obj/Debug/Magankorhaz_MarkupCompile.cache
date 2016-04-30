@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\
+D:\Magankorhaz\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\App.xaml
+D:\Magankorhaz\Magankorhaz\App.xaml
 181666904006
 
 521845993963
-181297054833
+18657412843
 AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\JelszoModositas.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosKezelesek.xaml;UserControlok\OrvosKezelesModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;UserControlok\OrvosUjKezelesFelvetele.xaml;UserControlok\UgyintezoIdopontFelvetel.xaml;UserControlok\UgyintezoIdopontModositas.xaml;ValutaValto.xaml;VezetosegWindow.xaml;
 
 False
