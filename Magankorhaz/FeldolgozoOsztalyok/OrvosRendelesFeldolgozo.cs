@@ -35,46 +35,87 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             get;
         }
 
+        public ObservableCollection<Adatbazis.Orvos> Orvosok
+        {
+            set;
+            get;
+        }
+
+        public ObservableCollection<Adatbazis.Osztaly> Osztalyok;
+
         public OrvosRendelesFeldolgozo(Adatbazis.MagankorhazDB adatbazis, Adatbazis.Orvos orvos)
         {
             Adatbazis = adatbazis;
             AktualisOrvos = orvos;
-            var idopontok = from x in adatbazis.Idopontok
-                            join o in adatbazis.Orvosok on x.OrvosID equals o.Id 
-                            join p in adatbazis.Paciensek on x.PaciensID equals p.Id
-                            select new { FoglaltIdopont = x.FoglaltIdopont, Orvos = o.Nev, Paciens = p.Nev, Megnevezes = x.Megnevezes};
-            var tempList = idopontok.ToList();
-            Idopontok = new ObservableCollection<OrvosRendelesekViewModel>();
-            foreach(var akt in tempList)
-            {
-                Idopontok.Add(new OrvosRendelesekViewModel() { FoglaltIdopont = akt.FoglaltIdopont, Orvos = akt.Orvos, Paciens = akt.Paciens, Megnevezes = akt.Megnevezes});
-            }
+
+            IdopontLekeres();
 
             var paciensek = from x in adatbazis.Paciensek
                             select x;
             Paciensek = new ObservableCollection<Adatbazis.Paciens>(paciensek.ToList<Adatbazis.Paciens>());
-            
+
+            var osztalyok = from x in adatbazis.Osztalyok
+                            select x;
+            Osztalyok = new ObservableCollection<Magankorhaz.Adatbazis.Osztaly>(osztalyok.ToList<Magankorhaz.Adatbazis.Osztaly>());
+
+            var orvosok = from x in adatbazis.Orvosok
+                          select x;
+            Orvosok = new ObservableCollection<Adatbazis.Orvos>(orvosok.ToList<Magankorhaz.Adatbazis.Orvos>());
         }
 
         public OrvosRendelesFeldolgozo(Adatbazis.MagankorhazDB adatbazis)
         {
             Adatbazis = adatbazis;
             AktualisOrvos = ElsoOrvos();
-            var idopontok = from x in adatbazis.Idopontok
-                            join o in adatbazis.Orvosok on x.OrvosID equals o.Id
-                            join p in adatbazis.Paciensek on x.PaciensID equals p.Id
-                            select new { FoglaltIdopont = x.FoglaltIdopont, Orvos = o.Nev, Paciens = p.Nev };
-            var tempList = idopontok.ToList();
-            Idopontok = new ObservableCollection<OrvosRendelesekViewModel>();
-            foreach (var akt in tempList)
-            {
-                Idopontok.Add(new OrvosRendelesekViewModel() { FoglaltIdopont = akt.FoglaltIdopont, Orvos = akt.Orvos, Paciens = akt.Paciens });
-            }
+            IdopontLekeres();
+            
 
             var paciensek = from x in adatbazis.Paciensek
                             select x;
             Paciensek = new ObservableCollection<Adatbazis.Paciens>(paciensek.ToList<Adatbazis.Paciens>());
 
+            var osztalyok = from x in adatbazis.Osztalyok
+                            select x;
+            Osztalyok = new ObservableCollection<Magankorhaz.Adatbazis.Osztaly>(osztalyok.ToList<Magankorhaz.Adatbazis.Osztaly>());
+
+            var orvosok = from x in adatbazis.Orvosok
+                          select x;
+            Orvosok = new ObservableCollection<Adatbazis.Orvos>(orvosok.ToList<Magankorhaz.Adatbazis.Orvos>());
+
+            
+        }
+
+        public void IdopontLekeres()
+        {
+            var idopontok = from x in Adatbazis.Idopontok
+                            join o in Adatbazis.Orvosok on x.OrvosID equals o.Id
+                            join p in Adatbazis.Paciensek on x.PaciensID equals p.Id
+                            orderby x.FoglaltIdopont
+                            select new { FoglaltIdopont = x.FoglaltIdopont, Orvos = o.Nev, Paciens = p.Nev, Megnevezes = x.Megnevezes };
+            var tempList = idopontok.ToList();
+            Idopontok = new ObservableCollection<OrvosRendelesekViewModel>();
+            foreach (var akt in tempList)
+            {
+                if(akt.FoglaltIdopont > DateTime.Now)
+                    Idopontok.Add(new OrvosRendelesekViewModel() { FoglaltIdopont = akt.FoglaltIdopont, Orvos = akt.Orvos, Paciens = akt.Paciens, Megnevezes = akt.Megnevezes });
+            }
+        }
+
+        public ObservableCollection<OrvosRendelesekViewModel> IdopontLekeres(Adatbazis.Orvos orvos)
+        {
+            var idopontok = from x in Adatbazis.Idopontok
+                            join o in Adatbazis.Orvosok on x.OrvosID equals o.Id
+                            join p in Adatbazis.Paciensek on x.PaciensID equals p.Id
+                            orderby x.FoglaltIdopont
+                            select new { FoglaltIdopont = x.FoglaltIdopont, Orvos = o.Nev, Paciens = p.Nev, Megnevezes = x.Megnevezes };
+            var tempList = idopontok.ToList();
+            ObservableCollection<OrvosRendelesekViewModel> szurtLekerdezes = new ObservableCollection<OrvosRendelesekViewModel>();
+            foreach (var akt in tempList)
+            {
+                if (akt.FoglaltIdopont > DateTime.Now && akt.Orvos == orvos.Nev)
+                    szurtLekerdezes.Add(new OrvosRendelesekViewModel() { FoglaltIdopont = akt.FoglaltIdopont, Orvos = akt.Orvos, Paciens = akt.Paciens, Megnevezes = akt.Megnevezes });
+            }
+            return szurtLekerdezes;
         }
 
         public bool IdopontTorlese(OrvosRendelesekViewModel kivalasztottIdopont)
@@ -114,11 +155,20 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             }
         }
 
-        public bool UjIdopontFelvetele(DateTime idopont, Adatbazis.Paciens paciens, string megnevezes)
+
+        public bool UjIdopontFelvetele(DateTime idopont,Adatbazis.Orvos orvos, Adatbazis.Paciens paciens, string megnevezes)
         {
+            ObservableCollection<OrvosRendelesekViewModel> foglaltIdopontok = IdopontLekeres(orvos);
+            foreach (OrvosRendelesekViewModel akt in foglaltIdopontok)
+            {
+                if (akt.FoglaltIdopont == idopont && akt.Orvos == orvos.Nev)
+                {
+                    return false;
+                }
+            }
             try
             {
-                Adatbazis.Idopontok.Add(new Adatbazis.Idopont() { FoglaltIdopont = idopont, PaciensID = paciens.Id, OrvosID = AktualisOrvos.Id, Megnevezes = megnevezes });
+                Adatbazis.Idopontok.Add(new Adatbazis.Idopont() { FoglaltIdopont = idopont, PaciensID = paciens.Id, OrvosID = orvos.Id, Megnevezes = megnevezes });
                 Adatbazis.SaveChanges();
             }
             catch { return false; }
@@ -131,6 +181,32 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             var orvos = from x in Adatbazis.Orvosok
                         select x;
             return orvos.ToList<Adatbazis.Orvos>().First();
+        }
+
+        public string OsztalyMegnevezesIdAlapjan(int id)
+        {
+            var osztaly = from x in Adatbazis.Osztalyok
+                          where x.Id == id
+                          select x.Megnevezes;
+
+            return osztaly.ToList<string>().First().ToString();
+        }
+
+        public Adatbazis.Orvos ElsoOrvosFelhasznalonevAlapjan(string felhasznalonev)
+        {
+            var orvos = from x in Adatbazis.Orvosok
+                        where x.Nev == felhasznalonev
+                        select x;
+            if (AktualisOrvos.Felhasznalonev == "")
+                AktualisOrvos = orvos.ToList<Adatbazis.Orvos>().First();
+            return orvos.ToList<Adatbazis.Orvos>().First();
+        }
+        public Adatbazis.Paciens ElsoPaciensNevAlapjan(string nev)
+        {
+            var paciens = from x in Adatbazis.Paciensek
+                          where x.Nev == nev
+                          select x;
+            return paciens.ToList<Adatbazis.Paciens>().First();
         }
     }
 }

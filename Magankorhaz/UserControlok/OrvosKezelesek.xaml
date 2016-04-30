@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Magankorhaz.UserControlok.OrvosKezelesek"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Rectangle Fill="#FFEBEBEB"  HorizontalAlignment="Left" Height="450" Margin="40,10,0,0" VerticalAlignment="Top" Width="270"/>
+        <Rectangle Fill="#FFEBEBEB"  Height="450" Margin="320,10,0,0" Width="750" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Image HorizontalAlignment="Left" Source="../Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2" />
+        <Label Content="Páciensek:" Margin="50,20,0,0" FontSize="16" FontWeight="Bold" Foreground="#FF1D3446" HorizontalAlignment="Left" Typography.Capitals="SmallCaps" />
+        <ListBox Width="250" Height="400" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="paciensListBox" Background="Transparent" ItemsSource="{Binding Paciensek}" BorderBrush="Transparent"></ListBox>
+        <Label Content="Kezelések:" Margin="350,20,0,0" FontSize="16" FontWeight="Bold" Foreground="#FF1D3446" HorizontalAlignment="Left" Typography.Capitals="SmallCaps" />
+        <DataGrid x:Name="kezelesekDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True" Margin="350,50,0,0" Width="700" Background="Transparent" Height="400" ItemsSource="{Binding Kezelesek}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" AutoGenerateColumns="False" SelectionMode="Single" BorderBrush="Transparent" SelectionChanged="kezelesekDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Páciens neve" x:Name="paciensNeveColumn" Binding="{Binding Paciens}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kezelés időpontja" x:Name="kezelesIdopontjaColumn" Binding="{Binding KezelesDatuma}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kezelés részletei" x:Name="kezelesReszleteiColumn" Binding="{Binding KezelesReszletei}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Orvos neve" x:Name="orvosColumn" Binding="{Binding Orvos}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ujkezelesButton" Content="Új kezelés" Margin="50,470,0,0" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ujkezelesButton_Click"></Button>
+        <Button x:Name="kezelesmodositasaButton" Content="Kezelés módosítása" Margin="350,470,0,0" Width="200" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="kezelesmodositasaButton_Click"></Button>
+        <Button x:Name="kezelesTorleseButton" Content="Kezelés törlése" Margin="0,470,50,0" Width="200" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Click="kezelesTorleseButton_Click"></Button>
+    </Grid>
+</UserControl>

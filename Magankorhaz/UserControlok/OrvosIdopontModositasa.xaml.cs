@@ -26,73 +26,88 @@ namespace Magankorhaz.UserControlok
         OrvosRendelesFeldolgozo IdopontFeldolgozo;
         Adatbazis.Orvos Orvos;
 
-        public OrvosIdopontModositasa(OrvosRendelesekViewModel kivalasztottIdopont, Adatbazis.Orvos orvos)
+        public OrvosIdopontModositasa(OrvosRendelesekViewModel kivalasztottIdopont, Adatbazis.Orvos orvos, Adatbazis.Paciens paciens)
         {
             InitializeComponent();
             Orvos = orvos;
-            IdopontFeldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase);
-            paciensListBox.DataContext = IdopontFeldolgozo;
-
             Idopont = kivalasztottIdopont;
-            datumDatePicker.Text = kivalasztottIdopont.FoglaltIdopont.ToShortDateString();
-            idoOraTextBox.Text = kivalasztottIdopont.FoglaltIdopont.Hour.ToString();
-            idoPercTextBox.Text = kivalasztottIdopont.FoglaltIdopont.Minute.ToString();
-            megnevezesTextBox.Text = kivalasztottIdopont.Megnevezes;
+            IdopontFeldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase);
+            idopontOrvos.ItemsSource = IdopontFeldolgozo.Orvosok;
+            idopontPaciens.ItemsSource = IdopontFeldolgozo.Paciensek;
 
-        }
-
-        private void idoOraTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.Key < Key.D0 || e.Key > Key.D9) && (e.Key < Key.NumPad0 || e.Key > Key.NumPad9) && (e.Key != Key.Back) && (e.Key != Key.Tab))
+            for (int i = 9; i < 17; i++)
             {
-                e.Handled = true;
-            }
-            if (idoOraTextBox.Text.Length > 1)
-            {
-                if (int.Parse(idoOraTextBox.Text) > 23)
+                if (kivalasztottIdopont.FoglaltIdopont <= DateTime.Now)
                 {
-                    idoOraTextBox.Text = "23";
+                    if(DateTime.Now.Hour < 17 && DateTime.Now.Hour > 8)
+                        if (DateTime.Now.Hour > i)
+                            continue;
                 }
+                idopontOra.Items.Add(i.ToString());
             }
-        }
 
-        private void idoPercTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.Key <= Key.D0 || e.Key >= Key.D9) && (e.Key < Key.NumPad0 || e.Key > Key.NumPad9) && (e.Key != Key.Back) && (e.Key != Key.Tab))
-            {
-                e.Handled = true;
-            }
-            if (idoPercTextBox.Text.Length > 1)
-            {
-                if (int.Parse(idoPercTextBox.Text) > 59)
-                {
-                    idoPercTextBox.Text = "59";
-                }
-            }
-        }
+            idopontPerc.Items.Add("00");
+            idopontPerc.Items.Add("30");
 
-        private void idopontModositasaButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (paciensListBox.SelectedItem == null || datumDatePicker.Text == "" || idoOraTextBox.Text == "" || idoPercTextBox.Text == "")
+            idopontOrvos.SelectedItem = Orvos;
+            idopontOra.SelectedIndex = 0;
+            idopontPerc.SelectedIndex = 0;
+
+            foglaltIdopontokListBox.ItemsSource = IdopontFeldolgozo.Idopontok;
+
+            idopontDatum.BlackoutDates.Add(new CalendarDateRange(new DateTime(1990, 1, 1), DateTime.Now.AddDays(-1)));
+            idopontDatum.SelectedDate = kivalasztottIdopont.FoglaltIdopont.Date;
+            if (DateTime.Now.Hour > 16)
             {
-                MessageBox.Show("Szükséges adatok hiányoznak!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+                idopontDatum.BlackoutDates.Add(new CalendarDateRange(new DateTime(1990, 1, 1), DateTime.Now));
             }
             else
             {
-                DateTime ujIdopont = DateTime.Parse(datumDatePicker.Text);
-                ujIdopont = ujIdopont.AddHours(int.Parse(idoOraTextBox.Text));
-                ujIdopont = ujIdopont.AddMinutes(int.Parse(idoPercTextBox.Text));
-                IdopontFeldolgozo.IdopontTorlese(Idopont.FoglaltIdopont);
-
-                if (IdopontFeldolgozo.UjIdopontFelvetele(ujIdopont, (Adatbazis.Paciens)paciensListBox.SelectedItem, megnevezesTextBox.Text))
+                idopontDatum.BlackoutDates.Add(new CalendarDateRange(new DateTime(1990, 1, 1), DateTime.Now.AddDays(-1)));
+            }
+            if (kivalasztottIdopont.FoglaltIdopont > DateTime.Now)
+            {
+                switch (kivalasztottIdopont.FoglaltIdopont.Hour)
                 {
-                    MessageBox.Show("Időpont sikeresen módosítva", "Időpont felvéve", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Grid parent = (Grid)this.Parent;
-                    parent.Children.Clear();
-                    parent.Children.Add(new OrvosRendelesek(Orvos));
+                    case 9: idopontOra.SelectedIndex = 0; break;
+                    case 10: idopontOra.SelectedIndex = 1; break;
+                    case 11: idopontOra.SelectedIndex = 2; break;
+                    case 12: idopontOra.SelectedIndex = 3; break;
+                    case 13: idopontOra.SelectedIndex = 4; break;
+                    case 14: idopontOra.SelectedIndex = 5; break;
+                    case 15: idopontOra.SelectedIndex = 6; break;
+                    case 16: idopontOra.SelectedIndex = 7; break;
                 }
+                if (kivalasztottIdopont.FoglaltIdopont.Minute < 30)
+                    idopontPerc.SelectedIndex = 0;
+                else
+                    idopontPerc.SelectedIndex = 1;
+            }
+            idopontReszletek.Text = kivalasztottIdopont.Megnevezes;
 
+            idopontPaciens.SelectedItem = paciens;
+
+        }
+
+        private void UjIdopontMentesGomb_Click(object sender, RoutedEventArgs e)
+        {
+            if (idopontOra.Text == "" || idopontPerc.Text == "")
+            {
+                MessageBox.Show("Szükséges adat hiányzik!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                DateTime ujIdopont = DateTime.Parse(idopontDatum.Text);
+                ujIdopont = ujIdopont.AddHours(int.Parse(idopontOra.Text));
+                ujIdopont = ujIdopont.AddMinutes(int.Parse(idopontPerc.Text));
+                if (!IdopontFeldolgozo.UjIdopontFelvetele(ujIdopont, (Adatbazis.Orvos)idopontOrvos.SelectedItem, (Adatbazis.Paciens)idopontPaciens.SelectedItem, idopontReszletek.Text))
+                {
+                    MessageBox.Show("A megadott időpont foglalt!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                foglaltIdopontokListBox.ItemsSource = IdopontFeldolgozo.IdopontLekeres(Orvos);
             }
         }
+
+        
     }
 }
