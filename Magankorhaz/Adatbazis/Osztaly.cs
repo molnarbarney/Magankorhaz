@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.Adatbazis
 {
-    class Osztaly
+    public class Osztaly
     {
         public int Id { get; set; }
         public string Megnevezes { get; set; }
