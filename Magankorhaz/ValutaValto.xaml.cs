@@ -56,6 +56,7 @@ namespace Magankorhaz
             ProcessInfo(result);
             result = client.GetCurrentExchangeRates();
             ProcessRates(result);
+            atvaltandoosszeg.Content = osszeg;
         }
 
         void ProcessRates(string xml)
@@ -79,6 +80,11 @@ namespace Magankorhaz
                 string date = day.Attribute("date").Value;
                 rates.AddRange(day.Descendants("Rate").Select(x => new Rate(date, x.Attribute("curr").Value, x.Value, osszeg)));
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

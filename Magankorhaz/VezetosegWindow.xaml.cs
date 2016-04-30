@@ -224,7 +224,7 @@ namespace Magankorhaz
                             select akt;
 
             mvm.Osztalyok = new ObservableCollection<Adatbazis.Osztaly>(osztalyok);
-            osztalyokCombobox.SelectedItem = osztalyok.FirstOrDefault();
+            //osztalyokCombobox.SelectedItem = osztalyok.FirstOrDefault();
             //osztalyokCombobox.ItemsSource = osztalyok.ToList();
             //osztalyokCombobox.SelectedItem = osztalyok.FirstOrDefault();
         }
