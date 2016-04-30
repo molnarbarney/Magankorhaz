@@ -68,6 +68,7 @@
     <Compile Include="Adatbazis\Ugyvezeto.cs" />
     <Compile Include="DiagramKeszito.cs" />
     <Compile Include="FeldolgozoOsztalyok\Beleptetes.cs" />
+    <Compile Include="FeldolgozoOsztalyok\OrvosKezelesekFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\OrvosRendelesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\RendelesiIdopontFeldolgozo.cs" />
@@ -101,6 +102,12 @@
     <Compile Include="UserControlok\OrvosIdopontModositasa.xaml.cs">
       <DependentUpon>OrvosIdopontModositasa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlok\OrvosKezelesek.xaml.cs">
+      <DependentUpon>OrvosKezelesek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OrvosKezelesModositasa.xaml.cs">
+      <DependentUpon>OrvosKezelesModositasa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlok\OrvosRendelesek.xaml.cs">
       <DependentUpon>OrvosRendelesek.xaml</DependentUpon>
     </Compile>
@@ -109,6 +116,9 @@
     </Compile>
     <Compile Include="UserControlok\OrvosUjIdopontFelvetele.xaml.cs">
       <DependentUpon>OrvosUjIdopontFelvetele.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OrvosUjKezelesFelvetele.xaml.cs">
+      <DependentUpon>OrvosUjKezelesFelvetele.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlok\UgyintezoIdopontFelvetel.xaml.cs">
       <DependentUpon>UgyintezoIdopontFelvetel.xaml</DependentUpon>
@@ -119,6 +129,7 @@
     <Compile Include="VezetosegWindow.xaml.cs">
       <DependentUpon>VezetosegWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModellek\OrvosKezelesekViewModel.cs" />
     <Compile Include="ViewModellek\OrvosRendelesekViewModel.cs" />
     <Page Include="AdminWindow.xaml">
       <SubType>Designer</SubType>
@@ -174,6 +185,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlok\OrvosKezelesek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosKezelesModositasa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlok\OrvosRendelesek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlok\OrvosUjIdopontFelvetele.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosUjKezelesFelvetele.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

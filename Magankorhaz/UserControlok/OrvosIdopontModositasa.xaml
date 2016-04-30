@@ -6,17 +6,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="Transparent">
-        <Image HorizontalAlignment="Left" Source="../Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2" />
-        <ListBox Width="250" Height="400" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="paciensListBox" Background="Transparent" ItemsSource="{Binding Paciensek}"></ListBox>
-        <Label Content="Dátum:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,50,0,0" />
-        <DatePicker x:Name="datumDatePicker" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="150,50,0,0" Width="300" Height="30" BorderBrush="Transparent"/>
-        <Label Content="Idő:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="420,80,0,0" />
-        <TextBox x:Name="idoOraTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="20" MaxLength="2" Margin="500,85,0,0" PreviewKeyDown="idoOraTextBox_PreviewKeyDown"/>
-        <Label Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,80,0,0" />
-        <TextBox x:Name="idoPercTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="20" MaxLength="2" Margin="550,85,0,0" PreviewKeyDown="idoPercTextBox_PreviewKeyDown"/>
-        <Label  Margin="420,130,0,0" Content="Megnevezés:" />
-        <TextBox x:Name="megnevezesTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Margin="500,130,0,0" MaxLines="10" />
-        <Label x:Name="orvosLabel" FontSize="16" Margin="450,400,0,0" />
-        <Button x:Name="idopontModositasaButton" Width="200" Height="50" Margin="450,450,0,0" Content="Időpont módosítása" Click="idopontModositasaButton_Click"/>
+        <ComboBox x:Name="idopontOrvos" HorizontalAlignment="Left" Margin="125,17,0,0" VerticalAlignment="Top" Width="204" SelectedIndex="0"/>
+        <TextBox x:Name="idopontReszletek" HorizontalAlignment="Left" Margin="122,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="121" Width="202"/>
+        <Button x:Name="UjIdopontMentesGomb" Content="Mentés" HorizontalAlignment="Left" Margin="249,254,0,0" VerticalAlignment="Top" Width="75" Click="UjIdopontMentesGomb_Click"/>
+        <Label Content="Dátum:" HorizontalAlignment="Left" Margin="14,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.688,0.385"/>
+        <Label Content="Orvos:" HorizontalAlignment="Left" Margin="14,15,0,0" VerticalAlignment="Top"/>
+        <Label Content="Időpont részletei:" HorizontalAlignment="Left" Margin="14,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="Foglalt időpontok:" HorizontalAlignment="Left" Margin="343,0,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="idopontDatum" HorizontalAlignment="Left" Margin="126,92,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="idopontOra" HorizontalAlignment="Left" Margin="250,92,0,0" VerticalAlignment="Top" Width="43"/>
+        <ComboBox x:Name="idopontPerc" HorizontalAlignment="Left" Margin="302,92,0,0" VerticalAlignment="Top" Width="43"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="291,92,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="foglaltIdopontokListBox" HorizontalAlignment="Left" Height="208" Margin="354,37,0,0" VerticalAlignment="Top" Width="230"/>
+        <Label Content="Páciens:" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="idopontPaciens" HorizontalAlignment="Left" Margin="125,52,0,0" VerticalAlignment="Top" Width="204" IsReadOnly="True">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Nev}"/>
+                        <TextBlock Text="(" />
+                        <TextBlock Text="{Binding SzuletesiDatum, StringFormat={}{0:yyyy-MM-dd}}" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </UserControl>
