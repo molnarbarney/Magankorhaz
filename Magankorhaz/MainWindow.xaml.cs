@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -74,6 +75,9 @@ namespace Magankorhaz
             else MessageBox.Show(adatok[0]);
         }
 
+        CancellationTokenSource CTS;
+        Task IdopontokTorleseTask;
+
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             bool sikeresAdatbazisCsatlakozas = adatbazisCsatlakozas();
@@ -82,6 +86,27 @@ namespace Magankorhaz
                 db_connection_status.Content = "Sikeres adatbázis csatlakozás!";
             }
             else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";
+
+            CTS = new CancellationTokenSource();
+            IdopontokTorleseTask = Task.Run(() => { ElavultIdopontTorlese(CTS.Token); });
+
+        }
+
+        private void ElavultIdopontTorlese(CancellationToken CT)
+        {
+            while (!CT.IsCancellationRequested)
+            {
+                var torlendo_idopont = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Idopontok
+                                       where akt.FoglaltIdopont < DateTime.Now
+                                       select akt;
+
+                foreach (var item in torlendo_idopont.ToList())
+                {
+                    Magankorhaz.Adatbazis.AdatBazis.DataBase.Idopontok.Remove(item);
+                }
+                System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
+            }
+            
         }
 
         public bool adatbazisCsatlakozas()
@@ -96,6 +121,12 @@ namespace Magankorhaz
                 return true;
             }
             else return false;
+        }
+
+        private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CTS.Cancel();
+            Task.WaitAll(IdopontokTorleseTask);
         }
     }
 }

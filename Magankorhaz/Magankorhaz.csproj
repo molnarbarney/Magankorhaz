@@ -143,6 +143,9 @@
     <Compile Include="UserControlok\UgyintezoIdopontModositas.xaml.cs">
       <DependentUpon>UgyintezoIdopontModositas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValutaValto.xaml.cs">
+      <DependentUpon>ValutaValto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VezetosegWindow.xaml.cs">
       <DependentUpon>VezetosegWindow.xaml</DependentUpon>
     </Compile>
@@ -198,11 +201,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlok\KezelesReszletei.xaml">
+    <Page Include="UserControlok\OrvosIdopontModositasa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlok\OrvosIdopontModositasa.xaml">
+    <Page Include="UserControlok\OrvosKezelesek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosKezelesModositasa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlok\UgyintezoIdopontModositas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValutaValto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -314,13 +325,14 @@
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetExchangeRatesResponseBody.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetInfoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetInfoResponseBody.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\MNBService\MNBArfolyamServiceSoapImpl.wsdl" />
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\mnb_old.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -343,9 +355,6 @@
     <WCFMetadataStorage Include="Service References\MNBService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MNBService\arfolyamok.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\MNBService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +365,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

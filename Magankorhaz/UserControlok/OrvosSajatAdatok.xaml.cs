@@ -72,6 +72,7 @@ namespace Magankorhaz.UserControlok
         {
             OrvosUjIdopontFelvetele ujIdopontUserControl = new OrvosUjIdopontFelvetele(Orvos);
             Window ujIdopontWindow = new Window();
+            ujIdopontWindow.Title = "Új időpont felvétele";
             ujIdopontWindow.Content = ujIdopontUserControl;
             ujIdopontWindow.Width = 626;
             ujIdopontWindow.Height = 323;
@@ -83,6 +84,8 @@ namespace Magankorhaz.UserControlok
         {
             RendelesFeldolgozo.IdopontLekeres();
             orvosIdopontokDataGrid.ItemsSource = RendelesFeldolgozo.Idopontok;
+            orvosAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
+            orvosAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
         }
 
         private void orvosIdopontokDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -116,6 +119,7 @@ namespace Magankorhaz.UserControlok
         {
             OrvosIdopontModositasa modositandoIdopont = new OrvosIdopontModositasa((OrvosRendelesekViewModel)orvosIdopontokDataGrid.SelectedItem, Orvos, RendelesFeldolgozo.ElsoPaciensNevAlapjan(((OrvosRendelesekViewModel)orvosIdopontokDataGrid.SelectedItem).Paciens));
             Window idopontmodositasWindow = new Window();
+            idopontmodositasWindow.Title = "Időpont módosítása";
             idopontmodositasWindow.Content = modositandoIdopont;
             idopontmodositasWindow.Width = 626;
             idopontmodositasWindow.Height = 323;

@@ -13,7 +13,7 @@
         <Button x:Name="osztalyokMenuGomb" Content="Osztályok" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Typography.Capitals="SmallCaps" Width="228" Height="50" BorderBrush="{x:Null}" Background="#FF355061" Foreground="White" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Click="osztalyokMenuGomb_Click"/>
         <Label x:Name="felhasznalo" Content="" HorizontalAlignment="Left" Margin="245,22,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3446"/>
         <Label x:Name="felhasznaloTipus" Content="Admin" HorizontalAlignment="Left" Margin="245,59,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF355061"/>
-        <Canvas x:Name="felhasznaloVaszon" HorizontalAlignment="Left" Height="536" Margin="236,107,0,0" VerticalAlignment="Top" Width="1084" Visibility="Hidden">
+        <Canvas x:Name="felhasznaloVaszon" HorizontalAlignment="Left" Height="536" Margin="236,107,0,0" VerticalAlignment="Top" Width="1084" Visibility="Visible">
             <ListView Name="felhasznaloLista" Height="443" Canvas.Top="90" Width="1081" SelectionChanged="felhasznaloLista_SelectionChanged">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -22,7 +22,7 @@
                 </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Név" DisplayMemberBinding="{Binding name}" Width="250"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="250"/>
                         <GridViewColumn Header="Felhasználónév" DisplayMemberBinding="{Binding username}" Width="250"/>
                         <GridViewColumn Header="Jelszó" DisplayMemberBinding="{Binding password}" Width="250"/>
                         <GridViewColumn Header="Szerepkör" DisplayMemberBinding="{Binding role}" Width="250"/>
@@ -97,7 +97,7 @@
             <Button x:Name="felveszButton" Content="Felvesz" Canvas.Left="140" Canvas.Top="455" Width="129" Height="35" FontSize="16" FontWeight="Bold" Click="felveszButton_Click" Visibility="Hidden"/>
             <Button x:Name="modositButton" Content="Módosít" Canvas.Left="140" Canvas.Top="455" Width="129" Height="35" FontSize="16" FontWeight="Bold" Click="modositButton_Click" Visibility="Hidden"/>
         </Canvas>
-
+        <Image HorizontalAlignment="Left" Height="87" Margin="0,7,0,0" VerticalAlignment="Top" Width="272" Source="Pictures/logo.png"/>
 
     </Grid>
 

@@ -111,17 +111,17 @@
                 </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="id" DisplayMemberBinding="{Binding id}" Width="0"/>
                         <GridViewColumn Header="Dátum" DisplayMemberBinding="{Binding idopont}" Width="250"/>
-                        <GridViewColumn Header="Kezelőorvos" DisplayMemberBinding="{Binding orvos}" Width="250"/>
+                        <GridViewColumn Header="Osztály" DisplayMemberBinding="{Binding osztaly}" Width="250"/>
                         <GridViewColumn Header="Szolgáltatás" DisplayMemberBinding="{Binding szolg}" Width="250"/>
                         <GridViewColumn Header="Ár" DisplayMemberBinding="{Binding ar}" Width="250"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Label x:Name="osszesKoltseg" Content="" Canvas.Left="523" Canvas.Top="8" FontSize="16" FontWeight="Bold" Height="70" Width="382"/>
-            <Button x:Name="kezelesReszletek" Content="Részletek" Canvas.Left="969" Canvas.Top="54" Width="100" Height="30" FontSize="16" FontWeight="Bold" Click="kezelesReszletek_Click" Visibility="Hidden"/>
+            <Label x:Name="osszesKoltseg" Content="" Canvas.Left="603" Canvas.Top="47" FontSize="16" FontWeight="Bold"/>
+            <Button x:Name="kezelesReszletek" Content="Részletek" Canvas.Left="969" Canvas.Top="54" Width="100" Height="30" FontSize="16" FontWeight="Bold" Click="kezelesReszletek_Click" Visibility="Visible"/>
         </Canvas>
+        <Image HorizontalAlignment="Left" Height="87" Margin="0,7,0,0" VerticalAlignment="Top" Width="272" Source="Pictures/logo.png"/>
     </Grid>
 
 </Window>
