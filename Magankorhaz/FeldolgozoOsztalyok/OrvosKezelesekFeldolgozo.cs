@@ -114,6 +114,7 @@ namespace Magankorhaz.FeldolgozoOsztalyok
                               select x;
                 Adatbazis.Karton felvettkarton = kezeles.ToList<Adatbazis.Karton>().Last();
                 Adatbazis.Szamlak.Add(new Adatbazis.Szamla() { KartonID = felvettkarton.Id, PaciensID = felvettkarton.PaciensID, Fizetendo = felvettkarton.KezelesKoltsege, Befizetve = false, BefizetesDatuma = new DateTime() });
+                Adatbazis.SaveChanges();
                 return true;
             }
             catch
