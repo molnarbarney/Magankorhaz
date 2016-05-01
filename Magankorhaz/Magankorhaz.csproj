@@ -98,6 +98,9 @@
     <Compile Include="UserControlok\JelszoModositas.xaml.cs">
       <DependentUpon>JelszoModositas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlok\KezelesReszletei.xaml.cs">
+      <DependentUpon>KezelesReszletei.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlok\OrvosIdopontModositasa.xaml.cs">
       <DependentUpon>OrvosIdopontModositasa.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,9 @@
     </Compile>
     <Compile Include="UserControlok\OrvosUjIdopontFelvetele.xaml.cs">
       <DependentUpon>OrvosUjIdopontFelvetele.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OsztalyModositas.xaml.cs">
+      <DependentUpon>OsztalyModositas.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlok\UgyintezoIdopontFelvetel.xaml.cs">
       <DependentUpon>UgyintezoIdopontFelvetel.xaml</DependentUpon>
@@ -170,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlok\KezelesReszletei.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlok\OrvosIdopontModositasa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlok\OrvosUjIdopontFelvetele.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OsztalyModositas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

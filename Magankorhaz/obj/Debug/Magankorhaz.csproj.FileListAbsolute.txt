@@ -479,3 +479,7 @@ C:\Users\Barney\Desktop\magankorhazBálint\Magankorhaz\obj\Debug\Magankorhaz.Mig
 C:\Users\Barney\Desktop\magankorhazBálint\Magankorhaz\obj\Debug\Magankorhaz.Migrations.vasarnap.resources
 C:\Users\Barney\Desktop\magankorhazBálint\Magankorhaz\obj\Debug\Magankorhaz.Properties.Resources.resources
 C:\Users\Barney\Desktop\magankorhazBálint\Magankorhaz\obj\Debug\Magankorhaz.csproj.GenerateResource.Cache
+D:\dokumentumok\suli\2015_2016_2\SZTT\GIT\magankorhaz\Magankorhaz\obj\Debug\UserControlok\OsztalyModositas.baml
+D:\dokumentumok\suli\2015_2016_2\SZTT\GIT\magankorhaz\Magankorhaz\obj\Debug\UserControlok\OsztalyModositas.g.cs
+D:\dokumentumok\suli\2015_2016_2\SZTT\GIT\magankorhaz\Magankorhaz\obj\Debug\UserControlok\KezelesReszletei.baml
+D:\dokumentumok\suli\2015_2016_2\SZTT\GIT\magankorhaz\Magankorhaz\obj\Debug\UserControlok\KezelesReszletei.g.cs

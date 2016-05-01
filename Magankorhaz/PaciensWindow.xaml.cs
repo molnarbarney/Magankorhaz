@@ -178,26 +178,39 @@ namespace Magankorhaz
             kezelesLista.Items.Clear();
             var kezeles = from akt in Adatbazis.AdatBazis.DataBase.Kartonok
                           where akt.PaciensID == paciensID && akt.KezelesDatuma >= tolDate.SelectedDate.Value && akt.KezelesDatuma <= igDate.SelectedDate.Value
-                          orderby akt.KezelesDatuma
-                          select akt;
+                          join szamla in Adatbazis.AdatBazis.DataBase.Szamlak on akt.Id equals szamla.KartonID
+                          join orvos in Adatbazis.AdatBazis.DataBase.Orvosok on akt.OrvosID equals orvos.Id
+                          orderby akt.KezelesDatuma                         
+                          select new { Id = akt.Id, Ido = akt.KezelesDatuma, Orv = orvos.Nev, Szolg = akt.KezelesReszletei, Ar = akt.KezelesKoltsege, Fiz = szamla.Befizetve };
             int osszeg = 0;
+            int fizetve = 0;
+            int tartozik = 0;
             foreach (var ujsor in kezeles)
             {
-                kezelesLista.Items.Add(new Adatsor() { idopont = ujsor.KezelesDatuma.ToString(), osztaly = ujsor.PaciensID.ToString(), szolg = ujsor.KezelesReszletei, ar = ujsor.KezelesKoltsege.ToString() });
-                osszeg += ujsor.KezelesKoltsege;
+                kezelesLista.Items.Add(new Adatsor() { id = ujsor.Id, idopont = ujsor.Ido.ToString(), orvos = ujsor.Orv.ToString(), szolg = ujsor.Szolg, ar = ujsor.Ar.ToString() });
+                if (ujsor.Fiz)
+                {
+                    fizetve += ujsor.Ar;
+                }
+                else
+                {
+                    tartozik += ujsor.Ar;
+                }
+                osszeg += ujsor.Ar;
             }
-            osszesKoltseg.Content = "A kezelések összköltsége: " + osszeg + " Ft";
+
+            osszesKoltseg.Content = new TextBlock() { Text = "A kezelések összköltsége " + osszeg + " Ft, befizetve " + fizetve + " Ft, tartozás " + tartozik + " Ft.", TextWrapping = TextWrapping.Wrap };
             
         }
 
         //kezeléslista feltöltéséhez
         public class Adatsor
         {
+            public int id { get; set; }
             public string idopont { get; set; }
-            public string osztaly { get; set; }
+            public string orvos { get; set; }
             public string szolg { get; set; }
             public string ar { get; set; }
-
         }
 
         private void kezelesLista_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -207,7 +220,9 @@ namespace Magankorhaz
 
         private void kezelesReszletek_Click(object sender, RoutedEventArgs e)
         {
-
+            Adatsor kezelesId = (Adatsor)kezelesLista.SelectedItems[0];
+            UserControlok.KezelesReszletei kezelesReszletek = new UserControlok.KezelesReszletei(kezelesId.id);           
+            kezelesReszletek.ShowDialog();           
         }
     }
 }
