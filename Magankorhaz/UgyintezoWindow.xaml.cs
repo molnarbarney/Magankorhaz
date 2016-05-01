@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -906,14 +907,19 @@ namespace Magankorhaz
 
         private void SzamlaKiallitasaButton_Click(object sender, RoutedEventArgs e)
         {
-            //Páciens ID, Karton ID, Fizetendő, Befizetve?, Befizetes datuma
+            var segedQuery = vmsz.SzamlahozSzamlak.Select(x => x.KartonID).ToList();
+            
+            var querym = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Szamlak
+                        where segedQuery.Contains(akt.KartonID)
+                        select akt;
 
-            foreach (var item in Magankorhaz.Adatbazis.AdatBazis.DataBase.Szamlak)
+            foreach (var item in querym)
             {
-                item.Fizetendo = vmsz.SzamlahozSzamlak.SingleOrDefault(x => x.Id == item.Id).SzolgaltatasAra;
+                item.Fizetendo = vmsz.SzamlahozSzamlak.SingleOrDefault(x => x.KartonID == item.KartonID).SzolgaltatasAra;
                 item.Befizetve = true;
                 item.BefizetesDatuma = DateTime.UtcNow.ToLocalTime();
             }
+
             Magankorhaz.Adatbazis.AdatBazis.DataBase.SaveChanges();
 
             var q = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Szamlak
