@@ -72,7 +72,7 @@ namespace Magankorhaz
             int szelesseg = cw / listaHossz;
             for (int i = 0; i < listaHossz; i++)
             {
-                Alakzatok.Add(new MegAlakzat(i * szelesseg, ch - Listaelemek[i].Érték, szelesseg, Listaelemek[i].Érték));
+                Alakzatok.Add(new MegAlakzat(i * szelesseg, ch - Listaelemek[i].Érték, szelesseg, Listaelemek[i].Érték + 15));
             }
         }
     }
