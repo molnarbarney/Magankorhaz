@@ -43,11 +43,9 @@ namespace Magankorhaz
 
         private void attekintesbutton_click(object sender, RoutedEventArgs e)
         {
+            attekintesmenu.Visibility = System.Windows.Visibility.Visible;
             koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Hidden;
             osztalyokkihasznaltsagamenu.Visibility = System.Windows.Visibility.Hidden;
-            attekintesmenu.Visibility = System.Windows.Visibility.Visible;
-
-
         }
 
         private void ktskimutatasokbutton_click(object sender, RoutedEventArgs e)
@@ -55,13 +53,37 @@ namespace Magankorhaz
             koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Visible;
             osztalyokkihasznaltsagamenu.Visibility = System.Windows.Visibility.Hidden;
             attekintesmenu.Visibility = System.Windows.Visibility.Hidden;
+
         }
 
         private void osztalyokkihasznbutton_click(object sender, RoutedEventArgs e)
         {
-            koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Hidden;
             osztalyokkihasznaltsagamenu.Visibility = System.Windows.Visibility.Visible;
+            koltsegvetesikimutatasokmenu.Visibility = System.Windows.Visibility.Hidden;
             attekintesmenu.Visibility = System.Windows.Visibility.Hidden;
+
+            var akarmi = from paciens in Adatbazis.AdatBazis.DataBase.Paciensek
+                         join osztaly in Adatbazis.AdatBazis.DataBase.Osztalyok
+                         on paciens.OsztalyID equals osztaly.Id
+                         group paciens by paciens.OsztalyID into g
+                         orderby g.Key
+                         select g;
+
+            foreach (var item in akarmi)
+            {
+                Console.WriteLine(item.Key + " " + item.Count());
+            }
+
+
+            legutolsolekerdezesdatuma.Content = DateTime.UtcNow.ToLocalTime();
+            mvm.Alakzatok.Clear();
+            mvm.Listaelemek.Clear();
+
+            foreach (var item in akarmi)
+            {
+                mvm.Listaelemek.Add(new MegElemek(item.Count()));
+            }
+            mvm.Rajzol();
 
         }
 
@@ -165,40 +187,22 @@ namespace Magankorhaz
             {
                 MessageBox.Show("Nincs kiválasztva dátum!");
             }
-        }
-
-        //Ha osztályok kihasználtságáról készítek kimutatást
-        private void KihasznaltsagClick(object sender, RoutedEventArgs e)
-        {
-            /*
-            var osztalyIDmeghatarozas = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Paciensek
-                                group akt by akt.OsztalyID into g
-                                select g.Key;
-            */
 
 
+            var legnagyobb_bevetel = from akt in vm.Listaelemek
+                                     let maxertek = vm.Listaelemek.Max(x => x.Érték)
+                                     where maxertek == akt.Érték
+                                     select akt;
 
-            var akarmi = from paciens in Adatbazis.AdatBazis.DataBase.Paciensek
-                         join osztaly in Adatbazis.AdatBazis.DataBase.Osztalyok
-                         on paciens.OsztalyID equals osztaly.Id
-                         group paciens by paciens.OsztalyID into g
-                         orderby g.Key
-                         select g;
+            legnagyobbbevetel.Content = legnagyobb_bevetel.First().Érték + "0. 000 Ft";
 
-            foreach (var item in akarmi)
-            {
-                Console.WriteLine(item.Key + " " + item.Count());
-            }
 
-            legutolsolekerdezesdatuma.Content = DateTime.UtcNow.ToLocalTime();
-            mvm.Alakzatok.Clear();
-            mvm.Listaelemek.Clear();
+            var legnagyobb_kiadas = from akt in vm.MegListaelemek
+                                    let maxkiadas = vm.MegListaelemek.Max(x => x.Érték)
+                                    where maxkiadas == akt.Érték
+                                    select akt;
 
-            foreach (var item in akarmi)
-            {
-                mvm.Listaelemek.Add(new MegElemek(item.Count()));
-            }
-            mvm.Rajzol();
+            legnagyobbkiadas.Content = legnagyobb_kiadas.First().Érték + "0. 000 Ft";
         }
 
         //Ha betölt a költségvetési kimutatások Grid, akkor fut le
@@ -224,9 +228,6 @@ namespace Magankorhaz
                             select akt;
 
             mvm.Osztalyok = new ObservableCollection<Adatbazis.Osztaly>(osztalyok);
-            //osztalyokCombobox.SelectedItem = osztalyok.FirstOrDefault();
-            //osztalyokCombobox.ItemsSource = osztalyok.ToList();
-            //osztalyokCombobox.SelectedItem = osztalyok.FirstOrDefault();
         }
 
 
