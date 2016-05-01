@@ -22,3 +22,15 @@ D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magán
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.csprojResolveAssemblyReference.cache
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.dll
 D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.pdb
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\Tesztek.dll.config
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\Tesztek.dll
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\Tesztek.pdb
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.dll
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.SqlServer.dll
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\Magankorhaz.exe
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\Magankorhaz.pdb
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.xml
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\bin\Debug\EntityFramework.SqlServer.xml
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.csprojResolveAssemblyReference.cache
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.dll
+d:\dokumentumok\suli\2015_2016_2\SZTT\GIT\friss_magankorhaz\Magankorhaz\Tesztek\obj\Debug\Tesztek.pdb

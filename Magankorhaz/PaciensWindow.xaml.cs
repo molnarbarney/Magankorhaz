@@ -200,6 +200,7 @@ namespace Magankorhaz
             }
 
             osszesKoltseg.Content = new TextBlock() { Text = "A kezelések összköltsége " + osszeg + " Ft, befizetve " + fizetve + " Ft, tartozás " + tartozik + " Ft.", TextWrapping = TextWrapping.Wrap };
+            kezelesReszletek.Visibility = Visibility.Hidden;
             
         }
 
