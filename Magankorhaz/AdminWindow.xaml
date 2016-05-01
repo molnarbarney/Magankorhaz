@@ -13,7 +13,7 @@
         <Button x:Name="osztalyokMenuGomb" Content="Osztályok" HorizontalAlignment="Left" Margin="0,194,0,0" VerticalAlignment="Top" Typography.Capitals="SmallCaps" Width="228" Height="50" BorderBrush="{x:Null}" Background="#FF355061" Foreground="White" FontFamily="Calibri" FontWeight="Bold" FontSize="16" Click="osztalyokMenuGomb_Click"/>
         <Label x:Name="felhasznalo" Content="" HorizontalAlignment="Left" Margin="245,22,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3446"/>
         <Label x:Name="felhasznaloTipus" Content="Admin" HorizontalAlignment="Left" Margin="245,59,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF355061"/>
-        <Canvas x:Name="felhasznaloVaszon" HorizontalAlignment="Left" Height="536" Margin="236,107,0,0" VerticalAlignment="Top" Width="1084" Visibility="Hidden">
+        <Canvas x:Name="felhasznaloVaszon" HorizontalAlignment="Left" Height="536" Margin="236,107,0,0" VerticalAlignment="Top" Width="1084" Visibility="Visible">
             <ListView Name="felhasznaloLista" Height="443" Canvas.Top="90" Width="1081" SelectionChanged="felhasznaloLista_SelectionChanged">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -22,7 +22,7 @@
                 </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Név" DisplayMemberBinding="{Binding name}" Width="250"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="250"/>
                         <GridViewColumn Header="Felhasználónév" DisplayMemberBinding="{Binding username}" Width="250"/>
                         <GridViewColumn Header="Jelszó" DisplayMemberBinding="{Binding password}" Width="250"/>
                         <GridViewColumn Header="Szerepkör" DisplayMemberBinding="{Binding role}" Width="250"/>
@@ -30,27 +30,7 @@
                 </ListView.View>
             </ListView>
             <Button x:Name="jelszoValt" Content="Jelszóváltoztatás" Canvas.Left="11" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="jelszoValt_Click" Visibility="Hidden"/>
-            <Button x:Name="adatMod" Content="Adatmódosítás" Canvas.Left="171" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="adatMod_Click" Visibility="Hidden"/>
-            <Button x:Name="ujUser" Content="Új felhasználó" Canvas.Left="331" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="ujUser_Click" Visibility="Visible"/>
-        </Canvas>
-        <Canvas x:Name="osztalyVaszon" HorizontalAlignment="Left" Height="536" Margin="236,107,0,0" VerticalAlignment="Top" Width="1084" Visibility="Hidden">
-            <ListView Name="osztalyLista" Height="443" Canvas.Top="90" Width="1081" SelectionChanged="osztalyLista_SelectionChanged">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="200"/>
-                        <GridViewColumn Header="Név" DisplayMemberBinding="{Binding deptname}" Width="400"/>
-                        <GridViewColumn Header="Szobák száma" DisplayMemberBinding="{Binding rooms}" Width="200"/>
-                        <GridViewColumn Header="Férőhelyek" DisplayMemberBinding="{Binding places}" Width="200"/>                       
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Button x:Name="ferohelyValt" Content="Adatmódosítás" Canvas.Left="11" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="ferohelyValt_Click" Visibility="Hidden"/>
-            <Button x:Name="ujOsztaly" Content="Új osztály" Canvas.Left="171" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="ujOsztaly_Click" Visibility="Visible"/>
+            <Label x:Name="ChosenOne" Content="Label" Canvas.Left="711" Canvas.Top="30" Width="313"/>
         </Canvas>
     </Grid>
 </Window>

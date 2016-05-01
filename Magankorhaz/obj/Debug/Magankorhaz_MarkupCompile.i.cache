@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\dokumentumok\suli\2015_2016_2\SZTT\GIT\magankorhaz\Magankorhaz\obj\Debug\
+D:\Magankorhaz\Magankorhaz\obj\Debug\
 Magankorhaz
 none
 false
 DEBUG;TRACE
-D:\dokumentumok\suli\2015_2016_2\SZTT\GIT\magankorhaz\Magankorhaz\App.xaml
-16-57178011
+D:\Magankorhaz\Magankorhaz\App.xaml
+181666904006
 
-50-46124225
-16705610172
-AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\JelszoModositas.xaml;UserControlok\KezelesReszletei.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;UserControlok\OsztalyModositas.xaml;UserControlok\UgyintezoIdopontFelvetel.xaml;UserControlok\UgyintezoIdopontModositas.xaml;VezetosegWindow.xaml;
+561881586100
+18657412843
+AdminWindow.xaml;MainWindow.xaml;OrvosWindow.xaml;PaciensWindow.xaml;SzamlahozTetelHozzaadWindow.xaml;UgyintezoWindow.xaml;UserControlok\JelszoModositas.xaml;UserControlok\OrvosIdopontModositasa.xaml;UserControlok\OrvosKezelesek.xaml;UserControlok\OrvosKezelesModositasa.xaml;UserControlok\OrvosRendelesek.xaml;UserControlok\OrvosSajatAdatok.xaml;UserControlok\OrvosUjIdopontFelvetele.xaml;UserControlok\OrvosUjKezelesFelvetele.xaml;UserControlok\UgyintezoIdopontFelvetel.xaml;UserControlok\UgyintezoIdopontModositas.xaml;ValutaValto.xaml;VezetosegWindow.xaml;
 
 True
 

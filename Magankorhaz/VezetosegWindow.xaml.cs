@@ -177,6 +177,22 @@ namespace Magankorhaz
                         vm.MegListaelemek.Add(new Elemek(rand.Next(15, 200)));
                     }
                     vm.MegRajzol();
+
+
+                    var legnagyobb_bevetel = from akt in vm.Listaelemek
+                                             let maxertek = vm.Listaelemek.Max(x => x.Érték)
+                                             where maxertek == akt.Érték
+                                             select akt;
+
+                    legnagyobbbevetel.Content = legnagyobb_bevetel.First().Érték + "0. 000 Ft";
+
+
+                    var legnagyobb_kiadas = from akt in vm.MegListaelemek
+                                            let maxkiadas = vm.MegListaelemek.Max(x => x.Érték)
+                                            where maxkiadas == akt.Érték
+                                            select akt;
+
+                    legnagyobbkiadas.Content = legnagyobb_kiadas.First().Érték + "0. 000 Ft";
                 }
                 else
                 {
@@ -188,21 +204,6 @@ namespace Magankorhaz
                 MessageBox.Show("Nincs kiválasztva dátum!");
             }
 
-
-            var legnagyobb_bevetel = from akt in vm.Listaelemek
-                                     let maxertek = vm.Listaelemek.Max(x => x.Érték)
-                                     where maxertek == akt.Érték
-                                     select akt;
-
-            legnagyobbbevetel.Content = legnagyobb_bevetel.First().Érték + "0. 000 Ft";
-
-
-            var legnagyobb_kiadas = from akt in vm.MegListaelemek
-                                    let maxkiadas = vm.MegListaelemek.Max(x => x.Érték)
-                                    where maxkiadas == akt.Érték
-                                    select akt;
-
-            legnagyobbkiadas.Content = legnagyobb_kiadas.First().Érték + "0. 000 Ft";
         }
 
         //Ha betölt a költségvetési kimutatások Grid, akkor fut le
