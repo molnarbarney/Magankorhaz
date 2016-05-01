@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Magankorhaz.FeldolgozoOsztalyok
 {
-    class Beleptetes
+    public class Beleptetes
     {
         public string[] BeleptetesEllenorzes(string felhasznalonev, string jelszo)
         {
@@ -49,35 +49,50 @@ namespace Magankorhaz.FeldolgozoOsztalyok
                             else
                             {
                                 adatok[0] = "vezetoseg";
-                                adatok[1] = egyezesekVezetosegiTagok.First().Nev;
+                                Adatbazis.VezetosegiTag vezetosegiTag = egyezesekVezetosegiTagok.First();
+                                vezetosegiTag.LegutolsoBejelentkezes = DateTime.Now;
+                                adatok[1] = vezetosegiTag.Nev;
+                                Adatbazis.AdatBazis.DataBase.SaveChanges();
                                 return adatok;
                             }
                         }
                         else
                         {
                             adatok[0] = "ugyintezo";
-                            adatok[1] = egyezesekUgyintezok.First().Nev;
+                            Adatbazis.Ugyvezeto ugyvezeto = egyezesekUgyintezok.First();
+                            ugyvezeto.LegutolsoBejelentkezes = DateTime.Now;
+                            adatok[1] = ugyvezeto.Nev;
+                            Adatbazis.AdatBazis.DataBase.SaveChanges();
                             return adatok;
                         }
                     }
                     else
                     {
                         adatok[0] = "paciens";
-                        adatok[1] = egyezesekPaciensek.First().Nev;
+                        Adatbazis.Paciens paciens = egyezesekPaciensek.First();
+                        paciens.LegutolsoBejelentkezes = DateTime.Now;
+                        adatok[1] = paciens.Nev;
+                        Adatbazis.AdatBazis.DataBase.SaveChanges();
                         return adatok;
                     }
                 }
                 else
                 {
                     adatok[0] = "orvos";
-                    adatok[1] = egyezesekOrvosok.First().Nev;
+                    Adatbazis.Orvos orvos = egyezesekOrvosok.First();
+                    orvos.LegutolsoBejelentkezes = DateTime.Now;
+                    adatok[1] = orvos.Nev;
+                    Adatbazis.AdatBazis.DataBase.SaveChanges();
                     return adatok;
                 }
             }
             else
             {
                 adatok[0] = "admin";
-                adatok[1] = egyezesekAdminok.First().Nev;
+                Adatbazis.Admin admin = egyezesekAdminok.First();
+                admin.LegutolsoBejelentkezes = DateTime.Now;
+                adatok[1] = admin.Nev;
+                Adatbazis.AdatBazis.DataBase.SaveChanges();
                 return adatok;
             }
         }

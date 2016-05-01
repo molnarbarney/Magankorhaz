@@ -26,6 +26,7 @@ namespace Magankorhaz
         {
             InitializeComponent();
             // Ez állítja be a fejlécet!
+           
             felhasznalo.Content = felhasznalonev;
 
             orvos = OrvosBetoltese(felhasznalonev);
@@ -50,13 +51,8 @@ namespace Magankorhaz
 
         Magankorhaz.Adatbazis.Orvos OrvosBetoltese(string felhasznalonev)
         {
-            //TODO adatbazisbol beszerezni
-            if (felhasznalonev == "orvos")
-            {
-                OrvosRendelesFeldolgozo feldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase);
-                return feldolgozo.ElsoOrvos();
-            }
-            return new Adatbazis.Orvos();
+            OrvosRendelesFeldolgozo feldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase);
+            return feldolgozo.ElsoOrvosFelhasznalonevAlapjan(felhasznalo.Content.ToString());
         }
 
         private void sajatadatokMenuGomb_Click(object sender, RoutedEventArgs e)
@@ -69,6 +65,12 @@ namespace Magankorhaz
         {
             orvosTartalomGrid.Children.Clear();
             orvosTartalomGrid.Children.Add(new OrvosRendelesek(orvos));
+        }
+
+        private void kezelesekMenuGomb_Click(object sender, RoutedEventArgs e)
+        {
+            orvosTartalomGrid.Children.Clear();
+            orvosTartalomGrid.Children.Add(new OrvosKezelesek(orvos));
         }
 
     }

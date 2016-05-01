@@ -76,6 +76,16 @@ namespace Magankorhaz
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            bool sikeresAdatbazisCsatlakozas = adatbazisCsatlakozas();
+            if (sikeresAdatbazisCsatlakozas)
+            {
+                db_connection_status.Content = "Sikeres adatbázis csatlakozás!";
+            }
+            else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";
+        }
+
+        public bool adatbazisCsatlakozas()
+        {
             MagankorhazDB = new Adatbazis.MagankorhazDB();
 
             var q0 = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Osztalyok
@@ -83,9 +93,9 @@ namespace Magankorhaz
 
             if (q0.Count() > 0)
             {
-                db_connection_status.Content = "Sikeres adatbázis csatlakozás!";
+                return true;
             }
-            else db_connection_status.Content = "Sikertelen adatbázis csatlakozás!";
+            else return false;
         }
     }
 }

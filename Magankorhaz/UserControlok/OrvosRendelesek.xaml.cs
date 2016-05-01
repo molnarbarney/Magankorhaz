@@ -63,16 +63,14 @@ namespace Magankorhaz.UserControlok
 
         private void ujIdopontButton_Click(object sender, RoutedEventArgs e)
         {
-            Grid parent = (Grid)this.Parent;
-            parent.Children.Clear();
-            parent.Children.Add(new OrvosUjIdopontFelvetele(Orvos));
+           
         }
 
         private void idopontModositasaButton_Click(object sender, RoutedEventArgs e)
         {
             Grid parent = (Grid)this.Parent;
             parent.Children.Clear();
-            parent.Children.Add(new OrvosIdopontModositasa((OrvosRendelesekViewModel)idopontokDataGrid.SelectedItem,Orvos));
+            parent.Children.Add(new OrvosIdopontModositasa((OrvosRendelesekViewModel)idopontokDataGrid.SelectedItem,Orvos,IdopontFeldolgozo.ElsoPaciensNevAlapjan(kivalasztottIdopont.Paciens)));
         }
     }
 }

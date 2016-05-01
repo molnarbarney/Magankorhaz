@@ -32,5 +32,10 @@ namespace Magankorhaz.ViewModellek
             get;
         }
 
+        public override string ToString()
+        {
+            return FoglaltIdopont.ToShortDateString() + " " + FoglaltIdopont.ToShortTimeString() + " " + Paciens;
+        }
     }
+
 }

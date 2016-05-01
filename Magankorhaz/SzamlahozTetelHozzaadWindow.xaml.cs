@@ -54,7 +54,9 @@ namespace Magankorhaz
         private void kezeloorvosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var kezeles = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Kartonok
-                          where ((Adatbazis.Orvos)kezeloorvosComboBox.SelectedItem).Id == akt.OrvosID
+                          where ((Adatbazis.Orvos)kezeloorvosComboBox.SelectedItem).Id == akt.OrvosID && 
+                          akt.PaciensID == emberke.Id &&
+                          !Adatbazis.AdatBazis.DataBase.Szamlak.FirstOrDefault(x => x.KartonID == akt.Id).Befizetve
                           select akt.KezelesReszletei;
 
             kezelesek = new ObservableCollection<string>(kezeles);
@@ -65,10 +67,12 @@ namespace Magankorhaz
         private void szolgaltatasneveComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var kezelesar = from akt in Magankorhaz.Adatbazis.AdatBazis.DataBase.Kartonok
-                            where ((string)szolgaltatasneveComboBox.SelectedItem) == akt.KezelesReszletei
+                            where ((string)szolgaltatasneveComboBox.SelectedItem) == akt.KezelesReszletei &&
+                            akt.PaciensID == emberke.Id &&
+                            !Adatbazis.AdatBazis.DataBase.Szamlak.FirstOrDefault(x => x.KartonID == akt.Id).Befizetve
                             select akt.KezelesKoltsege;
 
-            int ar = kezelesar.FirstOrDefault();
+            int  ar = kezelesar.FirstOrDefault();
             SzolgaltatasAraLabel.Content = ar;
         }
     }

@@ -78,15 +78,15 @@
             <Label Content="Kezelőorvos:" HorizontalAlignment="Left" Margin="559,131,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <Label Content="Osztály:" HorizontalAlignment="Left" Margin="559,165,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <Label Content="Ügyintéző:" HorizontalAlignment="Left" Margin="559,199,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <TextBox x:Name="paciensNev" HorizontalAlignment="Left" Height="23" Margin="140,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="Kiss Árpád"/>
-            <TextBox x:Name="paciensEmail" HorizontalAlignment="Left" Height="23" Margin="140,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="kiss.arpad@gmail.com"/>
-            <TextBox x:Name="paciensFelhasznalonev" HorizontalAlignment="Left" Height="23" Margin="140,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="kiss.arpad"/>
-            <TextBox x:Name="paciensSzemelyiszam" HorizontalAlignment="Left" Height="23" Margin="140,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="123456789123"/>
-            <PasswordBox x:Name="paciensJelszo" HorizontalAlignment="Left" Margin="140,170,0,0" VerticalAlignment="Top" Width="371" Height="23" Password="12345"/>
-            <PasswordBox x:Name="paciensJelszoUjra" HorizontalAlignment="Left" Margin="140,202,0,0" VerticalAlignment="Top" Width="371" Height="23" Password="12345"/>
-            <TextBox x:Name="paciensTAJ" HorizontalAlignment="Left" Height="23" Margin="140,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="12345678"/>
-            <TextBox x:Name="paciensCim" HorizontalAlignment="Left" Height="23" Margin="140,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="1113, Budapest, Őz utca 8."/>
-            <TextBox x:Name="paciensTelefon" HorizontalAlignment="Left" Height="23" Margin="140,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14" Text="+362035621845"/>
+            <TextBox x:Name="paciensNev" HorizontalAlignment="Left" Height="23" Margin="140,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
+            <TextBox x:Name="paciensEmail" HorizontalAlignment="Left" Height="23" Margin="140,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
+            <TextBox x:Name="paciensFelhasznalonev" HorizontalAlignment="Left" Height="23" Margin="140,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
+            <TextBox x:Name="paciensSzemelyiszam" HorizontalAlignment="Left" Height="23" Margin="140,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
+            <PasswordBox x:Name="paciensJelszo" HorizontalAlignment="Left" Margin="140,170,0,0" VerticalAlignment="Top" Width="371" Height="23"/>
+            <PasswordBox x:Name="paciensJelszoUjra" HorizontalAlignment="Left" Margin="140,202,0,0" VerticalAlignment="Top" Width="371" Height="23"/>
+            <TextBox x:Name="paciensTAJ" HorizontalAlignment="Left" Height="23" Margin="140,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
+            <TextBox x:Name="paciensCim" HorizontalAlignment="Left" Height="23" Margin="140,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
+            <TextBox x:Name="paciensTelefon" HorizontalAlignment="Left" Height="23" Margin="140,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" FontSize="14"/>
             <DatePicker x:Name="paciensSzuletesiDatum" HorizontalAlignment="Left" Margin="141,372,0,0" VerticalAlignment="Top" Width="370" FirstDayOfWeek="Monday"/>
             <ComboBox x:Name="paciensNeme" HorizontalAlignment="Left" Margin="140,407,0,0" VerticalAlignment="Top" Width="371" SelectedIndex="0">
                 <ComboBoxItem x:Name="ferfi" Content="Férfi"/>
@@ -144,7 +144,7 @@
 
             <Label Content="Neme:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="22,305,0,0" VerticalAlignment="Top" Width="48" Background="{x:Null}" Foreground="#FF0D6174" FontWeight="Bold"/>
             <TextBox x:Name="paciensAdatNeme" HorizontalAlignment="Left" Height="20" Margin="77,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="#FF1C9BB8" FontWeight="Bold" IsReadOnly="True"/>
-            <ComboBox x:Name="paciensAdatNemeComboBox" HorizontalAlignment="Left" Margin="75,300,0,0" VerticalAlignment="Top" Width="81" SelectedIndex="0" Visibility="Hidden">
+            <ComboBox x:Name="paciensAdatNemeComboBox" HorizontalAlignment="Left" Margin="75,310,0,0" VerticalAlignment="Top" Width="81" SelectedIndex="0" Visibility="Hidden">
                 <ComboBoxItem x:Name="ferfii" Content="Férfi"/>
                 <ComboBoxItem x:Name="noo" Content="Nő"/>
             </ComboBox>
@@ -200,15 +200,15 @@
 
         <!-- Számlakezelés -->
         <Grid x:Name="szamlakezelesGrid" Loaded="szamlakezelesGrid_Loaded" HorizontalAlignment="Left" Height="555" Margin="236,106,0,0" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
-            <Button Content="Számlák áttekintése" Click="szamlaatekintesClick" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
-            <Button Content="Új számla kiállítása" Click="ujszamlakiallitasaClick" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
+            <Button Content="Számlák áttekintése" Click="szamlaatekintesClick" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
+            <Button Content="Új számla kiállítása" Click="ujszamlakiallitasaClick" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="131" Height="26"/>
+            <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
             <!--Új számla kiállítása-->
             <Grid x:Name="ujszamlaGrid" HorizontalAlignment="Left" Height="555" Margin="33,56,-33,-56" VerticalAlignment="Top" Width="1089" Visibility="Hidden">
-                <ComboBox x:Name="pacienskivalasztasaComboBox" Text="Páciens kiválasztása..." HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="131" Height="26" />
-                <Image HorizontalAlignment="Left" Source="Pictures/healthcare.png" Height="670" Margin="248,66,-136,-217" VerticalAlignment="Top" Width="964" Opacity="0.2"/>
-                <GroupBox x:Name="ugyfeladatai" Content="{Binding ElementName=pacienskivalasztasaComboBox, Path=SelectedItem}" Header="Ügyfél adatai:" HorizontalAlignment="Left" Margin="6,40,0,0" VerticalAlignment="Top" Height="126" Width="440"/>
-                <GroupBox Content="Magankorhaz DB" Header="Kiállító szerv:" HorizontalAlignment="Left" Margin="456,40,0,0" VerticalAlignment="Top" Height="126" Width="438"/>
-                <ListBox Name="SzamlaTartalom" ItemsSource="{Binding SzamlahozSzamlak}" HorizontalAlignment="Left" Height="122" Margin="6,222,0,0" VerticalAlignment="Top" Width="888">
+                <ComboBox x:Name="pacienskivalasztasaComboBox" FontSize="12" FontWeight="Bold" Background="DarkGray" Text="Páciens kiválasztása..." HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="131" Height="22" />
+                <GroupBox x:Name="ugyfeladatai" Content="{Binding ElementName=pacienskivalasztasaComboBox, Path=SelectedItem}" Header="Ügyfél adatai:" HorizontalAlignment="Left" Margin="6,40,0,0" VerticalAlignment="Top" Height="100" Width="440"/>
+                <GroupBox Content="Magankorhaz DB" Header="Kiállító szerv:" HorizontalAlignment="Left" Margin="456,40,0,0" VerticalAlignment="Top" Height="100" Width="438"/>
+                <ListBox Name="SzamlaTartalom" Opacity="0.8" FontSize="12" FontWeight="Bold" Background="LightGray" ItemsSource="{Binding SzamlahozSzamlak}" HorizontalAlignment="Left" Height="122" Margin="6,222,0,0" VerticalAlignment="Top" Width="888">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -229,18 +229,23 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Label Content="Igénybevett szolgáltatások:" HorizontalAlignment="Left" Margin="6,172,0,0" VerticalAlignment="Top" Height="30" Width="286"/>
-                <Button Content="Hozzáadás" Click="HozzaadButton_Click" HorizontalAlignment="Left" Margin="42,352,0,0" VerticalAlignment="Top" Width="134" Height="22"/>
-                <Button Content="Törlés" Click="TorlesButton_Click" HorizontalAlignment="Left" Margin="215,352,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
-                <Button Content="Számla kiállítása" Click="SzamlaKiallitasaButton_Click" IsEnabled="{Binding ElementName=FizetveCheckBox, Path=IsChecked}" HorizontalAlignment="Left" Margin="719,416,0,0" VerticalAlignment="Top" Width="178" Height="24"/>
+                <Label Content="Számla tételek:" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" Margin="6,148,0,0" VerticalAlignment="Top" Height="30" Width="286"/>
+                <Button Content="Hozzáadás" Click="HozzaadButton_Click" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="42,352,0,0" VerticalAlignment="Top" Width="134" Height="22"/>
+                <Button Content="Törlés" Click="TorlesButton_Click" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="215,352,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
+                <Button Content="Számla kiállítása" Click="SzamlaKiallitasaButton_Click" FontSize="12" FontWeight="Bold" Background="DarkGray" IsEnabled="{Binding ElementName=FizetveCheckBox, Path=IsChecked}" HorizontalAlignment="Left" Margin="719,427,0,0" VerticalAlignment="Top" Width="178" Height="24"/>
                 <Label Content="Összesen:" x:Name="osszegmezo" HorizontalAlignment="Left" Margin="6,416,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="42" Width="100"/>
-                <Label Name="fizetendoosszeg" HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" VerticalAlignment="Top" Width="94" FontSize="20" FontWeight="Bold"/>
-                <Label Content="Ft" HorizontalAlignment="Left" Margin="160,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
+                <Label Name="fizetendoosszeg" Content="0" HorizontalAlignment="Left" Height="42" Margin="106,416,0,0" VerticalAlignment="Top" Width="94" FontSize="20" FontWeight="Bold"/>
+                <Label Content="Ft" HorizontalAlignment="Left" Margin="214,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
                 <CheckBox Name="FizetveCheckBox" Content="Fizetve" HorizontalAlignment="Left" Margin="779,352,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+                <Button Click="ValutaValto_Click" Name="valutavaltoButton" Content="Valutaváltó" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="935,427,0,0" VerticalAlignment="Top" Height="24" Width="108"></Button>
+                <Label Content="Karton ID" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="7,195,0,0" VerticalAlignment="Top" Width="206"/>
+                <Label Content="Diagnózis leírása" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="192,195,0,0" VerticalAlignment="Top" Width="249"/>
+                <Label Content="Kezelőorvos neve" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="410,195,0,0" VerticalAlignment="Top" Width="189"/>
+                <Label Content="Kezelés ára" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="594,195,0,0" VerticalAlignment="Top" Width="299"/>
             </Grid>
 
-            <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="450" Margin="30,60,0,0" VerticalAlignment="Top" Width="1045" Visibility="Hidden">
-                <ListBox Name="TaroltSzamlaTartalom">
+            <Grid x:Name="szamlaattekintesGrid" HorizontalAlignment="Left" Height="391" Margin="30,119,0,0" VerticalAlignment="Top" Width="1045" Visibility="Hidden">
+                <ListBox Opacity="0.8" FontSize="12" FontWeight="Bold" Background="LightGray" Name="TaroltSzamlaTartalom">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid >
@@ -263,7 +268,11 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
+                <Label Content="Páciens ID" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="1,-27,0,0" VerticalAlignment="Top" Width="180"/>
+                <Label Content="Karton ID" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="179,-27,0,0" VerticalAlignment="Top" Width="199"/>
+                <Label Content="Fizetendő összeg" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="350,-27,0,0" VerticalAlignment="Top" Width="274"/>
+                <Label Content="Befizetve?" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="539,-27,0,0" VerticalAlignment="Top" Width="259"/>
+                <Label Content="Befizetés dátuma" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="735,-27,0,0" VerticalAlignment="Top" Width="310"/>
             </Grid>
         </Grid>
 
