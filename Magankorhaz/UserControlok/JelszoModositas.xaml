@@ -4,10 +4,11 @@
         Title="JelszoModositas" Height="214" Width="300">
     <Grid>
         <Label Content="Régi jelszó:" HorizontalAlignment="Left" Margin="20,50,0,0" VerticalAlignment="Top"/>
-        <Label Content="Új jelszó:" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="oldPassword" HorizontalAlignment="Left" Height="23" Margin="102,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,-0.609" IsEnabled="False"/>
-        <TextBox x:Name="newPassword" HorizontalAlignment="Left" Height="23" Margin="102,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Új jelszó:" HorizontalAlignment="Left" Margin="21,82,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="oldPassword" HorizontalAlignment="Left" Height="23" Margin="100,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,-0.609" IsEnabled="False"/>
+        <TextBox x:Name="newPassword" HorizontalAlignment="Left" Height="23" Margin="100,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="newPassword_TextChanged"/>
         <Label x:Name="userLabel" Content="NÉV" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.316,0.115"/>
+        <Button x:Name="valtoztatGomb" Content="Változtatás" HorizontalAlignment="Left" Height="26" Margin="100,122,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False" Click="Button_Click"/>
 
     </Grid>
 </Window>
