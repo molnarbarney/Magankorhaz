@@ -44,6 +44,12 @@ namespace Magankorhaz
             osztalyVaszon.Visibility = Visibility.Visible;
             orvosVaszon.Visibility = Visibility.Hidden;
             ferohelyValt.Visibility = Visibility.Hidden;
+            torlesOsztaly.Visibility = Visibility.Hidden;
+            OsztalyokFrissitese();
+            osztalyVaszon.Visibility = Visibility.Visible;
+            orvosVaszon.Visibility = Visibility.Hidden;
+            ferohelyValt.Visibility = Visibility.Hidden;
+            torlesOsztaly.Visibility = Visibility.Hidden;
             OsztalyokFrissitese();
         }
 
@@ -68,6 +74,11 @@ namespace Magankorhaz
             osztalyVaszon.Visibility = Visibility.Hidden;
             orvosVaszon.Visibility = Visibility.Hidden;
             felhasznaloVaszon.Visibility = Visibility.Visible;
+            jelszoValt.Visibility = Visibility.Hidden;
+            adatMod.Visibility = Visibility.Hidden;
+            torlesUser.Visibility = Visibility.Hidden;
+            
+            FelhasznalokFrissitese();
             jelszoValt.Visibility = Visibility.Hidden;
             adatMod.Visibility = Visibility.Hidden;
             torlesUser.Visibility = Visibility.Hidden;
@@ -145,6 +156,7 @@ namespace Magankorhaz
         private void osztalyLista_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ferohelyValt.Visibility = Visibility.Visible;
+            torlesOsztaly.Visibility = Visibility.Visible;
         }
 
         private void ferohelyValt_Click(object sender, RoutedEventArgs e)
@@ -155,6 +167,7 @@ namespace Magankorhaz
             {
                 OsztalyokFrissitese();
                 ferohelyValt.Visibility = Visibility.Hidden;
+                torlesOsztaly.Visibility = Visibility.Hidden;
             }
         }
 
@@ -165,6 +178,7 @@ namespace Magankorhaz
             {
                 OsztalyokFrissitese();
                 ferohelyValt.Visibility = Visibility.Hidden;
+                torlesOsztaly.Visibility = Visibility.Hidden;
             }
         }
 
@@ -212,7 +226,10 @@ namespace Magankorhaz
                     orvosSzuletes.SelectedDate = x.First().SzuletesiDatum;
                     orvosBelepes.SelectedDate = x.First().MunkabaAllasDatuma;
                     orvosOraber.Text = x.First().OraberBrutto.ToString();
-
+                    orvosPass1.Password = x.First().Jelszo;
+                    orvosPass1.IsEnabled = false;
+                    orvosPass2.Password = x.First().Jelszo;
+                    orvosPass2.IsEnabled = false;
 
                 }
                 else if (selectedUser.role == "Orvos")
@@ -239,6 +256,10 @@ namespace Magankorhaz
                     orvosBelepes.SelectedDate = x.First().MunkabaAllasDatuma;
                     orvosOraber.Text = x.First().OraberBrutto.ToString();
                     orvosKepesites.Text = x.First().Kepesites;
+                    orvosPass1.Password = x.First().Jelszo;
+                    orvosPass1.IsEnabled = false;
+                    orvosPass2.Password = x.First().Jelszo;
+                    orvosPass2.IsEnabled = false;
 
 
                     var osztalyok = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
@@ -285,6 +306,10 @@ namespace Magankorhaz
                     orvosSzuletes.SelectedDate = x.First().SzuletesiDatum;
                     orvosBelepes.SelectedDate = x.First().MunkabaAllasDatuma;
                     orvosOraber.Text = x.First().OraberBrutto.ToString();
+                    orvosPass1.Password = x.First().Jelszo;
+                    orvosPass1.IsEnabled = false;
+                    orvosPass2.Password = x.First().Jelszo;
+                    orvosPass2.IsEnabled = false;
 
                 }
                 else if (selectedUser.role == "Vezető")
@@ -312,6 +337,10 @@ namespace Magankorhaz
                     orvosBelepes.SelectedDate = x.First().MunkabaAllasDatuma;
                     orvosOraber.Text = x.First().OraberBrutto.ToString();
                     orvosKepesites.Text = x.First().Statusz;
+                    orvosPass1.Password = x.First().Jelszo;
+                    orvosPass1.IsEnabled = false;
+                    orvosPass2.Password = x.First().Jelszo;
+                    orvosPass2.IsEnabled = false;
 
                 }
             }
@@ -324,6 +353,23 @@ namespace Magankorhaz
             osztalyVaszon.Visibility = Visibility.Hidden;
             modositButton.Visibility = Visibility.Hidden;
             felveszButton.Visibility = Visibility.Visible;
+            orvosPass1.IsEnabled = true;
+            orvosPass2.IsEnabled = true;
+            orvosPass1.Password = "";
+            orvosPass2.Password = "";
+            orvosSzabadnap.Text = "";
+            orvosNev.Text = "";
+            orvosEmail.Text = "";
+            orvosUsernev.Text = "";
+            orvosSzemszam.Text = "";
+            orvosTAJ.Text = "";
+            orvosAdoszam.Text = "";
+            orvosCim.Text = "";
+            orvosTelefon.Text = "";
+            orvosSzuletes.SelectedDate = null;
+            orvosBelepes.SelectedDate = null;
+            orvosOraber.Text = "";
+            orvosKepesites.Text = "";
             var osztalyok = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
                             select akt;
             List<string> deptlist = new List<string>();
@@ -482,6 +528,7 @@ namespace Magankorhaz
                     bool felhasznaloFelveve = ujFelhFeldolgozo.ujVezetoFelvetele(orvosNev.Text, orvosEmail.Text, orvosUsernev.Text, orvosSzemszam.Text, orvosPass1.Password, orvosTAJ.Text, orvosCim.Text, orvosTelefon.Text, orvosSzuletes.SelectedDate.Value, orvosBelepes.SelectedDate.Value,
                         orvosOraber.Text, orvosSzabadnap.Text, orvosAdoszam.Text, orvosKepesites.Text, Magankorhaz.Adatbazis.AdatBazis.DataBase);
                 }
+                felhasznalokMenuGomb_Click(sender, e);
 
             }
         }
@@ -663,6 +710,7 @@ namespace Magankorhaz
                 }
                 Adatbazis.AdatBazis.DataBase.SaveChanges();
                 MessageBox.Show("Módosítás megtörtént!");
+                felhasznalokMenuGomb_Click(sender, e);
             }
         }
 
@@ -736,10 +784,30 @@ namespace Magankorhaz
 
                 MessageBox.Show("A kiválasztott felhasználót töröltük.");
                 FelhasznalokFrissitese();
+                felhasznalokMenuGomb_Click(sender, e);
             }
         }
 
+        private void torlesOsztaly_Click(object sender, RoutedEventArgs e)
+        {
+            Osztaly selectedDept = (Osztaly)osztalyLista.SelectedItems[0];
 
+            MessageBoxResult valasz = System.Windows.MessageBox.Show("Biztosan törlöd?", "", System.Windows.MessageBoxButton.OKCancel);
+            if (valasz == MessageBoxResult.OK)
+            {
+                var x = from akt in Adatbazis.AdatBazis.DataBase.Osztalyok
+                        where selectedDept.id == akt.Id
+                        select akt;
 
+                foreach (var item in x)
+                {
+                    Adatbazis.AdatBazis.DataBase.Osztalyok.Remove(item);
+                }
+                MessageBox.Show("Osztály törölve.");
+                Adatbazis.AdatBazis.DataBase.SaveChanges();
+                OsztalyokFrissitese();
+                osztalyokMenuGomb_Click(sender, e);
+            }
+        }
     }
 }
