@@ -547,3 +547,17 @@ D:\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs
 D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
 D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.baml
 D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\JelszoModositas.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosKezelesek.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosKezelesModositasa.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjKezelesFelvetele.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.baml
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\JelszoModositas.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosKezelesek.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosKezelesModositasa.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjKezelesFelvetele.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.g.cs
+D:\OE-NIK\VIII. félév - 2015-2016-tavasz\Szoftvertechnológia II\SZT2 - Magánkórház projekt\Magankorhaz\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs

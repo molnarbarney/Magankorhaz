@@ -83,6 +83,8 @@ namespace Magankorhaz.UserControlok
         {
             RendelesFeldolgozo.IdopontLekeres();
             orvosIdopontokDataGrid.ItemsSource = RendelesFeldolgozo.Idopontok;
+            orvosAdatIdopontModositasaGomb.Visibility = Visibility.Hidden;
+            orvosAdatIdopontTorleseGomb.Visibility = Visibility.Hidden;
         }
 
         private void orvosIdopontokDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

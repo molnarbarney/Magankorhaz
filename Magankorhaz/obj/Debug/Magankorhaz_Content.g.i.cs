@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("magankorhazdb.mdf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("magankorhazdb_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pictures/logo.png")]
 
 

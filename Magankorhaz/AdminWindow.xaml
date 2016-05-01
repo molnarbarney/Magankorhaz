@@ -32,5 +32,6 @@
             <Button x:Name="jelszoValt" Content="Jelszóváltoztatás" Canvas.Left="11" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="jelszoValt_Click" Visibility="Hidden"/>
             <Label x:Name="ChosenOne" Content="Label" Canvas.Left="711" Canvas.Top="30" Width="313"/>
         </Canvas>
+        <Image HorizontalAlignment="Left" Height="87" Margin="0,7,0,0" VerticalAlignment="Top" Width="272" Source="Pictures/logo.png"/>
     </Grid>
 </Window>

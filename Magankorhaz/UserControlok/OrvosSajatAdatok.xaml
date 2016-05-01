@@ -69,7 +69,7 @@
         <Button x:Name="orvosAdatIdopontTorleseGomb" Content="Törlés" HorizontalAlignment="Left" Margin="851,166,0,0" VerticalAlignment="Top" Width="62" Height="26" Visibility="Hidden" Click="orvosAdatIdopontTorleseGomb_Click" />
         <Button x:Name="orvosAdatIdopontModositasaGomb" Content="Módosítás" HorizontalAlignment="Left" Margin="774,166,0,0" VerticalAlignment="Top" Width="62" Height="26" Visibility="Hidden" Click="orvosAdatIdopontModositasaGomb_Click"/>
         <DataGrid x:Name="orvosIdopontokDataGrid" Height="338" Margin="334,200,19,10" BorderThickness="0" ColumnWidth="182" CanUserResizeColumns="False" MaxColumnWidth="182" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" IsReadOnly="True" SelectionChanged="orvosIdopontokDataGrid_SelectionChanged" />
-        <Button x:Name="IdopontokRefreshGomb" Content="" HorizontalAlignment="Left" Margin="435,170,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Click="IdopontokRefreshGomb_Click">
+        <Button x:Name="IdopontokRefreshGomb" Content="" HorizontalAlignment="Left" Margin="345,170,0,0" VerticalAlignment="Top" Width="20" Height="20" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Click="IdopontokRefreshGomb_Click">
             <Button.Background>
                 <ImageBrush ImageSource="../Pictures/refresh.png"/>
             </Button.Background>

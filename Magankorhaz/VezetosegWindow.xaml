@@ -59,8 +59,9 @@
 
         <!-- Osztályok kihasználtsága -->
         <Grid Loaded="osztalyokkihasznaltsagamenu_Loaded" x:Name="osztalyokkihasznaltsagamenu" HorizontalAlignment="Left" Height="556" Margin="233,105,0,0" VerticalAlignment="Top" Width="1102" Visibility="Hidden">
-            <Canvas Name="kihasznaltsagvaszon" Opacity="0.7"  HorizontalAlignment="Left"  VerticalAlignment="Top" Height="230" Margin="50,223,29,103"/>
+            <Canvas Name="kihasznaltsagvaszon" Opacity="0.7"  HorizontalAlignment="Left"  VerticalAlignment="Top" Height="230" Margin="50,223,0,0" Width="1025"/>
         </Grid>
+        <Image HorizontalAlignment="Left" Height="87" Margin="0,7,0,0" VerticalAlignment="Top" Width="272" Source="Pictures/logo.png"/>
 
     </Grid>
 

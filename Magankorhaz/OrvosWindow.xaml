@@ -17,6 +17,7 @@
 
         <!-- Tartalmak -->
         <Grid x:Name="orvosTartalomGrid" Margin="235,115,5,10" />
-        
+        <Image HorizontalAlignment="Left" Height="87" Margin="0,7,0,0" VerticalAlignment="Top" Width="272" Source="Pictures/logo.png"/>
+
     </Grid>
 </Window>
