@@ -30,7 +30,7 @@ namespace Magankorhaz.UserControlok
             Orvos = orvos;
             IdopontFeldolgozo = new OrvosRendelesFeldolgozo(Adatbazis.AdatBazis.DataBase, orvos);
             idopontOrvos.ItemsSource = IdopontFeldolgozo.Orvosok;
-
+            idopontOra.Items.Add("");
 
             for (int i = 9; i < 17; i++)
             {
@@ -39,7 +39,7 @@ namespace Magankorhaz.UserControlok
                         continue;
                 idopontOra.Items.Add(Convert.ToString(i));
             }
-
+            idopontPerc.Items.Add("");
             idopontPerc.Items.Add("00");
             idopontPerc.Items.Add("30");
 
@@ -62,12 +62,17 @@ namespace Magankorhaz.UserControlok
 
         private void UjIdopontMentesGomb_Click(object sender, RoutedEventArgs e)
         {
-            if (idopontOra.Text == "" || idopontPerc.Text == "" || idopontDatum.SelectedDate == null)
+            if (idopontOra.SelectedItem == "" || idopontPerc.SelectedItem == "" || idopontDatum.SelectedDate == null)
             {
                 MessageBox.Show("Szükséges adat hiányzik!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
+                if (idopontReszletek.Text.Length < 10)
+                {
+                    MessageBox.Show("Az Időpont részletei paraméternek legalább 10 karakter hosszúnak kell lennie!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 DateTime ujIdopont = DateTime.Parse(idopontDatum.Text);
                 ujIdopont = ujIdopont.AddHours(int.Parse(idopontOra.Text));
                 ujIdopont = ujIdopont.AddMinutes(int.Parse(idopontPerc.Text));
@@ -87,6 +92,7 @@ namespace Magankorhaz.UserControlok
 
         private void idopontDatum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            /*
             if (idopontDatum.Text == DateTime.Today.ToString())
             {
                 idopontOra.Items.Clear();
@@ -106,6 +112,7 @@ namespace Magankorhaz.UserControlok
                 }
                 idopontOra.SelectedIndex = 0;
             }
+             */
         }
 
         private void idopontOrvos_SelectionChanged(object sender, SelectionChangedEventArgs e)
