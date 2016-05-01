@@ -238,7 +238,7 @@
                 <Label Content="Ft" HorizontalAlignment="Left" Margin="214,416,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="42" Width="48"/>
                 <CheckBox Name="FizetveCheckBox" Content="Fizetve" HorizontalAlignment="Left" Margin="779,352,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
                 <Button Click="ValutaValto_Click" Name="valutavaltoButton" Content="Valutaváltó" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="935,427,0,0" VerticalAlignment="Top" Height="24" Width="108"></Button>
-                <Label Content="Páciens ID" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="7,195,0,0" VerticalAlignment="Top" Width="206"/>
+                <Label Content="Karton ID" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="7,195,0,0" VerticalAlignment="Top" Width="206"/>
                 <Label Content="Diagnózis leírása" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="192,195,0,0" VerticalAlignment="Top" Width="249"/>
                 <Label Content="Kezelőorvos neve" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="410,195,0,0" VerticalAlignment="Top" Width="189"/>
                 <Label Content="Kezelés ára" FontSize="12" FontWeight="Bold" Background="DarkGray" HorizontalAlignment="Left" Margin="594,195,0,0" VerticalAlignment="Top" Width="299"/>
