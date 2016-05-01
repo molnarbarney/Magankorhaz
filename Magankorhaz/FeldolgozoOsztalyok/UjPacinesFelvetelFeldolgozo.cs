@@ -156,5 +156,9 @@ namespace Magankorhaz.FeldolgozoOsztalyok
             }
             return false;
         }
+
+
+
+      
     }
 }

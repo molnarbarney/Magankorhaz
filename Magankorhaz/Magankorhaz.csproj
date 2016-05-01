@@ -70,6 +70,7 @@
     <Compile Include="Adatbazis\Ugyvezeto.cs" />
     <Compile Include="DiagramKeszito.cs" />
     <Compile Include="FeldolgozoOsztalyok\Beleptetes.cs" />
+    <Compile Include="FeldolgozoOsztalyok\FelhasznaloFelvetel.cs" />
     <Compile Include="FeldolgozoOsztalyok\OrvosKezelesekFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\OrvosRendelesFeldolgozo.cs" />
     <Compile Include="FeldolgozoOsztalyok\PaciensAdatlapFeldolgozo.cs" />
@@ -107,6 +108,10 @@
     <Compile Include="UserControlok\JelszoModositas.xaml.cs">
       <DependentUpon>JelszoModositas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlok\KezelesReszletei.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>KezelesReszletei.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlok\OrvosIdopontModositasa.xaml.cs">
       <DependentUpon>OrvosIdopontModositasa.xaml</DependentUpon>
     </Compile>
@@ -127,6 +132,10 @@
     </Compile>
     <Compile Include="UserControlok\OrvosUjKezelesFelvetele.xaml.cs">
       <DependentUpon>OrvosUjKezelesFelvetele.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlok\OsztalyModositas.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>OsztalyModositas.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlok\UgyintezoIdopontFelvetel.xaml.cs">
       <DependentUpon>UgyintezoIdopontFelvetel.xaml</DependentUpon>
@@ -196,13 +205,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlok\OrvosKezelesek.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControlok\OrvosKezelesModositasa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OrvosKezelesek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControlok\OrvosRendelesek.xaml">
       <SubType>Designer</SubType>
@@ -217,8 +226,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlok\OrvosUjKezelesFelvetele.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+	<Page Include="UserControlok\KezelesReszletei.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlok\OsztalyModositas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControlok\UgyintezoIdopontFelvetel.xaml">
       <SubType>Designer</SubType>
@@ -267,21 +284,47 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\MNBService\arfolyamok.wsdl" />
+    <None Include="Service References\MNBService\arfolyamok.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MNBService\arfolyamok1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrenciesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrenciesResponseBody.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrencyUnitsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrencyUnitsResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrentExchangeRatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetCurrentExchangeRatesResponseBody.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetDateIntervalResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetDateIntervalResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetExchangeRatesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetExchangeRatesResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\Magankorhaz.MNBService.GetInfoResponseBody.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MNBService\MNBArfolyamServiceSoapImpl.wsdl" />
     <None Include="Service References\MNBService\Magankorhaz.MNBService.GetInfoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

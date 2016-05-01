@@ -30,8 +30,75 @@
                 </ListView.View>
             </ListView>
             <Button x:Name="jelszoValt" Content="Jelszóváltoztatás" Canvas.Left="11" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="jelszoValt_Click" Visibility="Hidden"/>
-            <Label x:Name="ChosenOne" Content="Label" Canvas.Left="711" Canvas.Top="30" Width="313"/>
+            <Button x:Name="adatMod" Content="Adatmódosítás" Canvas.Left="171" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="adatMod_Click" Visibility="Hidden"/>
+            <Button x:Name="ujUser" Content="Új felhasználó" Canvas.Left="331" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="ujUser_Click" Visibility="Visible"/>
+            <Button x:Name="torlesUser" Content="Törlés" Canvas.Left="491" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16"  Visibility="Hidden" Click="torlesUser_Click"/>
+        </Canvas>
+        <Canvas x:Name="osztalyVaszon" HorizontalAlignment="Left" Height="536" Margin="236,107,0,0" VerticalAlignment="Top" Width="1084" Visibility="Visible">
+            <ListView Name="osztalyLista" Height="443" Canvas.Top="90" Width="1081" SelectionChanged="osztalyLista_SelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="200"/>
+                        <GridViewColumn Header="Név" DisplayMemberBinding="{Binding deptname}" Width="400"/>
+                        <GridViewColumn Header="Szobák száma" DisplayMemberBinding="{Binding rooms}" Width="200"/>
+                        <GridViewColumn Header="Férőhelyek" DisplayMemberBinding="{Binding places}" Width="200"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="ferohelyValt" Content="Adatmódosítás" Canvas.Left="11" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="ferohelyValt_Click" Visibility="Hidden"/>
+            <Button x:Name="ujOsztaly" Content="Új osztály" Canvas.Left="171" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Click="ujOsztaly_Click" Visibility="Visible"/>
+            <Button x:Name="torlesOsztaly" Content="Osztály törlése" Canvas.Left="331" Canvas.Top="26" Width="140" Height="30" FontWeight="Bold" FontSize="16" Visibility="Visible"/>
+        </Canvas>
+        <Canvas x:Name="orvosVaszon" HorizontalAlignment="Left" Height="553" Margin="230,101,0,-2" VerticalAlignment="Top" Width="1097" Visibility="Hidden">
+            <Label Content="Új felhasználó felvétele" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.224,-1.385" FontWeight="Bold" FontSize="16" Foreground="#FF1D3446"/>
+            <Label Content="Név:" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Email cím:" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Felhasználónév:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Jelszó:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Jelszó újra:" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Személyi szám:" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="TAJ szám:" HorizontalAlignment="Left" Margin="10,267,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Adószám:" HorizontalAlignment="Left" Margin="10,301,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Cím:" HorizontalAlignment="Left" Margin="10,335,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Telefon:" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Születési dátum:" HorizontalAlignment="Left" Margin="10,403,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label x:Name="kepesitLabel" Content="Képesítés:" HorizontalAlignment="Left" Margin="559,165,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label x:Name="osztalyLabel" Content="Osztály:" HorizontalAlignment="Left" Margin="559,199,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label x:Name="belepLabel" Content="Munkába állás dátuma:" HorizontalAlignment="Left" Margin="559,63,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Bruttó órabér:" HorizontalAlignment="Left" Margin="559,97,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Szabadnapok száma:" HorizontalAlignment="Left" Margin="559,131,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="orvosNev" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="63" Width="371"/>
+            <TextBox x:Name="orvosEmail" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="97" Width="371"/>
+            <TextBox x:Name="orvosUsernev" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="131" Width="371"/>
+            <PasswordBox x:Name="orvosPass1" Height="23" Canvas.Left="140" Canvas.Top="165" Width="371"/>
+            <PasswordBox x:Name="orvosPass2" Height="23" Canvas.Left="140" Canvas.Top="199" Width="371"/>
+            <TextBox x:Name="orvosSzemszam" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="233" Width="371"/>
+            <TextBox x:Name="orvosTAJ" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="267" Width="371"/>
+            <TextBox x:Name="orvosAdoszam" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="301" Width="371"/>
+            <TextBox x:Name="orvosCim" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="335" Width="371"/>
+            <TextBox x:Name="orvosTelefon" Height="23" Canvas.Left="140" TextWrapping="Wrap" Canvas.Top="369" Width="371"/>
+            <DatePicker x:Name="orvosSzuletes" Canvas.Left="140" Canvas.Top="403"/>
+            <TextBox x:Name="orvosKepesites" Height="23" Canvas.Left="731" TextWrapping="Wrap" Canvas.Top="165" Width="340"/>
+            <ComboBox x:Name="orvosOsztaly" Canvas.Left="731" Canvas.Top="199" Width="340"/>
+            <DatePicker x:Name="orvosBelepes" Canvas.Left="731" Canvas.Top="63"/>
+            <TextBox x:Name="orvosOraber" Height="23" Canvas.Left="731" TextWrapping="Wrap" Canvas.Top="97" Width="340"/>
+            <TextBox x:Name="orvosSzabadnap" Height="23" Canvas.Left="731" TextWrapping="Wrap" Canvas.Top="131" Width="340"/>
+            <Label x:Name ="szerepkorLabel" Content="Szerepkör:" Canvas.Left="278" Canvas.Top="14"/>
+            <ComboBox x:Name="tipusCombo" Canvas.Left="356" Canvas.Top="15" Width="120" SelectedIndex="0" SelectionChanged="tipusCombo_SelectionChanged">
+                <ComboBoxItem Content="Orvos"/>
+                <ComboBoxItem Content="Ügyintéző"/>
+                <ComboBoxItem Content="Vezetőségi tag"/>
+            </ComboBox>
+            <Button x:Name="felveszButton" Content="Felvesz" Canvas.Left="140" Canvas.Top="455" Width="129" Height="35" FontSize="16" FontWeight="Bold" Click="felveszButton_Click" Visibility="Hidden"/>
+            <Button x:Name="modositButton" Content="Módosít" Canvas.Left="140" Canvas.Top="455" Width="129" Height="35" FontSize="16" FontWeight="Bold" Click="modositButton_Click" Visibility="Hidden"/>
         </Canvas>
         <Image HorizontalAlignment="Left" Height="87" Margin="0,7,0,0" VerticalAlignment="Top" Width="272" Source="Pictures/logo.png"/>
+
     </Grid>
+
 </Window>
