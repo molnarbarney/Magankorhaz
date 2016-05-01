@@ -1,7 +1,7 @@
 ﻿<Window x:Name="vezetosegWindow" x:Class="Magankorhaz.VezetosegWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VezetosegWindow" Height="700" Width="1350"  ResizeMode="CanMinimize" Closing="vezetosegWindow_Closing" Loaded="vezetosegWindow_Loaded">
+        Title="Magánkórház - Vezetőség" Height="700" Width="1350"  ResizeMode="CanMinimize" Closing="vezetosegWindow_Closing" Loaded="vezetosegWindow_Loaded">
     <Grid>
         <!-- Körbe a menüs rész -->
         <Rectangle x:Name="menu_background" Fill="#FF355061" HorizontalAlignment="Left" Height="571" Stroke="Black" VerticalAlignment="Top" Width="229" Margin="-1,100,0,0" StrokeThickness="0"/>
