@@ -544,3 +544,6 @@ D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\OrvosUjKezelesFelvetele.g.cs
 D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontFelvetel.g.cs
 D:\Magankorhaz\Magankorhaz\obj\Debug\UserControlok\UgyintezoIdopontModositas.g.cs
 D:\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs
+D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\Magankorhaz.csprojResolveAssemblyReference.cache
+D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.baml
+D:\Projects\Magankorhaz\Magankorhaz\Magankorhaz\obj\Debug\ValutaValto.g.cs

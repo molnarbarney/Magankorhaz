@@ -75,9 +75,10 @@ namespace Magankorhaz.UserControlok
             idopontPerc.Items.Clear();
             for (int i = 9; i < 17; i++)
             {
-                if (DateTime.Now.Hour < 17 && DateTime.Now.Hour > 8)
-                    if (DateTime.Now.Hour > i)
-                        continue;
+                if(datumDatePicker.SelectedDate == DateTime.Today)
+                    if (DateTime.Now.Hour < 17 && DateTime.Now.Hour > 8)
+                        if (DateTime.Now.Hour > i)
+                            continue;
                 idopontOra.Items.Add(Convert.ToString(i));
             }
 
