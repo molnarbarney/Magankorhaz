@@ -353,6 +353,8 @@ namespace Magankorhaz
             osztalyVaszon.Visibility = Visibility.Hidden;
             modositButton.Visibility = Visibility.Hidden;
             felveszButton.Visibility = Visibility.Visible;
+            tipusCombo.Visibility = Visibility.Visible;
+            szerepkorLabel.Visibility = Visibility.Visible;
             orvosPass1.IsEnabled = true;
             orvosPass2.IsEnabled = true;
             orvosPass1.Password = "";
